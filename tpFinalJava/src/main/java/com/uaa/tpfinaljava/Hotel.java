@@ -8,7 +8,6 @@ package com.uaa.tpfinaljava;
  *
  * @author Gabriel
  */
-public class Persona {
-    
+public class Hotel {
     
 }

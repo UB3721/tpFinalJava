@@ -8,7 +8,15 @@ package com.uaa.tpfinaljava;
  *
  * @author Gabriel
  */
-public class Persona {
+public class Pasajero extends Persona {
+    int IdPasajero;
     
-    
+
+public Pasajero(){
+super();
+}
+
+public Pasajero(int IdPasajero){
+    this.IdPasajero=IdPasajero;
+}
 }

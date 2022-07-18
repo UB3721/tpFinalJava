@@ -8,7 +8,16 @@ package com.uaa.tpfinaljava;
  *
  * @author Gabriel
  */
-public class Persona {
+public class Ciudad extends Hotel {
+    String Nombre;
+    int Dirección;
     
-    
+
+public Ciudad(){
+super();
+}
+public Ciudad(String Nombre, int Dirección){
+    this.Nombre=Nombre;
+    this.Dirección=Dirección;
+}
 }

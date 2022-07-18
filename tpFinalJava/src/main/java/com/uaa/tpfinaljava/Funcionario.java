@@ -8,7 +8,14 @@ package com.uaa.tpfinaljava;
  *
  * @author Gabriel
  */
-public class Persona {
+public class Funcionario extends Persona {
+    int IdFuncionario;
     
-    
+
+public Funcionario(){
+    super();
 }
+public Funcionario(int IdFuncionario){
+    this.IdFuncionario=IdFuncionario;
+}
+        }
