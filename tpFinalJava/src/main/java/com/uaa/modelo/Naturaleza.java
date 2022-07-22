@@ -12,13 +12,14 @@ public class Naturaleza extends Hotel {
     
     String Nombre;
     int Dirección;
-    
+    String Descripcion;
 
 public Naturaleza (){
 super();
 }
-public Naturaleza (String Nombre, int Dirección){
+public Naturaleza (String Nombre, int Dirección, String Descripcion){
     this.Nombre=Nombre;
     this.Dirección=Dirección;
+    this.Descripcion=Descripcion;
 }
 }

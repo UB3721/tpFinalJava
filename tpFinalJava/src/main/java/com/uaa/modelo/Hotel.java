@@ -9,5 +9,21 @@ package com.uaa.modelo;
  * @author Gabriel
  */
 public class Hotel {
+     int IdHotel;
+    int CodPostal;
+    String TipoHotel;
     
+ 
+    
+public Hotel(int IdHotel, int CodPostal, String TipoHotel){
+    this.IdHotel=IdHotel;
+    this.CodPostal=CodPostal;
+    this.TipoHotel=TipoHotel;
+}
+public int IdHotel(){
+    return IdHotel;
+}
+public void IdHotel(int IdHotel){
+    this.IdHotel=IdHotel;
+}
 }

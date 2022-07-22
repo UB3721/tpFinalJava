@@ -11,13 +11,12 @@ package com.uaa.modelo;
 public class Ciudad extends Hotel {
     String Nombre;
     int Dirección;
-    
+    String Caracteristicas;
 
-    public Ciudad(){
-        super();
-    }
-    public Ciudad(String Nombre, int Dirección){
-        this.Nombre=Nombre;
-        this.Dirección=Dirección;
-    }
+
+public Ciudad(String Nombre, int Dirección, String Caracteristicas){
+    this.Nombre=Nombre;
+    this.Dirección=Dirección;
+    this.Caracteristicas=Caracteristicas;
+}
 }
