@@ -10,18 +10,18 @@ package com.uaa.modelo;
  */
 public class Playa extends Hotel {
     
-    String Nombre;
-    int Dirección;
-    String Descripcion;
+    String nombre;
+    int dirección;
+    String descripcion;
     
 
     public Playa(){
         super();
     }
     
-    public Playa(String Nombre, int Dirección, String Descripcion){
-        this.Nombre=Nombre;
-        this.Dirección=Dirección;
-        this.Descripcion=Descripcion;
+    public Playa(String nombre, int dirección, String descripcion){
+        this.nombre=nombre;
+        this.dirección=dirección;
+        this.descripcion=descripcion;
     }
 }

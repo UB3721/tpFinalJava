@@ -9,13 +9,13 @@ package com.uaa.modelo;
  * @author Gabriel
  */
 public class Funcionario extends Persona {
-    int IdFuncionario;
+    int idFuncionario;
     
 
 public Funcionario(){
     super();
 }
-public Funcionario(int IdFuncionario){
-    this.IdFuncionario=IdFuncionario;
+public Funcionario(int idFuncionario){
+    this.idFuncionario=idFuncionario;
 }
         }

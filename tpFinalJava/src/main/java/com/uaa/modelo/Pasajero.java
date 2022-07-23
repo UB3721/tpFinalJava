@@ -9,14 +9,14 @@ package com.uaa.modelo;
  * @author Gabriel
  */
 public class Pasajero extends Persona {
-    int IdPasajero;
+    int idPasajero;
     
 
 public Pasajero(){
 super();
 }
 
-public Pasajero(int IdPasajero){
-    this.IdPasajero=IdPasajero;
+public Pasajero(int idPasajero){
+    this.idPasajero=idPasajero;
 }
 }

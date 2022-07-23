@@ -10,16 +10,16 @@ package com.uaa.modelo;
  */
 public class Naturaleza extends Hotel {
     
-    String Nombre;
-    int Dirección;
-    String Descripcion;
+    String nombre;
+    int dirección;
+    String descripcion;
 
 public Naturaleza (){
 super();
 }
-public Naturaleza (String Nombre, int Dirección, String Descripcion){
-    this.Nombre=Nombre;
-    this.Dirección=Dirección;
-    this.Descripcion=Descripcion;
+public Naturaleza (String nombre, int dirección, String descripcion){
+    this.nombre=nombre;
+    this.dirección=dirección;
+    this.descripcion=descripcion;
 }
 }

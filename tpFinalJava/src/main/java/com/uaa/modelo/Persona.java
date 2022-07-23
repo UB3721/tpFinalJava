@@ -27,7 +27,9 @@ public class Persona extends ConexionBD{
     String telefono;
     String genero;
     int edad;
-    
+     public Persona() {
+        
+    }
     public int getIdPersona() {
         return idPersona;
     }
@@ -84,9 +86,7 @@ public class Persona extends ConexionBD{
     }
     
     
-    public Persona() {
-        
-    }
+   
     
     public Persona(int idPersona, int cedula, String nombreCompleto, String fechaNacimiento, String telefono, String genero, int edad){
         this.idPersona=idPersona;
