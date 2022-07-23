@@ -138,9 +138,7 @@ public class Persona extends ConexionBD{
             Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, e);
         }
         finally {
-            /**
-             * Se cierran los objetos abiertos en este ámbito.
-             */
+
             if (cmd != null) {
                 try {
                     cmd.close();
@@ -161,32 +159,14 @@ public class Persona extends ConexionBD{
         String sql;
 
         try {
-            establecerConexion();	//-- establece la conexión
+            establecerConexion();
 
-            /**
-            * Establecer un objeto tipo Statement (o PreparedStatement, o CallableStatement)
-            * que es el encargado de gestionar todos los comandos contra la BD. Una tiene ventaja
-            * sobre la otra y dependerá del tipo de aplicación y BD para usar uno u otro.
-            **/
             cmd = cn.createStatement();
 
-            /**
-            * Construye la sentencia SLQ que desea ejecutar, pueden ser sentencias de selección
-            * o de acción es decir Data Definition Language (DDL) o Data Manipulation Language(DML)
-            * En este caso mostramos una sentencia de selección.
-            **/
             sql = "SELECT * FROM Hoteles.Personas";
 
-            /**
-            * Si lo que se desea es hacer una consulta, se debe crear un objeto de tipo ResultSet
-            * para contener el resultado devuelto por el comando.
-            **/
             rs = cmd.executeQuery(sql);
 
-            /**
-            * Se puede acceder a los datos obtenidos de la BD a través de sus nombres de campos
-            * o por el número de posición de la columna, comenzado por 1.
-            **/
             while (rs.next()) {
                 contactos.add(new Persona(rs.getInt("cedula"),
                                            rs.getString("nombre"),
@@ -198,9 +178,6 @@ public class Persona extends ConexionBD{
                 ));
             }
                 
-            /**
-            * Se cierran los objetos creados en este ámbito
-            */
             rs.close();
             rs = null;
         }
@@ -208,9 +185,6 @@ public class Persona extends ConexionBD{
             System.err.println("Error de SQL: " + e);
         }
         finally {
-            /**
-            * Se cierran los objetos abiertos en este ámbito.
-            */
             if (cmd != null) {
                 try {
                     cmd.close();
