@@ -9,21 +9,42 @@ package com.uaa.modelo;
  * @author Gabriel
  */
 public class Hotel {
-     int IdHotel;
+    int IdHotel;
     int CodPostal;
     String TipoHotel;
+
+    public int getIdHotel() {
+        return IdHotel;
+    }
+
+    public void setIdHotel(int IdHotel) {
+        this.IdHotel = IdHotel;
+    }
+
+    public int getCodPostal() {
+        return CodPostal;
+    }
+
+    public void setCodPostal(int CodPostal) {
+        this.CodPostal = CodPostal;
+    }
+
+    public String getTipoHotel() {
+        return TipoHotel;
+    }
+
+    public void setTipoHotel(String TipoHotel) {
+        this.TipoHotel = TipoHotel;
+    }
     
- 
-    
-public Hotel(int IdHotel, int CodPostal, String TipoHotel){
-    this.IdHotel=IdHotel;
-    this.CodPostal=CodPostal;
-    this.TipoHotel=TipoHotel;
-}
-public int IdHotel(){
-    return IdHotel;
-}
-public void IdHotel(int IdHotel){
-    this.IdHotel=IdHotel;
-}
+    public Hotel() {
+
+    }
+
+    public Hotel(int IdHotel, int CodPostal, String TipoHotel){
+        this.IdHotel=IdHotel;
+        this.CodPostal=CodPostal;
+        this.TipoHotel=TipoHotel;
+    }
+
 }
