@@ -101,7 +101,7 @@ public class Persona extends ConexionBD{
         boolean resp = false;
         PreparedStatement cmd = null;   // Sentencia preparada
         ResultSet rs;                   // Para recuperar el Id generado
-	String sql = "INSERT INTO Hoteles.personas (cedula, nombre, apellido, fechaNacimiento, telefono, genero, edad) VALUES (?, ?, ?, ?, ?, ?, ?)";
+	String sql = "INSERT INTO Consorcio.personas (cedula, nombre, apellido, fechaNacimiento, telefono, genero, edad) VALUES (?, ?, ?, ?, ?, ?, ?)";
         
         try {
             //-- Se conecta a la BD
@@ -153,7 +153,7 @@ public class Persona extends ConexionBD{
     }
  
     public ArrayList<Persona> getPersonas () {
-        ArrayList<Persona> contactos = new ArrayList();
+        ArrayList<Persona> personas = new ArrayList();
         Statement cmd = null;
         ResultSet rs;
         String sql;
@@ -163,12 +163,12 @@ public class Persona extends ConexionBD{
 
             cmd = cn.createStatement();
 
-            sql = "SELECT * FROM Hoteles.Personas";
+            sql = "SELECT * FROM Consorcio.Personas";
 
             rs = cmd.executeQuery(sql);
 
             while (rs.next()) {
-                contactos.add(new Persona(rs.getInt("cedula"),
+                personas.add(new Persona(rs.getInt("cedula"),
                                            rs.getString("nombre"),
                                            rs.getString("apellido"),
                                            rs.getString("fechaNacimiento"),
@@ -194,7 +194,7 @@ public class Persona extends ConexionBD{
             }
             cerrarConexion();
         }
-        return contactos;
+        return personas;
     }
     
 }

@@ -12,16 +12,16 @@ public class Playa extends Hotel {
     
     String nombre;
     int dirección;
-    String descripcion;
+    String caracteristicas;
     
 
     public Playa(){
         super();
     }
     
-    public Playa(String nombre, int dirección, String descripcion){
+    public Playa(String nombre, int dirección, String caracteristicas){
         this.nombre=nombre;
         this.dirección=dirección;
-        this.descripcion=descripcion;
+        this.caracteristicas=caracteristicas;
     }
 }

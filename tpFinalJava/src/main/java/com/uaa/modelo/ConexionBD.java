@@ -25,7 +25,7 @@ public class ConexionBD {
     private final String url = "jdbc:mysql://";
     private final String serverName = "localhost";
     private final String portNumber = "3306";
-    private final String databaseName = "hoteles";
+    private final String databaseName = "consorcio";
     private final String userName = "root";
     private final String password = "Sendnukes3721";
     
@@ -47,8 +47,7 @@ public class ConexionBD {
             this.cn = DriverManager.getConnection(getConnectionUrl(), userName, password);
             
             if (this.cn != null) {
-                cn.setAutoCommit(false);    // manejo transaccional
-                System.out.println("Conexión OK!");
+                cn.setAutoCommit(false);
             }
         }
         catch (ClassNotFoundException | SQLException e) {

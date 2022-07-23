@@ -12,10 +12,10 @@ public class Funcionario extends Persona {
     int idFuncionario;
     
 
-public Funcionario(){
-    super();
+    public Funcionario(){
+        super();
+    }
+    public Funcionario(int idFuncionario){
+        this.idFuncionario=idFuncionario;
+    }
 }
-public Funcionario(int idFuncionario){
-    this.idFuncionario=idFuncionario;
-}
-        }
