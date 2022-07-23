@@ -98,9 +98,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu3ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        Persona per = new Persona(6321234,"juan","21/02","0981","M",21);
+        Persona per = new Persona(6321234,"juan", "carlos","21/02","0981","M",21);
         per.grabar();
-        Persona per1 = new Persona(6321233,"juan","21/02","0981","M",21);
+        Persona per1 = new Persona(6321233,"jun", "solaris", "21/02","0981","M",21);
         per1.grabar();
         
         
