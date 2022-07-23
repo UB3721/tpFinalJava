@@ -34,11 +34,52 @@ public class Hotel extends ConexionBD{
         this.ciudad = ciudad;
     }
 
+    public int getIdHotel() {
+        return idHotel;
+    }
+
+    public void setIdHotel(int idHotel) {
+        this.idHotel = idHotel;
+    }
+
+    public int getCodPostal() {
+        return codPostal;
+    }
+
+    public void setCodPostal(int codPostal) {
+        this.codPostal = codPostal;
+    }
+
+    public int getTipoHotel() {
+        return tipoHotel;
+    }
+
+    public void setTipoHotel(int tipoHotel) {
+        this.tipoHotel = tipoHotel;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+        
     public boolean grabar() {
         boolean resp = false;
         PreparedStatement cmd = null;   // Sentencia preparada
         ResultSet rs;                   // Para recuperar el Id generado
-	String sql = "INSERT INTO Consorcio.Hoteles (idHotel, codPostal, tipoHotel, pais, ciudad) VALUES (?, ?, ?, ?, ?)";
+	String sql = "INSERT INTO Consorcio.Hoteles (idHotel, codPostal, tipoHotel, pais, ciudad) VALUES (?, ?)";
         
         try {
             //-- Se conecta a la BD
@@ -98,17 +139,16 @@ public class Hotel extends ConexionBD{
 
             cmd = cn.createStatement();
 
-            sql = "SELECT * FROM Consorcio.Hoteles";
+            sql = "SELECT * FROM Consorcio.hoteles";
 
             rs = cmd.executeQuery(sql);
 
             while (rs.next()) {
-                hoteles.add(new Hotel(rs.getInt("cedula"),
-                                           rs.getInt("nombre"),
-                                           rs.getInt("apellido"),
-                                           rs.getString("fechaNacimiento"),
-                                           rs.getString("telefono")
-
+                hoteles.add(new Hotel(rs.getInt("idHotel"),
+                                           rs.getInt("codPostal"), 
+                                           rs.getInt("tipoHotel"),
+                                           rs.getString("pais"), 
+                                           rs.getString("ciudad")
                 ));
             }
                 
@@ -130,5 +170,5 @@ public class Hotel extends ConexionBD{
         }
         return hoteles;
     }
-   
+  
 }

@@ -24,4 +24,5 @@ public class Playa extends Hotel {
         this.dirección=dirección;
         this.caracteristicas=caracteristicas;
     }
+
 }

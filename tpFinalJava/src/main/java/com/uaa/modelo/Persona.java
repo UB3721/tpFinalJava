@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class Persona extends ConexionBD{
 
-    int cedula;
+    protected int cedula;
     String nombre;
     String apellido;
     String fechaNacimiento;

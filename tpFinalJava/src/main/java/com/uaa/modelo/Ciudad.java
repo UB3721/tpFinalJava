@@ -8,15 +8,17 @@ package com.uaa.modelo;
  *
  * @author Gabriel
  */
-public class Ciudad extends Hotel {
-    String nombre;
-    int direccion;
-    String caracteristicas;
+    public class Ciudad extends Hotel {
+        String nombre;
+        int direccion;
+        String caracteristicas;
 
 
-public Ciudad(String nombre, int dirección, String caracteristicas){
-    this.nombre=nombre;
-    this.direccion=dirección;
-    this.caracteristicas=caracteristicas;
-}
+    public Ciudad(String nombre, int dirección, String caracteristicas){
+        this.nombre=nombre;
+        this.direccion=dirección;
+        this.caracteristicas=caracteristicas;
+    }
+    
+    
 }

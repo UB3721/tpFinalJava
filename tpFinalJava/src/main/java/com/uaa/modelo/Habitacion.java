@@ -23,11 +23,54 @@ public class Habitacion extends ConexionBD {
     Hotel hotel;
     int capacidad;
 
+    public Habitacion() {
+    }
+
     public Habitacion(int nroHabitacion, int precio, int tipoHabitacion, Hotel hotel, int capacidad) {
         this.nroHabitacion = nroHabitacion;
         this.precio = precio;
         this.tipoHabitacion = tipoHabitacion;
         this.hotel = hotel;
+        this.capacidad = capacidad;
+    }
+
+    public int getNroHabitacion() {
+        return nroHabitacion;
+    }
+
+    public void setNroHabitacion(int nroHabitacion) {
+        this.nroHabitacion = nroHabitacion;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
+    public int getTipoHabitacion() {
+        return tipoHabitacion;
+    }
+
+    public void setTipoHabitacion(int tipoHabitacion) {
+        this.tipoHabitacion = tipoHabitacion;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public int getCapacidad() {
+        return capacidad;
+    }
+
+    public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
     }
     
