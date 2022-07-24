@@ -18,10 +18,12 @@ import java.util.logging.Logger;
  */
 public class Pasajero extends Persona {
     int idPasajero;
-    
 
-    public Pasajero(){
-        super();
+    public Pasajero() {
+    }
+    
+    public Pasajero(int cedula, String nombre, String apellido, String fechaNacimiento, String telefono, String genero, int edad){
+        super(cedula, nombre, apellido, fechaNacimiento, telefono, genero, edad);
     }
 
     public Pasajero(int idPasajero){
@@ -35,12 +37,12 @@ public class Pasajero extends Persona {
     public void setIdPasajero(int idPasajero) {
         this.idPasajero = idPasajero;
     }
-    @Override
+    
     public boolean grabar() {
         boolean resp = false;
         PreparedStatement cmd = null;   // Sentencia preparada
         ResultSet rs;                   // Para recuperar el Id generado
-	String sql = "INSERT INTO Consorcio.Pasajeros (idPasajero, cedula) VALUES (?, ?)";
+	String sql = "INSERT INTO Consorcio.Pasajeros (idPasajero, cedula, nombre, apellido, fechaNacimiento, telefono, genero, edad) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
         try {
             //-- Se conecta a la BD
@@ -51,7 +53,13 @@ public class Pasajero extends Persona {
             
             //-- Asigna parámetros a la sentencia preparada
             cmd.setInt(1, this.idPasajero);
-            cmd.setInt(2, cedula);
+            cmd.setInt(2, this.cedula);
+            cmd.setString(3, this.nombre);
+            cmd.setString(4, this.apellido);
+            cmd.setString(5, this.fechaNacimiento);
+            cmd.setString(6, this.telefono);
+            cmd.setString(7, this.genero);
+            cmd.setInt(8, this.edad);
 
             //-- Ejecuta la sentencia
             int result = cmd.executeUpdate();
@@ -100,23 +108,24 @@ public class Pasajero extends Persona {
             sql = "SELECT * FROM Consorcio.Pasajeros";
 
             rs = cmd.executeQuery(sql);
+            
+            
+            
 
             while (rs.next()) {
-                pasajeros.add(new Pasajero(rs.getInt("idPasajero")));
-                Persona per = new Persona();
-                for (Persona persona : per.getPersonas()) {
-                    if (persona.getCedula()==rs.getInt("cedula")) {
-                        cedula = persona.getCedula();
-                        nombre = persona.getNombre();
-                        apellido = persona.getApellido();
-                        fechaNacimiento = persona.getFechaNacimiento();
-                        telefono = persona.getTelefono();
-                        genero = persona.getGenero();
-                        edad = persona.getEdad();
-                    }
-                }
+                Pasajero pas = new Pasajero(rs.getInt("cedula"),
+                                                    rs.getString("nombre"),
+                                                    rs.getString("apellido"),
+                                                    rs.getString("fechaNacimiento"),
+                                                    rs.getString("telefono"),
+                                                    rs.getString("genero"),
+                                                    rs.getInt("edad")
+                );
+                pas.setIdPasajero(rs.getInt("idPasajero"));
+                pasajeros.add(pas);
+                
             }
-                    
+                
             rs.close();
             rs = null;
         }

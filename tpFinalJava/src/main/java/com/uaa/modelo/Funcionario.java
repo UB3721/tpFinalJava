@@ -18,10 +18,12 @@ import java.util.logging.Logger;
  */
 public class Funcionario extends Persona {
     int idFuncionario;
-    
 
-    public Funcionario(){
-        super();
+    public Funcionario() {
+    }
+    
+    public Funcionario(int cedula, String nombre, String apellido, String fechaNacimiento, String telefono, String genero, int edad){
+        super(cedula, nombre, apellido, fechaNacimiento, telefono, genero, edad);
     }
     public Funcionario(int idFuncionario){
         this.idFuncionario=idFuncionario;
@@ -34,14 +36,12 @@ public class Funcionario extends Persona {
     public void setIdFuncionario(int idFuncionario) {
         this.idFuncionario = idFuncionario;
     }
-
-    
-    @Override
+ 
     public boolean grabar() {
         boolean resp = false;
         PreparedStatement cmd = null;   // Sentencia preparada
         ResultSet rs;                   // Para recuperar el Id generado
-	String sql = "INSERT INTO Consorcio.Funcionarios (idFuncionario, cedula) VALUES (?, ?)";
+	String sql = "INSERT INTO Consorcio.Funcionarios (idFuncionario, cedula, nombre, apellido, fechaNacimiento, telefono, genero, edad) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
         try {
             //-- Se conecta a la BD
@@ -52,7 +52,13 @@ public class Funcionario extends Persona {
             
             //-- Asigna parámetros a la sentencia preparada
             cmd.setInt(1, this.idFuncionario);
-            cmd.setInt(2, cedula);
+            cmd.setInt(2, this.cedula);
+            cmd.setString(3, this.nombre);
+            cmd.setString(4, this.apellido);
+            cmd.setString(5, this.fechaNacimiento);
+            cmd.setString(6, this.telefono);
+            cmd.setString(7, this.genero);
+            cmd.setInt(8, this.edad);
 
             //-- Ejecuta la sentencia
             int result = cmd.executeUpdate();
@@ -106,20 +112,17 @@ public class Funcionario extends Persona {
             
 
             while (rs.next()) {
-                funcionarios.add(new Funcionario(rs.getInt("idFuncionario")));
+                Funcionario fun = new Funcionario(rs.getInt("cedula"),
+                                                    rs.getString("nombre"),
+                                                    rs.getString("apellido"),
+                                                    rs.getString("fechaNacimiento"),
+                                                    rs.getString("telefono"),
+                                                    rs.getString("genero"),
+                                                    rs.getInt("edad")
+                );
+                fun.setIdFuncionario(rs.getInt("idFuncionario"));
+                funcionarios.add(fun);
                 
-                Persona per = new Persona();
-                for (Persona persona : per.getPersonas()) {
-                    if (persona.getCedula()==rs.getInt("cedula")) {
-                        cedula = persona.getCedula();
-                        nombre = persona.getNombre();
-                        apellido = persona.getApellido();
-                        fechaNacimiento = persona.getFechaNacimiento();
-                        telefono = persona.getTelefono();
-                        genero = persona.getGenero();
-                        edad = persona.getEdad();
-                    }
-                }
             }
                 
             rs.close();

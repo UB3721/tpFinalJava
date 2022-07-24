@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author Gabriel
  */
-public class Persona extends ConexionBD{
+public abstract class Persona extends ConexionBD{
 
     protected int cedula;
     String nombre;
@@ -97,7 +97,7 @@ public class Persona extends ConexionBD{
     }
     
     
-    public boolean grabar() {
+    /*public boolean grabar() {
         boolean resp = false;
         PreparedStatement cmd = null;   // Sentencia preparada
         ResultSet rs;                   // Para recuperar el Id generado
@@ -196,5 +196,5 @@ public class Persona extends ConexionBD{
         }
         return personas;
     }
-    
+    */
 }
