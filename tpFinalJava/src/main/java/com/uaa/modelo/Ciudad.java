@@ -13,12 +13,19 @@ package com.uaa.modelo;
         int direccion;
         String caracteristicas;
 
+        public Ciudad() {
+            
+        }
+        
+        public Ciudad(int idHotel, int codPostal, int tipoHotel, String pais, String ciudad) {
+            super(idHotel, codPostal, tipoHotel, pais, ciudad);
+        }
 
-    public Ciudad(String nombre, int dirección, String caracteristicas){
-        this.nombre=nombre;
-        this.direccion=dirección;
-        this.caracteristicas=caracteristicas;
-    }
-    
+        public Ciudad(String nombre, int dirección, String caracteristicas){
+            this.nombre=nombre;
+            this.direccion=dirección;
+            this.caracteristicas=caracteristicas;
+        }
+
     
 }

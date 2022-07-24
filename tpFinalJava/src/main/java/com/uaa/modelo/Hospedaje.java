@@ -119,16 +119,18 @@ import java.util.logging.Logger;
             Funcionario f = new Funcionario();
             Pasajero p = new Pasajero();
             Habitacion hab = new Habitacion();
-            Hotel hot = new Hotel();
             Lavanderia l = new Lavanderia();
+            Hotel h = new Hotel();
             
             
+                        
             while (rs.next()) {
+               
                 hospedajes.add(new Hospedaje(rs.getInt("nroHospedaje"),
                                                 f.getFuncionarios().get(rs.getInt("idFuncionario")),
                                                 p.getPasajeros().get(rs.getInt("idPasajero")), 
                                                 hab.getHabitaciones().get(rs.getInt("nroHabitacion")),
-                                                hot.getHoteles().get(rs.getInt("idHotel")), 
+                                                h.getHoteles().get(rs.getInt("idHotel")), 
                                                 l.getServicios().get(rs.getInt("nroServicio")), 
                                                 rs.getString("fechaInicio"),
                                                 rs.getString("fechaFin"), 
@@ -155,7 +157,6 @@ import java.util.logging.Logger;
         }
         return hospedajes;
     }
-      
-    
+
 }
 
