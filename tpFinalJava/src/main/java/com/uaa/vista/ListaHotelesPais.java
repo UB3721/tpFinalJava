@@ -4,6 +4,12 @@
  */
 package com.uaa.vista;
 
+import com.uaa.controlador.MemData;
+import com.uaa.modelo.Hotel;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ub3721
@@ -15,6 +21,7 @@ public class ListaHotelesPais extends javax.swing.JFrame {
      */
     public ListaHotelesPais() {
         initComponents();
+        initComboBox();
     }
 
     /**
@@ -26,21 +33,81 @@ public class ListaHotelesPais extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        comboBoxPaises = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        grdHotelPais = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Hoteles por Pais");
+
+        jLabel2.setText("Pais");
+
+        comboBoxPaises.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxPaisesActionPerformed(evt);
+            }
+        });
+
+        grdHotelPais.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id Hotel", "Cod. Postal", "Tipo Hotel", "Nombre", "Direccion", "Pais", "Ciudad"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(grdHotelPais);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 702, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(245, 245, 245)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(comboBoxPaises, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 491, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(comboBoxPaises, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void comboBoxPaisesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPaisesActionPerformed
+        cargarDatos(List.of(MemData.lstPaises).indexOf(comboBoxPaises.getSelectedItem().toString()));
+    }//GEN-LAST:event_comboBoxPaisesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +145,40 @@ public class ListaHotelesPais extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboBoxPaises;
+    private javax.swing.JTable grdHotelPais;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarDatos(int pais) {
+        DefaultTableModel tblModel = (DefaultTableModel) grdHotelPais.getModel();
+        Object rowData[] = new Object[12];
+        
+        
+        Hotel hotel = new Hotel();
+        ArrayList<Hotel> lstHoteles = hotel.getHoteles();
+        
+        tblModel.setRowCount(0);
+        for (int i=0; i<lstHoteles.size(); i++) {
+            if (lstHoteles.get(i).getPais()==pais) {
+                rowData[0] = lstHoteles.get(i).getIdHotel();
+                rowData[1] = lstHoteles.get(i).getCodPostal();
+                rowData[2] = MemData.tipoHoteles[lstHoteles.get(i).getTipoHotel()];
+                rowData[3] = lstHoteles.get(i).getNombre();
+                rowData[4] = lstHoteles.get(i).getDireccion();
+                rowData[5] = MemData.lstPaises[lstHoteles.get(i).getPais()];
+                rowData[6] = lstHoteles.get(i).getCiudad();
+
+                tblModel.addRow(rowData);
+            }
+        }        
+    }
+
+    private void initComboBox() {
+        for (String pais : MemData.lstPaises) {
+            comboBoxPaises.addItem(pais);
+        }
+    }
 }

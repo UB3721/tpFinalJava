@@ -58,14 +58,10 @@ public class ListaHotelesConsorcio extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 813, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGap(218, 218, 218)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(373, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +121,14 @@ public class ListaHotelesConsorcio extends javax.swing.JFrame {
     private void cargarDatos() {
         DefaultTableModel tblModel = (DefaultTableModel) grdListaConsorcio.getModel();
         Object rowData[] = new Object[12];
-          
+        
+        /*Hotel h1 = new Hotel(1,21,1,"Hotel nombre", "En la esquina", 2, "Asuncion");
+        h1.grabar();
+        
+        Hotel h2 = new Hotel(2,24,2,"Hotel 2", "En la rotonda", 4, "La paz");
+        h2.grabar();   */   
+        
+        
         Hotel hotel = new Hotel();
         ArrayList<Hotel> lstHoteles = hotel.getHoteles();
         
