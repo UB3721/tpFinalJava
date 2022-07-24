@@ -22,7 +22,7 @@ public class Pasajero extends Persona {
     public Pasajero() {
     }
     
-    public Pasajero(int cedula, String nombre, String apellido, String fechaNacimiento, String telefono, String genero, int edad){
+    public Pasajero(int cedula, String nombre, String apellido, String fechaNacimiento, String telefono, int genero, int edad){
         super(cedula, nombre, apellido, fechaNacimiento, telefono, genero, edad);
     }
 
@@ -58,7 +58,7 @@ public class Pasajero extends Persona {
             cmd.setString(4, this.apellido);
             cmd.setString(5, this.fechaNacimiento);
             cmd.setString(6, this.telefono);
-            cmd.setString(7, this.genero);
+            cmd.setInt(7, this.genero);
             cmd.setInt(8, this.edad);
 
             //-- Ejecuta la sentencia
@@ -116,7 +116,7 @@ public class Pasajero extends Persona {
                                                     rs.getString("apellido"),
                                                     rs.getString("fechaNacimiento"),
                                                     rs.getString("telefono"),
-                                                    rs.getString("genero"),
+                                                    rs.getInt("genero"),
                                                     rs.getInt("edad")
                 );
                 pas.setIdPasajero(rs.getInt("idPasajero"));

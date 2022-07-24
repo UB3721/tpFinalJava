@@ -4,14 +4,6 @@
  */
 package com.uaa.modelo;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 
 /**
  *
@@ -24,7 +16,7 @@ public abstract class Persona extends ConexionBD{
     String apellido;
     String fechaNacimiento;
     String telefono;
-    String genero;
+    int genero;
     int edad;
 
     public int getCedula() {
@@ -67,11 +59,11 @@ public abstract class Persona extends ConexionBD{
         this.telefono = telefono;
     }
 
-    public String getGenero() {
+    public int getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(int genero) {
         this.genero = genero;
     }
 
@@ -86,7 +78,7 @@ public abstract class Persona extends ConexionBD{
     public Persona() {
         
     }
-    public Persona(int cedula, String nombre, String apellido, String fechaNacimiento, String telefono, String genero, int edad) {
+    public Persona(int cedula, String nombre, String apellido, String fechaNacimiento, String telefono, int genero, int edad) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;

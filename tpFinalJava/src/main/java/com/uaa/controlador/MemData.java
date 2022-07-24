@@ -10,5 +10,6 @@ package com.uaa.controlador;
  * @author ub3721
  */
 public class MemData {
+    public String[] tipoHabitaciones = {"Suite Ejecutiva de Lujo", "Suite Ejecutiva Standard", "Ejecutiva Turista", "Ejecutiva Standard"};
     
 }
