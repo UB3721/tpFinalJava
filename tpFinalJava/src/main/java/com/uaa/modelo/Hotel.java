@@ -22,13 +22,13 @@ public class Hotel extends ConexionBD{
     int tipoHotel;
     String nombre;
     String direccion;
-    String pais;
+    int pais;
     String ciudad;
 
     public Hotel() {
     }
 
-    public Hotel(int idHotel, int codPostal, int tipoHotel, String nombre, String direccion, String pais, String ciudad) {
+    public Hotel(int idHotel, int codPostal, int tipoHotel, String nombre, String direccion, int pais, String ciudad) {
         this.idHotel = idHotel;
         this.codPostal = codPostal;
         this.tipoHotel = tipoHotel;
@@ -78,11 +78,11 @@ public class Hotel extends ConexionBD{
         this.direccion = direccion;
     }
 
-    public String getPais() {
+    public int getPais() {
         return pais;
     }
 
-    public void setPais(String pais) {
+    public void setPais(int pais) {
         this.pais = pais;
     }
 
@@ -101,7 +101,7 @@ public class Hotel extends ConexionBD{
         boolean resp = false;
         PreparedStatement cmd = null;   // Sentencia preparada
         ResultSet rs;                   // Para recuperar el Id generado
-	String sql = "INSERT INTO Consorcio.Hoteles (idHotel, codPostal, tipoHotel, nombre, direccion pais, ciudad) VALUES (?, ?)";
+	String sql = "INSERT INTO Consorcio.Hoteles (idHotel, codPostal, tipoHotel, nombre, direccion, pais, ciudad) VALUES (?, ?)";
         
         try {
             //-- Se conecta a la BD
@@ -116,7 +116,7 @@ public class Hotel extends ConexionBD{
             cmd.setInt(3, this.tipoHotel);
             cmd.setString(4, this.nombre);
             cmd.setString(5, this.direccion);
-            cmd.setString(6, this.pais);
+            cmd.setInt(6, this.pais);
             cmd.setString(7, this.ciudad);
 
             //-- Ejecuta la sentencia
@@ -173,7 +173,7 @@ public class Hotel extends ConexionBD{
                                            rs.getInt("tipoHotel"),
                                            rs.getString("nombre"),
                                            rs.getString("direccion"),                                           
-                                           rs.getString("pais"), 
+                                           rs.getInt("pais"), 
                                            rs.getString("ciudad")
                 ));
             }

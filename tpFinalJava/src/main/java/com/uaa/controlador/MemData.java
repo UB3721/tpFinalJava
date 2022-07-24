@@ -11,5 +11,5 @@ package com.uaa.controlador;
  */
 public class MemData {
     public String[] tipoHabitaciones = {"Suite Ejecutiva de Lujo", "Suite Ejecutiva Standard", "Ejecutiva Turista", "Ejecutiva Standard"};
-    
+    public String[] lstPaises = {"Uruguay", "Paraguay", "Argentina", "Brasil", "Chile", "Bolivia"};
 }
