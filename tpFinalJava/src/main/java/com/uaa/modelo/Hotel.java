@@ -101,7 +101,7 @@ public class Hotel extends ConexionBD{
         boolean resp = false;
         PreparedStatement cmd = null;   // Sentencia preparada
         ResultSet rs;                   // Para recuperar el Id generado
-	String sql = "INSERT INTO Consorcio.Hoteles (idHotel, codPostal, tipoHotel, nombre, direccion, pais, ciudad) VALUES (?, ?)";
+	String sql = "INSERT INTO Consorcio.Hoteles (idHotel, codPostal, tipoHotel, nombre, direccion, pais, ciudad) VALUES (?, ?, ?, ?, ?, ?, ?)";
         
         try {
             //-- Se conecta a la BD
