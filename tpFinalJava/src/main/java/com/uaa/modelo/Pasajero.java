@@ -109,8 +109,6 @@ public class Pasajero extends Persona {
 
             rs = cmd.executeQuery(sql);
             
-            
-            
 
             while (rs.next()) {
                 Pasajero pas = new Pasajero(rs.getInt("cedula"),

@@ -144,14 +144,12 @@ public class Habitacion extends ConexionBD {
 
             rs = cmd.executeQuery(sql);
 
-            Hotel hotel = new Hotel();
-            
-            
+
             while (rs.next()) {
                 habitaciones.add(new Habitacion(rs.getInt("nroHabitacion"),
                                            rs.getInt("precio"),
                                            rs.getInt("tipoHabitacion"),
-                                           hotel.getHoteles().get(rs.getInt("idHotel")),
+                                           this.hotel.getHoteles().get(rs.getInt("idHotel")),
                                            rs.getInt("capacidad")
                 ));
             }

@@ -20,16 +20,20 @@ public class Hotel extends ConexionBD{
     int idHotel;
     int codPostal;
     int tipoHotel;
+    String nombre;
+    String direccion;
     String pais;
     String ciudad;
 
     public Hotel() {
     }
 
-    public Hotel(int idHotel, int codPostal, int tipoHotel, String pais, String ciudad) {
+    public Hotel(int idHotel, int codPostal, int tipoHotel, String nombre, String direccion, String pais, String ciudad) {
         this.idHotel = idHotel;
         this.codPostal = codPostal;
         this.tipoHotel = tipoHotel;
+        this.nombre = nombre;
+        this.direccion = direccion;
         this.pais = pais;
         this.ciudad = ciudad;
     }
@@ -58,6 +62,22 @@ public class Hotel extends ConexionBD{
         this.tipoHotel = tipoHotel;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
     public String getPais() {
         return pais;
     }
@@ -74,12 +94,14 @@ public class Hotel extends ConexionBD{
         this.ciudad = ciudad;
     }
 
+
+
         
     public boolean grabar() {
         boolean resp = false;
         PreparedStatement cmd = null;   // Sentencia preparada
         ResultSet rs;                   // Para recuperar el Id generado
-	String sql = "INSERT INTO Consorcio.Hoteles (idHotel, codPostal, tipoHotel, pais, ciudad) VALUES (?, ?)";
+	String sql = "INSERT INTO Consorcio.Hoteles (idHotel, codPostal, tipoHotel, nombre, direccion pais, ciudad) VALUES (?, ?)";
         
         try {
             //-- Se conecta a la BD
@@ -92,8 +114,10 @@ public class Hotel extends ConexionBD{
             cmd.setInt(1, this.idHotel);
             cmd.setInt(2, this.codPostal);
             cmd.setInt(3, this.tipoHotel);
-            cmd.setString(4, this.pais);
-            cmd.setString(5, this.ciudad);
+            cmd.setString(4, this.nombre);
+            cmd.setString(5, this.direccion);
+            cmd.setString(6, this.pais);
+            cmd.setString(7, this.ciudad);
 
             //-- Ejecuta la sentencia
             int result = cmd.executeUpdate();
@@ -147,6 +171,8 @@ public class Hotel extends ConexionBD{
                 hoteles.add(new Hotel(rs.getInt("idHotel"),
                                            rs.getInt("codPostal"), 
                                            rs.getInt("tipoHotel"),
+                                           rs.getString("nombre"),
+                                           rs.getString("direccion"),                                           
                                            rs.getString("pais"), 
                                            rs.getString("ciudad")
                 ));

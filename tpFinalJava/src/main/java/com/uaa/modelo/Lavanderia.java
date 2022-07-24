@@ -19,16 +19,17 @@ import java.util.logging.Logger;
 public class Lavanderia extends ConexionBD{
     int nroServicio;
     int cantidad;
+    Funcionario funcionario;
     final int precioUnitario = 5;
-    
-    
+
     public Lavanderia() {
     }
-    
-    public Lavanderia (int nroServicio, int cantidad){
-        this.nroServicio=nroServicio;
-        this.cantidad=cantidad;
-    } 
+
+    public Lavanderia(int nroServicio, int cantidad, Funcionario funcionario) {
+        this.nroServicio = nroServicio;
+        this.cantidad = cantidad;
+        this.funcionario = funcionario;
+    }
 
     public int getNroServicio() {
         return nroServicio;
@@ -45,12 +46,22 @@ public class Lavanderia extends ConexionBD{
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+    
+
     
     public boolean grabar() {
         boolean resp = false;
         PreparedStatement cmd = null;   // Sentencia preparada
         ResultSet rs;                   // Para recuperar el Id generado
-	String sql = "INSERT INTO Consorcio.ServiciosLavanderia (nroServicio, cantidad) VALUES (?, ?)";
+	String sql = "INSERT INTO Consorcio.ServiciosLavanderia (nroServicio, cantidad, idFuncionario) VALUES (?, ?)";
         
         try {
             //-- Se conecta a la BD
@@ -62,6 +73,7 @@ public class Lavanderia extends ConexionBD{
             //-- Asigna parámetros a la sentencia preparada
             cmd.setInt(1, this.nroServicio);
             cmd.setInt(2, this.cantidad);
+            cmd.setInt(3, this.funcionario.idFuncionario);
 
             //-- Ejecuta la sentencia
             int result = cmd.executeUpdate();
@@ -110,10 +122,12 @@ public class Lavanderia extends ConexionBD{
             sql = "SELECT * FROM Consorcio.ServiciosLavanderia";
 
             rs = cmd.executeQuery(sql);
-
+            
+            
             while (rs.next()) {
                 servicios.add(new Lavanderia(rs.getInt("nroServicio"),
-                                           rs.getInt("cantidad")                                           
+                                           rs.getInt("cantidad"), 
+                                           this.funcionario.getFuncionarios().get(rs.getInt("idFuncionario"))                        
                 ));
             }
                 

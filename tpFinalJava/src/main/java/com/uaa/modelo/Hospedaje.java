@@ -41,6 +41,86 @@ import java.util.logging.Logger;
         this.estado = estado;
     }
 
+    public int getNroHospedaje() {
+        return nroHospedaje;
+    }
+
+    public void setNroHospedaje(int nroHospedaje) {
+        this.nroHospedaje = nroHospedaje;
+    }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+
+    public Pasajero getPasajero() {
+        return pasajero;
+    }
+
+    public void setPasajero(Pasajero pasajero) {
+        this.pasajero = pasajero;
+    }
+
+    public Habitacion getHabitacion() {
+        return habitacion;
+    }
+
+    public void setHabitacion(Habitacion habitacion) {
+        this.habitacion = habitacion;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public Lavanderia getLavanderia() {
+        return lavanderia;
+    }
+
+    public void setLavanderia(Lavanderia lavanderia) {
+        this.lavanderia = lavanderia;
+    }
+
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public String getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(String fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+
 
     
     public boolean grabar() {
@@ -114,24 +194,15 @@ import java.util.logging.Logger;
             sql = "SELECT * FROM Consorcio.hospedajes";
 
             rs = cmd.executeQuery(sql);
-
-            
-            Funcionario f = new Funcionario();
-            Pasajero p = new Pasajero();
-            Habitacion hab = new Habitacion();
-            Lavanderia l = new Lavanderia();
-            Hotel h = new Hotel();
-            
-            
                         
             while (rs.next()) {
                
                 hospedajes.add(new Hospedaje(rs.getInt("nroHospedaje"),
-                                                f.getFuncionarios().get(rs.getInt("idFuncionario")),
-                                                p.getPasajeros().get(rs.getInt("idPasajero")), 
-                                                hab.getHabitaciones().get(rs.getInt("nroHabitacion")),
-                                                h.getHoteles().get(rs.getInt("idHotel")), 
-                                                l.getServicios().get(rs.getInt("nroServicio")), 
+                                                this.funcionario.getFuncionarios().get(rs.getInt("idFuncionario")),
+                                                this.pasajero.getPasajeros().get(rs.getInt("idPasajero")), 
+                                                this.habitacion.getHabitaciones().get(rs.getInt("nroHabitacion")),
+                                                this.hotel.getHoteles().get(rs.getInt("idHotel")), 
+                                                this.lavanderia.getServicios().get(rs.getInt("nroServicio")), 
                                                 rs.getString("fechaInicio"),
                                                 rs.getString("fechaFin"), 
                                                 rs.getInt("precio"),

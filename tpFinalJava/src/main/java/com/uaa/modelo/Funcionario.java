@@ -108,9 +108,6 @@ public class Funcionario extends Persona {
 
             rs = cmd.executeQuery(sql);
             
-            
-            
-
             while (rs.next()) {
                 Funcionario fun = new Funcionario(rs.getInt("cedula"),
                                                     rs.getString("nombre"),
