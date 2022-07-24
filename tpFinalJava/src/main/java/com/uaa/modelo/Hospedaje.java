@@ -194,15 +194,21 @@ import java.util.logging.Logger;
             sql = "SELECT * FROM Consorcio.hospedajes";
 
             rs = cmd.executeQuery(sql);
-                        
+                    
+            
+            Funcionario fun = new Funcionario();
+            Pasajero pas = new Pasajero();
+            Habitacion hab = new Habitacion();
+            Hotel hot = new Hotel();
+            Lavanderia lav= new Lavanderia();
+            
             while (rs.next()) {
-               
                 hospedajes.add(new Hospedaje(rs.getInt("nroHospedaje"),
-                                                this.funcionario.getFuncionarios().get(rs.getInt("idFuncionario")),
-                                                this.pasajero.getPasajeros().get(rs.getInt("idPasajero")), 
-                                                this.habitacion.getHabitaciones().get(rs.getInt("nroHabitacion")),
-                                                this.hotel.getHoteles().get(rs.getInt("idHotel")), 
-                                                this.lavanderia.getServicios().get(rs.getInt("nroServicio")), 
+                                                fun.getFuncionarios().get(rs.getInt("idFuncionario")),
+                                                pas.getPasajeros().get(rs.getInt("idPasajero")), 
+                                                hab.getHabitaciones().get(rs.getInt("nroHabitacion")),
+                                                hot.getHoteles().get(rs.getInt("idHotel")), 
+                                                lav.getServicios().get(rs.getInt("nroServicio")), 
                                                 rs.getString("fechaInicio"),
                                                 rs.getString("fechaFin"), 
                                                 rs.getInt("precio"),

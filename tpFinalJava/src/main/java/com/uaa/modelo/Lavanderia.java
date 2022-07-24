@@ -123,11 +123,11 @@ public class Lavanderia extends ConexionBD{
 
             rs = cmd.executeQuery(sql);
             
-            
+            Funcionario fun = new Funcionario();
             while (rs.next()) {
                 servicios.add(new Lavanderia(rs.getInt("nroServicio"),
                                            rs.getInt("cantidad"), 
-                                           this.funcionario.getFuncionarios().get(rs.getInt("idFuncionario"))                        
+                                           fun.getFuncionarios().get(rs.getInt("idFuncionario"))                        
                 ));
             }
                 

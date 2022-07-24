@@ -156,6 +156,7 @@ public class ListaHotelesPais extends javax.swing.JFrame {
         DefaultTableModel tblModel = (DefaultTableModel) grdHotelPais.getModel();
         Object rowData[] = new Object[12];
         
+
         
         Hotel hotel = new Hotel();
         ArrayList<Hotel> lstHoteles = hotel.getHoteles();

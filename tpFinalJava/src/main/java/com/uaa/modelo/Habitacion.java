@@ -79,7 +79,7 @@ public class Habitacion extends ConexionBD {
         boolean resp = false;
         PreparedStatement cmd = null;   // Sentencia preparada
         ResultSet rs;                   // Para recuperar el Id generado
-	String sql = "INSERT INTO Consorcio.personas (nroHabitacion, precio, tipoHabitacion, idHotel, capacidad) VALUES (?, ?, ?, ?, ?)";
+	String sql = "INSERT INTO Consorcio.Habitaciones (nroHabitacion, precio, tipoHabitacion, idHotel, capacidad) VALUES (?, ?, ?, ?, ?)";
         
         try {
             //-- Se conecta a la BD
@@ -140,16 +140,18 @@ public class Habitacion extends ConexionBD {
 
             cmd = cn.createStatement();
 
-            sql = "SELECT * FROM Consorcio.habitaciones";
+            sql = "SELECT * FROM Consorcio.Habitaciones";
 
             rs = cmd.executeQuery(sql);
 
 
+            Hotel h = new Hotel();
+            
             while (rs.next()) {
                 habitaciones.add(new Habitacion(rs.getInt("nroHabitacion"),
                                            rs.getInt("precio"),
                                            rs.getInt("tipoHabitacion"),
-                                           this.hotel.getHoteles().get(rs.getInt("idHotel")),
+                                           h.getHoteles().get(rs.getInt("idHotel")),
                                            rs.getInt("capacidad")
                 ));
             }

@@ -121,12 +121,7 @@ public class ListaHotelesConsorcio extends javax.swing.JFrame {
     private void cargarDatos() {
         DefaultTableModel tblModel = (DefaultTableModel) grdListaConsorcio.getModel();
         Object rowData[] = new Object[12];
-        
-        /*Hotel h1 = new Hotel(1,21,1,"Hotel nombre", "En la esquina", 2, "Asuncion");
-        h1.grabar();
-        
-        Hotel h2 = new Hotel(2,24,2,"Hotel 2", "En la rotonda", 4, "La paz");
-        h2.grabar();   */   
+      
         
         
         Hotel hotel = new Hotel();
