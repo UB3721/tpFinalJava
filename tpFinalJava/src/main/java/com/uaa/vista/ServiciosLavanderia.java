@@ -6,7 +6,7 @@ package com.uaa.vista;
 
 import com.uaa.modelo.Funcionario;
 import com.uaa.modelo.Habitacion;
-import com.uaa.modelo.Hotel;
+import com.uaa.modelo.Lavanderia;
 
 /**
  *
@@ -42,12 +42,19 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtNroServicio = new javax.swing.JTextField();
         txtFieldFuncionarios = new javax.swing.JTextField();
+        btnServicio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 153));
 
         jLabel1.setText("Servicios Lavanderia");
+
+        comFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comFuncionariosActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Habitacion:");
 
@@ -56,6 +63,13 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
         jLabel4.setText("Cantidad:");
 
         jLabel5.setText("Nro. Servicio:");
+
+        btnServicio.setText("Procesar Servicio");
+        btnServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnServicioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,7 +95,10 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(comFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(txtFieldFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))))
+                                .addComponent(txtFieldFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addComponent(btnServicio)))
                 .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -106,7 +123,9 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnServicio)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,6 +147,38 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void comFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comFuncionariosActionPerformed
+        Funcionario fun = new Funcionario();
+        for (Funcionario f : fun.getFuncionarios()) {
+            if (String.valueOf(f.getIdFuncionario()).equals(comFuncionarios.getSelectedItem().toString())) {
+                txtFieldFuncionarios.setText(f.getNombre() + " " + f.getApellido());
+            }
+        }
+        
+    }//GEN-LAST:event_comFuncionariosActionPerformed
+
+    private void btnServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServicioActionPerformed
+        Lavanderia lav = new Lavanderia();
+        
+        Funcionario fun = new Funcionario();
+        for (Funcionario f : fun.getFuncionarios()) {
+            if (String.valueOf(f.getIdFuncionario()).equals(comFuncionarios.getSelectedItem().toString())) {
+                lav.setFuncionario(f);
+            }
+        }
+        Habitacion hab = new Habitacion();
+        for (Habitacion h : hab.getHabitaciones()) {
+            if (String.valueOf(h.getNroHabitacion()).equals(comHabitaciones.getSelectedItem().toString())) {
+                lav.setHabitacion(h);
+            }
+        }
+        lav.setNroServicio(Integer.parseInt(txtNroServicio.getText()));
+        lav.setCantidad(Integer.parseInt(txtCantidad.getText()));
+        
+        lav.grabar();
+
+    }//GEN-LAST:event_btnServicioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,6 +216,7 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnServicio;
     private javax.swing.JComboBox<String> comFuncionarios;
     private javax.swing.JComboBox<String> comHabitaciones;
     private javax.swing.JLabel jLabel1;

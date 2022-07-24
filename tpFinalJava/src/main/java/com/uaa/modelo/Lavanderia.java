@@ -20,15 +20,26 @@ public class Lavanderia extends ConexionBD{
     int nroServicio;
     int cantidad;
     Funcionario funcionario;
+    Habitacion habitacion;
+    
     final int precioUnitario = 5;
 
     public Lavanderia() {
     }
 
-    public Lavanderia(int nroServicio, int cantidad, Funcionario funcionario) {
+    public Lavanderia(int nroServicio, int cantidad, Funcionario funcionario, Habitacion habitacion) {
         this.nroServicio = nroServicio;
         this.cantidad = cantidad;
         this.funcionario = funcionario;
+        this.habitacion = habitacion;
+    }
+
+    public Habitacion getHabitacion() {
+        return habitacion;
+    }
+
+    public void setHabitacion(Habitacion habitacion) {
+        this.habitacion = habitacion;
     }
 
     public int getNroServicio() {
@@ -61,7 +72,7 @@ public class Lavanderia extends ConexionBD{
         boolean resp = false;
         PreparedStatement cmd = null;   // Sentencia preparada
         ResultSet rs;                   // Para recuperar el Id generado
-	String sql = "INSERT INTO Consorcio.ServiciosLavanderia (nroServicio, cantidad, idFuncionario) VALUES (?, ?)";
+	String sql = "INSERT INTO Consorcio.ServiciosLavanderia (nroServicio, cantidad, idFuncionario, nroHabitacion) VALUES (?, ?, ?, ?)";
         
         try {
             //-- Se conecta a la BD
@@ -74,6 +85,7 @@ public class Lavanderia extends ConexionBD{
             cmd.setInt(1, this.nroServicio);
             cmd.setInt(2, this.cantidad);
             cmd.setInt(3, this.funcionario.idFuncionario);
+            cmd.setInt(4, this.habitacion.getNroHabitacion());
 
             //-- Ejecuta la sentencia
             int result = cmd.executeUpdate();
@@ -124,10 +136,12 @@ public class Lavanderia extends ConexionBD{
             rs = cmd.executeQuery(sql);
             
             Funcionario fun = new Funcionario();
+            Habitacion hab = new Habitacion();
             while (rs.next()) {
                 servicios.add(new Lavanderia(rs.getInt("nroServicio"),
                                            rs.getInt("cantidad"), 
-                                           fun.getFuncionarios().get(rs.getInt("idFuncionario"))                        
+                                           fun.getFuncionarios().get(rs.getInt("idFuncionario")),
+                                           hab.getHabitaciones().get(rs.getInt("nroHabitacion"))
                 ));
             }
                 
