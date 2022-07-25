@@ -282,7 +282,8 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
             }           
         }
 
-       
+
+        
         h.setNroHospedaje((Integer) spinnerId.getValue());
         h.setFechaInicio(txtFechaInicio.getText());
         h.setFechaFin(txtFechaFin.getText());

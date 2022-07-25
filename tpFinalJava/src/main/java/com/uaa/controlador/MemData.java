@@ -8,6 +8,7 @@ package com.uaa.controlador;
 import com.uaa.modelo.Funcionario;
 import com.uaa.modelo.Habitacion;
 import com.uaa.modelo.Hotel;
+import com.uaa.modelo.Pasajero;
 
 /**
  *
@@ -75,7 +76,16 @@ public class MemData {
         );
         f4.setIdFuncionario(4);  
         
-
+        Pasajero pasajero = new Pasajero(
+                2658458,
+                "Michelle",
+                "Ramirez", 
+                "14/07/1990",
+                "0987-658-924",
+                1, 
+                32 );   
+        pasajero.setIdPasajero(4); 
+        pasajero.grabar();
         f1.grabar();
         f2.grabar();
         f3.grabar();
