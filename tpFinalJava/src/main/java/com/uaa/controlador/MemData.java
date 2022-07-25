@@ -17,6 +17,7 @@ import com.uaa.modelo.Pasajero;
 public class MemData {
     public static String[] tipoHabitaciones = {"Suite Ejecutiva de Lujo", "Suite Ejecutiva Standard", "Ejecutiva Turista", "Ejecutiva Standard"};
     public static String[] lstPaises = {"Uruguay", "Paraguay", "Argentina", "Brasil", "Chile", "Bolivia"};
+    public static String[] lstCiudad = {"Monteviedo", "Asunción", "Buenos Aires", "San Pablo", "Santiago", "Ciudad de Bolivia"};
     public static String[] tipoHoteles = {"Playa", "Ciudad", "Naturaleza"};
     public static String[] lstGeneros = {"Masculino", "Femenino"};
     public static String[] estados = {"En Espera", "Pagado"};

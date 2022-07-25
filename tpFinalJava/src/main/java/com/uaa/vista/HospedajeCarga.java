@@ -53,14 +53,11 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         btnGrabar = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
         txtFieldFuncionario = new javax.swing.JTextField();
         txtFieldPasajero = new javax.swing.JTextField();
         txtFieldHotel = new javax.swing.JTextField();
-        txtFieldEstado = new javax.swing.JTextField();
-        comEstado = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 153));
 
@@ -100,8 +97,6 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
 
         jLabel9.setText("Fecha Fin:");
 
-        jLabel11.setText("Estado:");
-
         btnGrabar.setText("GRABAR");
         btnGrabar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,12 +108,6 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarActionPerformed(evt);
-            }
-        });
-
-        comEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comEstadoActionPerformed(evt);
             }
         });
 
@@ -142,8 +131,7 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(comHabitacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -162,11 +150,7 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(comHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                                .addComponent(txtFieldHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(comEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtFieldEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtFieldHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(49, 49, 49))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnGrabar)
@@ -214,12 +198,7 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFieldEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addGap(41, 41, 41)
+                .addGap(77, 77, 77)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGrabar)
                     .addComponent(btnCerrar))
@@ -287,7 +266,6 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         h.setNroHospedaje((Integer) spinnerId.getValue());
         h.setFechaInicio(txtFechaInicio.getText());
         h.setFechaFin(txtFechaFin.getText());
-        h.setEstado(Integer.parseInt(comEstado.getSelectedItem().toString()));
         
         h.grabar();
         
@@ -324,26 +302,16 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
 
-    private void comEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comEstadoActionPerformed
-        for (String s : MemData.estados) {
-            if (s.equals(MemData.estados[Integer.parseInt(comEstado.getSelectedItem().toString())])) {
-                txtFieldEstado.setText(s);
-            }
-        }
-    }//GEN-LAST:event_comEstadoActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnGrabar;
-    private javax.swing.JComboBox<String> comEstado;
     private javax.swing.JComboBox<String> comFuncionario;
     private javax.swing.JComboBox<String> comHabitacion;
     private javax.swing.JComboBox<String> comHotel;
     private javax.swing.JComboBox<String> comLavanderia;
     private javax.swing.JComboBox<String> comPasajero;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -356,7 +324,6 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
     private javax.swing.JSpinner spinnerId;
     private javax.swing.JTextField txtFechaFin;
     private javax.swing.JTextField txtFechaInicio;
-    private javax.swing.JTextField txtFieldEstado;
     private javax.swing.JTextField txtFieldFuncionario;
     private javax.swing.JTextField txtFieldHotel;
     private javax.swing.JTextField txtFieldPasajero;
@@ -366,7 +333,7 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         txtFieldFuncionario.setEditable(false);
         txtFieldPasajero.setEditable(false);
         txtFieldHotel.setEditable(false);
-        txtFieldEstado.setEditable(false);
+
         
         Funcionario fun = new Funcionario();
         for (Funcionario f : fun.getFuncionarios()) {
@@ -389,8 +356,7 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
             comLavanderia.addItem(String.valueOf(l.getNroServicio()));   
         }
         comLavanderia.setSelectedIndex(-1);
-        comEstado.addItem(String.valueOf(0));
-        comEstado.addItem(String.valueOf(1));
+
         
         
     }

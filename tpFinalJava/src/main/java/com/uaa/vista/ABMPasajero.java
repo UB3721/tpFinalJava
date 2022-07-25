@@ -3,20 +3,43 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package com.uaa.vista;
+import com.uaa.modelo.ConexionBD;
+import com.uaa.modelo.Pasajero;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Gabriel
  */
 public class ABMPasajero extends javax.swing.JInternalFrame {
-
+     ConexionBD cn = new ConexionBD();
+    Connection con;
+    DefaultTableModel model;
+    Statement st;
+    ResultSet rs;
+    int id = 0;
     /**
      * Creates new form ABMPasajero
      */
     public ABMPasajero() {
         initComponents();
+        listar();
+       
     }
-
+        private void limpiarDatos(){
+            txtCedula.setText("");
+            txtNombre.setText("");
+            txtApellido.setText("");
+            txtTelefono.setText("");
+            comGenero.setSelectedIndex(1);
+            txtEdad.setText("");
+            txtFechaNac.setText("");
+           
+        }
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,27 +53,28 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtEdad = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         buttonAgregar = new javax.swing.JButton();
-        buttonModificar = new javax.swing.JButton();
         buttonEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jSpinner1 = new javax.swing.JSpinner();
+        IDSpin = new javax.swing.JSpinner();
         jLabel9 = new javax.swing.JLabel();
         txtFechaNac = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         comGenero = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel2.setText("Cedula:");
 
@@ -62,9 +86,9 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Nombre:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
 
@@ -97,13 +121,6 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
             }
         });
 
-        buttonModificar.setText("MODIFICAR");
-        buttonModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonModificarActionPerformed(evt);
-            }
-        });
-
         buttonEliminar.setText("ELIMINAR");
         buttonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,15 +138,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
             new String [] {
                 "Cedula", "Nombre", "Apellido", "Telefono", "Genero", "Edad", "Fecha Nacimiento", "ID"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(jTable1);
 
         jLabel9.setText("ID:");
@@ -144,6 +153,13 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
 
         comGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -153,14 +169,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(240, 240, 240)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGap(253, 253, 253)
-                            .addComponent(buttonAgregar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(buttonModificar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonEliminar))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addGap(31, 31, 31)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -174,7 +183,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                                             .addComponent(jLabel3)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField1)
+                                        .addComponent(txtNombre)
                                         .addComponent(txtCedula)))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,12 +200,19 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                                         .addComponent(txtFechaNac)
                                         .addComponent(txtTelefono)
                                         .addComponent(txtApellido)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jSpinner1)
+                                        .addComponent(txtEdad, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(IDSpin)
                                         .addComponent(comGenero, 0, 420, Short.MAX_VALUE)))))
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addContainerGap(33, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jButton1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(buttonAgregar)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(buttonEliminar))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(101, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -210,7 +226,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -227,7 +243,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                         .addComponent(comGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -235,13 +251,13 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IDSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonAgregar)
-                    .addComponent(buttonModificar)
-                    .addComponent(buttonEliminar))
+                    .addComponent(buttonEliminar)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(33, Short.MAX_VALUE))
@@ -270,9 +286,9 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
         // TODO add your handling code here:
@@ -283,12 +299,19 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtTelefonoActionPerformed
 
     private void buttonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarActionPerformed
-        // TODO add your handling code here:
+      Pasajero pas=new Pasajero();
+      pas.setCedula(Integer.parseInt(txtCedula.getText()));
+      pas.setNombre(txtNombre.getText());
+      pas.setApellido(txtApellido.getText());
+      pas.setTelefono(txtTelefono.getText());
+      pas.setGenero(comGenero.getSelectedIndex());
+      pas.setEdad(Integer.parseInt(txtEdad.getText()));
+      pas.setFechaNacimiento(txtFechaNac.getText());
+      pas.setIdPasajero(IDSpin.getComponentCount());
+      
+      pas.grabar();
+      limpiarDatos();
     }//GEN-LAST:event_buttonAgregarActionPerformed
-
-    private void buttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonModificarActionPerformed
 
     private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
         // TODO add your handling code here:
@@ -298,12 +321,38 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaNacActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+void listar() {
+        String sql = "select * from persona";
+        try {
+            con = cn.getConection();
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+            Object[] persona = new Object[3];
+//            String[] Titulos={"ID","DNI","NOMBRES"};         
+//            model=new DefaultTableModel(null,Titulos);   
+            model = (DefaultTableModel) jTable1.getModel();
+            while (rs.next()) {
+                persona[0] = rs.getInt("Id");
+                persona[1] = rs.getString("DNI");
+                persona[2] = rs.getString("Nombres");
+                model.addRow(persona);
+            }
+            jTable1.setModel(model);
+
+        } catch (Exception e) {
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSpinner IDSpin;
     private javax.swing.JButton buttonAgregar;
     private javax.swing.JButton buttonEliminar;
-    private javax.swing.JButton buttonModificar;
-    private javax.swing.JComboBox<String> comGenero;
+    public javax.swing.JComboBox<String> comGenero;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -315,13 +364,12 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtFechaNac;
-    private javax.swing.JTextField txtTelefono;
+    public javax.swing.JTable jTable1;
+    public javax.swing.JTextField txtApellido;
+    public javax.swing.JTextField txtCedula;
+    public javax.swing.JTextField txtEdad;
+    public javax.swing.JTextField txtFechaNac;
+    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

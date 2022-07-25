@@ -4,6 +4,9 @@
  */
 package com.uaa.vista;
 
+import com.uaa.controlador.MemData;
+import com.uaa.modelo.Hotel;
+
 /**
  *
  * @author Gabriel
@@ -15,8 +18,10 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
      */
     public ABMHoteles() {
         initComponents();
+        initComboBox();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,8 +40,8 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
-        txtPrecio = new javax.swing.JTextField();
-        txtCaracteristicas = new javax.swing.JTextField();
+        txtCod = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -47,8 +52,8 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        comboCiudad = new javax.swing.JComboBox<>();
+        comboPais = new javax.swing.JComboBox<>();
 
         jInternalFrame1.setVisible(true);
 
@@ -74,9 +79,9 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Tipo Hotel:");
 
-        jLabel5.setText("Precio:");
+        jLabel5.setText("Codigo Postal:");
 
-        jLabel6.setText("Características:");
+        jLabel6.setText("Nombre:");
 
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,10 +145,6 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
 
         jLabel9.setText("Ciudad:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout paneldatosLayout = new javax.swing.GroupLayout(paneldatos);
         paneldatos.setLayout(paneldatosLayout);
         paneldatosLayout.setHorizontalGroup(
@@ -160,13 +161,13 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboCiudad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtDireccion)
                     .addComponent(txtId)
-                    .addComponent(txtPrecio)
-                    .addComponent(txtCaracteristicas)
+                    .addComponent(txtCod)
+                    .addComponent(txtNombre)
                     .addComponent(comboTipoHotel, 0, 378, Short.MAX_VALUE)
-                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(comboPais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(41, 41, 41))
             .addGroup(paneldatosLayout.createSequentialGroup()
                 .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -201,11 +202,11 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCaracteristicas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel7))
@@ -213,11 +214,11 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonAgregar)
@@ -262,7 +263,21 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtDireccionActionPerformed
 
     private void buttonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarActionPerformed
-        // TODO add your handling code here:
+        Hotel hot=new Hotel();
+        
+        hot.setIdHotel(Integer.parseInt(txtId.getText()));
+        hot.setTipoHotel(comboTipoHotel.getSelectedIndex());
+        hot.setCodPostal(Integer.parseInt(txtCod.getText()));
+        hot.setNombre(txtNombre.getText());
+        if (comboPais.getSelectedItem().toString().equals(String.valueOf(hot.getPais()))){
+            hot.setPais(WIDTH);
+        }
+        hot.grabar();
+        limpiarDatos();
+            
+        
+        
+        
     }//GEN-LAST:event_buttonAgregarActionPerformed
 
     private void buttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarActionPerformed
@@ -272,15 +287,31 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonEliminarActionPerformed
-
-
+   private void limpiarDatos(){
+        this.comboCiudad.setSelectedItem(1);
+        this.comboPais.setSelectedItem(1);
+        this.comboTipoHotel.setSelectedIndex(1);
+        this.txtCod.setText("");
+        this.txtDireccion.setText("");
+        this.txtNombre.setText("");
+        this.txtId.setText("");
+    }
+   
+ private void initComboBox() {
+        for (String pais : MemData.lstPaises) {
+            comboPais.addItem(pais);
+        }
+         for (String ciudad : MemData.lstCiudad) {
+            comboCiudad.addItem(ciudad);
+        }
+ }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAgregar;
     private javax.swing.JButton buttonEliminar;
     private javax.swing.JButton buttonModificar;
+    private javax.swing.JComboBox<String> comboCiudad;
+    private javax.swing.JComboBox<String> comboPais;
     private javax.swing.JComboBox<String> comboTipoHotel;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -294,9 +325,9 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel paneldatos;
-    private javax.swing.JTextField txtCaracteristicas;
+    private javax.swing.JTextField txtCod;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
