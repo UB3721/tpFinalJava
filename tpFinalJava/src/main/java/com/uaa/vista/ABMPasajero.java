@@ -9,13 +9,16 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
-
+import com.uaa.controlador.MemData;
+import com.uaa.modelo.Hotel;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Gabriel
  */
 public class ABMPasajero extends javax.swing.JInternalFrame {
-     ConexionBD cn = new ConexionBD();
+    ConexionBD cn=new ConexionBD();
     Connection con;
     DefaultTableModel model;
     Statement st;
@@ -27,6 +30,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
     public ABMPasajero() {
         initComponents();
         listar();
+        
        
     }
         private void limpiarDatos(){
@@ -34,7 +38,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
             txtNombre.setText("");
             txtApellido.setText("");
             txtTelefono.setText("");
-            comGenero.setSelectedIndex(1);
+            comGenero.setSelectedItem(1);
             txtEdad.setText("");
             txtFechaNac.setText("");
            
@@ -66,12 +70,12 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
         buttonEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        IDSpin = new javax.swing.JSpinner();
         jLabel9 = new javax.swing.JLabel();
         txtFechaNac = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         comGenero = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        IDSpin = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -136,9 +140,14 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cedula", "Nombre", "Apellido", "Telefono", "Genero", "Edad", "Fecha Nacimiento", "ID"
+                "ID", "Cedula", "Nombre", "Apellido", "Fecha Nacimiento", "Telefono", "Genero", "Edad"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel9.setText("ID:");
@@ -153,7 +162,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
 
         comGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("MODIFICAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -201,8 +210,8 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                                         .addComponent(txtTelefono)
                                         .addComponent(txtApellido)
                                         .addComponent(txtEdad, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(IDSpin)
-                                        .addComponent(comGenero, 0, 420, Short.MAX_VALUE)))))
+                                        .addComponent(comGenero, 0, 420, Short.MAX_VALUE)
+                                        .addComponent(IDSpin)))))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addContainerGap(33, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -251,8 +260,8 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IDSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(IDSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonAgregar)
@@ -304,13 +313,19 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
       pas.setNombre(txtNombre.getText());
       pas.setApellido(txtApellido.getText());
       pas.setTelefono(txtTelefono.getText());
-      pas.setGenero(comGenero.getSelectedIndex());
+      
+      if (comGenero.getSelectedItem().toString().equals(MemData.generos[0])){
+      pas.setGenero(0);}
+   else 
+      pas.setGenero(1);
+      
       pas.setEdad(Integer.parseInt(txtEdad.getText()));
       pas.setFechaNacimiento(txtFechaNac.getText());
-      pas.setIdPasajero(IDSpin.getComponentCount());
+      pas.setIdPasajero(Integer.parseInt(IDSpin.getText()));
       
       pas.grabar();
       limpiarDatos();
+      listar();
     }//GEN-LAST:event_buttonAgregarActionPerformed
 
     private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
@@ -322,33 +337,86 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtFechaNacActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     // TODO add your handling code here:
+     Modificar();
     }//GEN-LAST:event_jButton1ActionPerformed
-void listar() {
-        String sql = "select * from persona";
-        try {
-            con = cn.getConection();
-            st = con.createStatement();
-            rs = st.executeQuery(sql);
-            Object[] persona = new Object[3];
-//            String[] Titulos={"ID","DNI","NOMBRES"};         
-//            model=new DefaultTableModel(null,Titulos);   
-            model = (DefaultTableModel) jTable1.getModel();
-            while (rs.next()) {
-                persona[0] = rs.getInt("Id");
-                persona[1] = rs.getString("DNI");
-                persona[2] = rs.getString("Nombres");
-                model.addRow(persona);
-            }
-            jTable1.setModel(model);
 
-        } catch (Exception e) {
-        }
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+      int fila=jTable1.getSelectedRow();
+      if(fila==-1){
+          JOptionPane.showMessageDialog(null, "Usuario no seleccionado");
+                  }else{
+          int id=Integer.parseInt((String)jTable1.getValueAt(fila, 0).toString());
+          int Cedula=Integer.parseInt((String)jTable1.getValueAt(fila, 1).toString());
+          String Nombre=(String)jTable1.getValueAt(fila, 2);
+          String Apellido=(String)jTable1.getValueAt(fila, 3);
+          String fechanac=(String)jTable1.getValueAt(fila, 4);
+          String telefono=(String)jTable1.getValueAt(fila, 5);
+          int Genero=Integer.parseInt((String)jTable1.getValueAt(fila, 6).toString());
+          int Edad=Integer.parseInt((String)jTable1.getValueAt(fila, 7).toString());
+          
+          IDSpin.setText("" + id);
+          txtCedula.setText("" + Cedula);
+            txtNombre.setText(Nombre);
+            txtApellido.setText(Apellido);
+            txtTelefono.setText(telefono);
+            comGenero.setSelectedItem(""+Genero);
+            txtEdad.setText(""+Edad);
+            txtFechaNac.setText(fechanac);
+          
+      }
+    }//GEN-LAST:event_jTable1MouseClicked
+ void listar() {
+    Pasajero pes=new Pasajero();
 
+         DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+        Object rowData[] = new Object[8];
+          Pasajero pas=new Pasajero();
+        ArrayList<Pasajero> lstPasajero = pas.getPasajeros();
+        
+        tblModel.setRowCount(0);
+        for (int i=0; i<lstPasajero.size(); i++) {
+       
+                rowData[0] = lstPasajero.get(i).getIdPasajero();
+                rowData[1] = lstPasajero.get(i).getCedula();
+                rowData[2] = lstPasajero.get(i).getNombre();
+                rowData[3] = lstPasajero.get(i).getApellido();
+                rowData[4] = lstPasajero.get(i).getFechaNacimiento();
+                rowData[5] = lstPasajero.get(i).getTelefono();
+                rowData[6] = lstPasajero.get(i).getGenero();
+                rowData[7] = lstPasajero.get(i).getEdad();
+
+                tblModel.addRow(rowData);
+            
+        }  
+        
     }
+ void Modificar(){
+           
+          
+          String Cedula=txtCedula.getText();
+          String Nombre=txtNombre.getText();
+          String Apellido=txtApellido.getText();
+          String fechanac=txtFechaNac.getText();
+          String telefono=txtTelefono.getText();
+          String Genero=comGenero.getSelectedItem().toString();
+          String Edad=txtEdad.getText();
+          String sql="update consorcio.persona set Cedula'"+Cedula+"',Nombre='"+Nombre+"' where Id="+id;
+         try{ 
+          con=cn.getClass();
+          st=con.createStatement();
+          st.executeUpdate(sql);
+          JOptionPane.showMessageDialog(null, "Usuario Actualizado");
+         }
+         catch(Exception e){
+             
+         }
+          
+         
+          
+}         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSpinner IDSpin;
+    private javax.swing.JTextField IDSpin;
     private javax.swing.JButton buttonAgregar;
     private javax.swing.JButton buttonEliminar;
     public javax.swing.JComboBox<String> comGenero;

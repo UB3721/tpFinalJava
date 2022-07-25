@@ -6,6 +6,9 @@ package com.uaa.vista;
 
 import com.uaa.controlador.MemData;
 import com.uaa.modelo.Hotel;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +22,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     public ABMHoteles() {
         initComponents();
         initComboBox();
+        listar();
     }
 
     
@@ -139,6 +143,11 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -266,16 +275,65 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
         Hotel hot=new Hotel();
         
         hot.setIdHotel(Integer.parseInt(txtId.getText()));
-        hot.setTipoHotel(comboTipoHotel.getSelectedIndex());
+        if (comboTipoHotel.getSelectedItem().toString().equals(MemData.tipoHoteles[0])){
+      hot.setTipoHotel(0);}
+   else if
+           (comboTipoHotel.getSelectedItem().equals(MemData.lstPaises[1])){
+       hot.setTipoHotel(1);}
+   
+   else{
+       hot.setTipoHotel(2);}
+           
+      
+   
+        
+        
         hot.setCodPostal(Integer.parseInt(txtCod.getText()));
         hot.setNombre(txtNombre.getText());
-        if (comboPais.getSelectedItem().toString().equals(String.valueOf(hot.getPais()))){
-            hot.setPais(WIDTH);
+        if(comboPais.getSelectedItem().equals(MemData.lstPaises[0])){
+            hot.setPais(0);
         }
+        else if(comboPais.getSelectedItem().equals(MemData.lstPaises[1])){
+            hot.setPais(1);
+        }
+        else if(comboPais.getSelectedItem().equals(MemData.lstPaises[2])){
+            hot.setPais(2);
+        }
+        else if(comboPais.getSelectedItem().equals(MemData.lstPaises[3])){
+            hot.setPais(3);
+        }
+        else if(comboPais.getSelectedItem().equals(MemData.lstPaises[4])){
+            hot.setPais(4);
+        }
+        else{
+            hot.setPais(5);
+        }
+        
+        
+        if(comboCiudad.getSelectedItem().equals(MemData.lstCiudad[0])){
+            hot.setCiudad("Montevideo");
+        }
+        else if(comboCiudad.getSelectedItem().equals(MemData.lstCiudad[1])){
+            hot.setCiudad("Asunción");
+        }
+           else if(comboCiudad.getSelectedItem().equals(MemData.lstCiudad[2])){
+            hot.setCiudad("Buenos Aires");
+        }
+           else if(comboCiudad.getSelectedItem().equals(MemData.lstCiudad[3])){
+            hot.setCiudad("San Pablo");
+        }
+           else if(comboCiudad.getSelectedItem().equals(MemData.lstCiudad[4])){
+            hot.setCiudad("Santiago");
+        }
+           else{
+               hot.setCiudad("La Paz");
+           }
+      
+        
+        
         hot.grabar();
         limpiarDatos();
-            
-        
+        listar();
         
         
     }//GEN-LAST:event_buttonAgregarActionPerformed
@@ -287,6 +345,15 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonEliminarActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+         int fila=jTable1.getSelectedRow();
+      if(fila==-1){
+          JOptionPane.showMessageDialog(null, "Usuario no seleccionado");
+                  }else{
+          
+      }
+    }//GEN-LAST:event_jTable1MouseClicked
    private void limpiarDatos(){
         this.comboCiudad.setSelectedItem(1);
         this.comboPais.setSelectedItem(1);
@@ -305,6 +372,31 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
             comboCiudad.addItem(ciudad);
         }
  }
+  void listar() {
+    Hotel pes=new Hotel();
+
+         DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+        Object rowData[] = new Object[7];
+        ArrayList<Hotel> lstHoteles = pes.getHoteles();
+        
+        
+        tblModel.setRowCount(0);
+        for (int i=0; i<lstHoteles.size(); i++) {
+       
+                rowData[0] = lstHoteles.get(i).getIdHotel();
+                rowData[1] = MemData.tipoHoteles[lstHoteles.get(i).getTipoHotel()];
+                rowData[2] = lstHoteles.get(i).getCodPostal();
+                rowData[3] = lstHoteles.get(i).getNombre();
+                rowData[4] = lstHoteles.get(i).getDireccion();
+                rowData[5] = MemData.lstPaises[lstHoteles.get(i).getPais()];
+                rowData[6] =lstHoteles.get(i).getCiudad();
+                
+
+                tblModel.addRow(rowData);
+            
+        }  
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAgregar;
     private javax.swing.JButton buttonEliminar;
