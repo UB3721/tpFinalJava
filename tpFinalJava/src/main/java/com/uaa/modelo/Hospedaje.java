@@ -132,6 +132,7 @@ import java.util.logging.Logger;
         ResultSet rs;                   // Para recuperar el Id generado
 	String sql = "INSERT INTO Consorcio.hospedajes (nroHospedaje, idFuncionario, idPasajero, nroHabitacion, idHotel, nroServicio, fechaInicio, fechaFin, precio, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
+        Integer x = null;
         try {
             //-- Se conecta a la BD
             establecerConexion();
@@ -145,7 +146,12 @@ import java.util.logging.Logger;
             cmd.setInt(3, this.pasajero.getIdPasajero());
             cmd.setInt(4, this.habitacion.getNroHabitacion());
             cmd.setInt(5, this.hotel.getIdHotel());
-            cmd.setInt(6, this.lavanderia.getNroServicio());
+            if (this.lavanderia!=null) {
+                cmd.setInt(6, this.lavanderia.getNroServicio());
+            } else {
+                cmd.setInt(6, 0);
+            }
+            
             cmd.setString(7, this.fechaInicio);
             cmd.setString(8, this.fechaFin);
             cmd.setInt(9, this.precio);
