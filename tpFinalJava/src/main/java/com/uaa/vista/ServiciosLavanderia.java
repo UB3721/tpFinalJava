@@ -44,7 +44,7 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
         txtFieldFuncionarios = new javax.swing.JTextField();
         btnServicio = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 153));
 
@@ -231,6 +231,8 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void initPantalla() {
+        txtFieldFuncionarios.setEditable(false);
+        
         Funcionario fun = new Funcionario();
         Habitacion hab = new Habitacion();
         
@@ -239,7 +241,7 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
             comFuncionarios.addItem(String.valueOf(f.getIdFuncionario()));
         }
         for (Habitacion h : hab.getHabitaciones()) {
-            comHabitaciones.addItem(String.valueOf(h.getNroHabitacion()));
+            comHabitaciones.addItem(String.valueOf(h.getNroHabitacion()+1));
         }
     }
 }
