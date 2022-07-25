@@ -137,12 +137,24 @@ public class Lavanderia extends ConexionBD{
             
             Funcionario fun = new Funcionario();
             Habitacion hab = new Habitacion();
+            
             while (rs.next()) {
-                servicios.add(new Lavanderia(rs.getInt("nroServicio"),
-                                           rs.getInt("cantidad"), 
-                                           fun.getFuncionarios().get(rs.getInt("idFuncionario")),
-                                           hab.getHabitaciones().get(rs.getInt("nroHabitacion"))
-                ));
+                Lavanderia lav = new Lavanderia();
+                
+                lav.setNroServicio(rs.getInt("nroServicio"));
+                lav.setCantidad(rs.getInt("cantidad"));
+                
+                for (Funcionario f : fun.getFuncionarios()) {
+                    if (f.getIdFuncionario()==rs.getInt("idFuncionario")) {
+                        lav.setFuncionario(f);
+                    }
+                }
+                for (Habitacion h : hab.getHabitaciones()) {
+                    if (h.getNroHabitacion()==rs.getInt("nroHabitacion")) {
+                        lav.setHabitacion(h);
+                    }
+                }
+                servicios.add(lav);
             }
                 
             rs.close();

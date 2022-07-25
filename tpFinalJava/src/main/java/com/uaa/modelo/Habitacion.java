@@ -146,12 +146,18 @@ public class Habitacion extends ConexionBD {
             Hotel h = new Hotel();
             
             while (rs.next()) {
-                habitaciones.add(new Habitacion(rs.getInt("nroHabitacion"),
-                                           rs.getInt("precio"),
-                                           rs.getInt("tipoHabitacion"),
-                                           h.getHoteles().get(rs.getInt("idHotel")-1),
-                                           rs.getInt("capacidad")
-                ));
+                Habitacion hab = new Habitacion();
+                hab.setNroHabitacion(rs.getInt("nroHabitacion"));
+                hab.setPrecio(rs.getInt("precio"));
+                hab.setTipoHabitacion(rs.getInt("tipoHabitacion"));
+                hab.setCapacidad(rs.getInt("capacidad"));
+                
+                for (Hotel hot : h.getHoteles()) {
+                    if (hot.getIdHotel()==rs.getInt("idHotel")) {
+                        hab.setHotel(hot);
+                    }
+                }
+                habitaciones.add(hab);
             }
                 
             rs.close();

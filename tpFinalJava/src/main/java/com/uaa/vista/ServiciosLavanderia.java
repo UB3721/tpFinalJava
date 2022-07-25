@@ -241,7 +241,7 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
             comFuncionarios.addItem(String.valueOf(f.getIdFuncionario()));
         }
         for (Habitacion h : hab.getHabitaciones()) {
-            comHabitaciones.addItem(String.valueOf(h.getNroHabitacion()+1));
+            comHabitaciones.addItem(String.valueOf(h.getNroHabitacion()));
         }
     }
 }

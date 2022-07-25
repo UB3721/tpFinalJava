@@ -207,17 +207,37 @@ import java.util.logging.Logger;
             Lavanderia lav= new Lavanderia();
             
             while (rs.next()) {
-                hospedajes.add(new Hospedaje(rs.getInt("nroHospedaje"),
-                                                fun.getFuncionarios().get(rs.getInt("idFuncionario")),
-                                                pas.getPasajeros().get(rs.getInt("idPasajero")), 
-                                                hab.getHabitaciones().get(rs.getInt("nroHabitacion")),
-                                                hot.getHoteles().get(rs.getInt("idHotel")), 
-                                                lav.getServicios().get(rs.getInt("nroServicio")), 
-                                                rs.getString("fechaInicio"),
-                                                rs.getString("fechaFin"), 
-                                                rs.getInt("precio"),
-                                                rs.getInt("estado")
-                ));
+                Hospedaje hos = new Hospedaje();
+                
+                hos.setNroHospedaje(rs.getInt("nroHospedaje"));
+                hos.setFechaInicio(rs.getString("fechaInicio"));
+                hos.setFechaFin(rs.getString("fechaFin"));
+                hos.setPrecio(rs.getInt("precio"));
+                hos.setEstado(rs.getInt("estado"));
+                        
+                
+                for (Funcionario f : fun.getFuncionarios()) {
+                    if (f.getIdFuncionario()==rs.getInt("idFuncionario")) {
+                        hos.setFuncionario(f);
+                    }
+                }
+                for (Pasajero p : pas.getPasajeros()) {
+                    if (p.getIdPasajero()==rs.getInt("idPasajero")) {
+                        hos.setPasajero(p);
+                    }
+                }
+                for (Habitacion h : hab.getHabitaciones()) {
+                    if (h.getNroHabitacion()==rs.getInt("nrohabitacion")) {
+                        hos.setHabitacion(h);
+                    }
+                }
+                for (Lavanderia l : lav.getServicios()) {
+                    if (l.getNroServicio()==rs.getInt("nroServicio")) {
+                        hos.setLavanderia(l);
+                    }
+                }
+                
+                hospedajes.add(hos);
             }
                 
             rs.close();

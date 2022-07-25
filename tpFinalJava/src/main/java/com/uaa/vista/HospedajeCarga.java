@@ -61,7 +61,6 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         txtFieldHotel = new javax.swing.JTextField();
         txtFieldEstado = new javax.swing.JTextField();
         comEstado = new javax.swing.JComboBox<>();
-        btnCalcular = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 153));
 
@@ -123,13 +122,6 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
             }
         });
 
-        btnCalcular.setText("CALCULAR");
-        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCalcularActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -178,9 +170,7 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
                         .addGap(49, 49, 49))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnGrabar)
-                        .addGap(12, 12, 12)
-                        .addComponent(btnCalcular)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(btnCerrar)
                         .addGap(37, 37, 37))))
         );
@@ -232,8 +222,7 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGrabar)
-                    .addComponent(btnCerrar)
-                    .addComponent(btnCalcular))
+                    .addComponent(btnCerrar))
                 .addGap(0, 13, Short.MAX_VALUE))
         );
 
@@ -342,28 +331,8 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_comEstadoActionPerformed
 
-    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        int precio = 0;
-        
-        Lavanderia lav = new Lavanderia();
-        
-        for (Lavanderia l : lav.getServicios()) {
-            try {
-                if ((l.getNroServicio()==Integer.parseInt(comLavanderia.getSelectedItem().toString())) && comLavanderia!=null) {
-                    precio += l.getCantidad()*l.precioUnitario;
-                    break;
-                }
-            } catch (Exception e){}    
-        }
-        Habitacion hab = new Habitacion();
-
-        precio += hab.getHabitaciones().get(Integer.parseInt(comHabitacion.getSelectedItem().toString())-1).getPrecio();
-        JOptionPane.showMessageDialog(this, "Precio: " + String.valueOf(precio));
-    }//GEN-LAST:event_btnCalcularActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnGrabar;
     private javax.swing.JComboBox<String> comEstado;
@@ -412,7 +381,7 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         }
         Habitacion hab = new Habitacion();
         for (Habitacion h : hab.getHabitaciones()) {
-            comHabitacion.addItem(String.valueOf(h.getNroHabitacion()+1));
+            comHabitacion.addItem(String.valueOf(h.getNroHabitacion()));
         }
         Lavanderia lav = new Lavanderia();
         for (Lavanderia l : lav.getServicios()) { 
