@@ -134,9 +134,7 @@ public class Hotel extends ConexionBD{
                 cn.rollback();
             }
         }
-        catch (SQLException e) {
-            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, e);
-        }
+        catch (SQLException e) {}
         finally {
 
             if (cmd != null) {

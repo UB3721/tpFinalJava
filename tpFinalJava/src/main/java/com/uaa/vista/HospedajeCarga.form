@@ -55,7 +55,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -65,30 +65,48 @@
                               <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel10" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel11" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="comFuncionario" pref="395" max="32767" attributes="0"/>
-                              <Component id="comPasajero" max="32767" attributes="0"/>
                               <Component id="comHabitacion" max="32767" attributes="0"/>
-                              <Component id="comHotel" max="32767" attributes="0"/>
                               <Component id="comLavanderia" max="32767" attributes="0"/>
                               <Component id="txtFechaInicio" max="32767" attributes="0"/>
                               <Component id="txtFechaFin" max="32767" attributes="0"/>
-                              <Component id="txtPrecio" max="32767" attributes="0"/>
-                              <Component id="txtEstado" max="32767" attributes="0"/>
-                              <Component id="SpinnerId" max="32767" attributes="0"/>
+                              <Component id="spinnerId" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="comPasajero" alignment="0" pref="120" max="32767" attributes="0"/>
+                                      <Component id="comFuncionario" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtFieldFuncionario" max="32767" attributes="0"/>
+                                      <Component id="txtFieldPasajero" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="comHotel" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                                  <Component id="txtFieldHotel" min="-2" pref="243" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="comEstado" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="txtFieldEstado" min="-2" pref="243" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="btnGrabar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="btnCalcular" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnCerrar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -98,18 +116,22 @@
                   <Component id="jLabel1" min="-2" pref="24" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="SpinnerId" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="spinnerId" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="comFuncionario" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="comFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFieldFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="comPasajero" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFieldPasajero" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -120,6 +142,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="comHotel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFieldHotel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -136,22 +159,19 @@
                       <Component id="txtFechaFin" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFieldEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnGrabar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCerrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCalcular" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="13" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -165,14 +185,12 @@
         <Component class="javax.swing.JComboBox" name="comFuncionario">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comFuncionarioActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -180,14 +198,12 @@
         <Component class="javax.swing.JComboBox" name="comPasajero">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comPasajeroActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -195,12 +211,7 @@
         <Component class="javax.swing.JComboBox" name="comHabitacion">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -210,14 +221,12 @@
         <Component class="javax.swing.JComboBox" name="comHotel">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comHotelActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -225,12 +234,7 @@
         <Component class="javax.swing.JComboBox" name="comLavanderia">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -241,11 +245,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtFechaFin">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPrecio">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtEstado">
-        </Component>
-        <Component class="javax.swing.JSpinner" name="SpinnerId">
+        <Component class="javax.swing.JSpinner" name="spinnerId">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -287,28 +287,55 @@
             <Property name="text" type="java.lang.String" value="Fecha Fin:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Precio:"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
             <Property name="text" type="java.lang.String" value="Estado:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btnGrabar">
           <Properties>
             <Property name="text" type="java.lang.String" value="GRABAR"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGrabarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="btnCerrar">
           <Properties>
             <Property name="text" type="java.lang.String" value="CERRAR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCerrarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtFieldFuncionario">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtFieldPasajero">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtFieldHotel">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtFieldEstado">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comEstado">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comEstadoActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnCalcular">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="CALCULAR"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcularActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

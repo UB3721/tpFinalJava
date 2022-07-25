@@ -4,6 +4,8 @@
  */
 package com.uaa.vista;
 
+import static com.uaa.controlador.MemData.inicializarDatosEmpresa;
+
 
 
 
@@ -19,6 +21,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+        inicializarDatosEmpresa();
         this.setLocationRelativeTo(null);
     }
 
@@ -173,7 +176,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-     Hospedaje hos=new Hospedaje();
+     HospedajeCarga hos=new HospedajeCarga();
      jPanel1.add(hos);
      hos.show();
     }//GEN-LAST:event_jMenuItem7ActionPerformed

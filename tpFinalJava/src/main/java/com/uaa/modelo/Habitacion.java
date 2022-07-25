@@ -111,9 +111,7 @@ public class Habitacion extends ConexionBD {
                 cn.rollback();
             }
         }
-        catch (SQLException e) {
-            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, e);
-        }
+        catch (Exception e) {}
         finally {
 
             if (cmd != null) {
@@ -151,7 +149,7 @@ public class Habitacion extends ConexionBD {
                 habitaciones.add(new Habitacion(rs.getInt("nroHabitacion"),
                                            rs.getInt("precio"),
                                            rs.getInt("tipoHabitacion"),
-                                           h.getHoteles().get(rs.getInt("idHotel")),
+                                           h.getHoteles().get(rs.getInt("idHotel")-1),
                                            rs.getInt("capacidad")
                 ));
             }

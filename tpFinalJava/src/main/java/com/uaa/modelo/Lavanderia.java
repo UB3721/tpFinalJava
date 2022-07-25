@@ -22,7 +22,7 @@ public class Lavanderia extends ConexionBD{
     Funcionario funcionario;
     Habitacion habitacion;
     
-    final int precioUnitario = 5;
+    public final int precioUnitario = 5;
 
     public Lavanderia() {
     }

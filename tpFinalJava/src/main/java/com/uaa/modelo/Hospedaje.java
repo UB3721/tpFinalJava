@@ -28,6 +28,9 @@ import java.util.logging.Logger;
         int precio;
         int estado;
 
+    public Hospedaje() {
+    }
+
     public Hospedaje(int nroHospedaje, Funcionario funcionario, Pasajero pasajero, Habitacion habitacion, Hotel hotel, Lavanderia lavanderia, String fechaInicio, String fechaFin, int precio, int estado) {
         this.nroHospedaje = nroHospedaje;
         this.funcionario = funcionario;
@@ -127,7 +130,7 @@ import java.util.logging.Logger;
         boolean resp = false;
         PreparedStatement cmd = null;   // Sentencia preparada
         ResultSet rs;                   // Para recuperar el Id generado
-	String sql = "INSERT INTO Consorcio.hospedajes (nroHospedaje, idFuncionario, nroHabitacion, idHotel, nroServicio, fechaInicio, fechaFin, precio, estado) VALUES (?, ?, ?, ?, ?)";
+	String sql = "INSERT INTO Consorcio.hospedajes (nroHospedaje, idFuncionario, idPasajero, nroHabitacion, idHotel, nroServicio, fechaInicio, fechaFin, precio, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         try {
             //-- Se conecta a la BD
@@ -139,13 +142,14 @@ import java.util.logging.Logger;
             //-- Asigna parámetros a la sentencia preparada
             cmd.setInt(1, this.nroHospedaje);
             cmd.setInt(2, this.funcionario.getIdFuncionario());
-            cmd.setInt(3, this.habitacion.getNroHabitacion());
-            cmd.setInt(4, this.hotel.getIdHotel());
-            cmd.setInt(5, this.lavanderia.getNroServicio());
-            cmd.setString(6, this.fechaInicio);
-            cmd.setString(7, this.fechaFin);
-            cmd.setInt(8, this.precio);
-            cmd.setInt(9, this.estado);
+            cmd.setInt(3, this.pasajero.getIdPasajero());
+            cmd.setInt(4, this.habitacion.getNroHabitacion());
+            cmd.setInt(5, this.hotel.getIdHotel());
+            cmd.setInt(6, this.lavanderia.getNroServicio());
+            cmd.setString(7, this.fechaInicio);
+            cmd.setString(8, this.fechaFin);
+            cmd.setInt(9, this.precio);
+            cmd.setInt(10, this.estado);
 
             //-- Ejecuta la sentencia
             int result = cmd.executeUpdate();

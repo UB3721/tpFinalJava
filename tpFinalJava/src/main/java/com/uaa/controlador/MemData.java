@@ -6,6 +6,8 @@
 package com.uaa.controlador;
 
 import com.uaa.modelo.Funcionario;
+import com.uaa.modelo.Habitacion;
+import com.uaa.modelo.Hotel;
 
 /**
  *
@@ -16,12 +18,19 @@ public class MemData {
     public static String[] lstPaises = {"Uruguay", "Paraguay", "Argentina", "Brasil", "Chile", "Bolivia"};
     public static String[] tipoHoteles = {"Playa", "Ciudad", "Naturaleza"};
     public static String[] lstGeneros = {"Masculino", "Femenino"};
+    public static String[] estados = {"En Espera", "Pagado"};
     
-    public void inicializarDatosEmpresa() {
-        inicializarFuncionarios();     
+    
+    public static void inicializarDatosEmpresa() {
+        try{ 
+            inicializarFuncionarios();   
+            inicializarHabitaciones();   
+        }
+        catch (Exception e) {}
+        
     }
 
-    private void inicializarFuncionarios() {   
+    private static void inicializarFuncionarios() {   
         Funcionario f1 = new Funcionario(
                 5674215,
                 "Pedro",
@@ -66,9 +75,54 @@ public class MemData {
         );
         f4.setIdFuncionario(4);  
         
+
         f1.grabar();
         f2.grabar();
         f3.grabar();
-        f4.grabar();
+        f4.grabar(); 
+
+        
+        
+    }
+
+    private static void inicializarHabitaciones() {
+        Hotel hotel = new Hotel(1, 210, 0, "Hotel Marcin", "Laurel y Ciruelo", 2, "Buenos Aires");
+        
+        Habitacion h1 = new Habitacion(
+                1,
+                500,
+                0,
+                hotel,
+                1                
+        );
+        Habitacion h2 = new Habitacion(
+                2,
+                400,
+                1,
+                hotel,
+                2                
+        );    
+        Habitacion h3 = new Habitacion(
+                3, 
+                300, 
+                2,
+                hotel,
+                5
+        );
+        Habitacion h4 = new Habitacion (
+                4, 
+                200, 
+                3, 
+                hotel, 
+                2
+        );
+        
+        hotel.grabar();
+        h1.grabar();
+        h2.grabar();
+        h3.grabar();
+        h4.grabar();            
+
+          
     }
 }

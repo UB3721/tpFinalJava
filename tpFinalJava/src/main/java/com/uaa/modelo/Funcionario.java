@@ -75,8 +75,7 @@ public class Funcionario extends Persona {
                 cn.rollback();
             }
         }
-        catch (SQLException e) {
-            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, e);
+        catch (Exception e) { 
         }
         finally {
 
