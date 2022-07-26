@@ -434,14 +434,17 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
 }   
  void eliminar(){
          int fila = jTable1.getSelectedRow();
-         int columna=jTable1.getModel().getValueAt(0, 0)
+         int columna= 0;
+         int idEliminado = Integer.parseInt(jTable1.getModel().getValueAt(fila, columna).toString());
+         System.out.println(idEliminado);
+         
         if (fila < 0) {
             JOptionPane.showMessageDialog(null,"Usuario no Seleccionado");
         } else try{
             String myDriver = "com.mysql.cj.jdbc.Driver";
             
             Class.forName(myDriver);
-            String query = "delete from pasajeros where idPasajero="+id;
+            String query = "delete from pasajeros where idPasajero="+idEliminado;
             ConexionBD c = new ConexionBD();
             String myUrl = c.getUrl() + c.getServerName() + "/" + c.getDatabaseName()+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
             Connection cn = DriverManager.getConnection(myUrl, c.getUserName(), c.getPassword());
