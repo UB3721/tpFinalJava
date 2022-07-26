@@ -54,7 +54,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
         buttonModificar = new javax.swing.JButton();
         buttonEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable2 = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         comboCiudad = new javax.swing.JComboBox<>();
         comboPais = new javax.swing.JComboBox<>();
@@ -126,7 +126,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -134,23 +134,15 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Tipo Hotel", "Precio", "Caracteristicas", "Direccion", "Pais", "Ciudad"
+                "ID", "Codigo Postal", "Tipo Hotel", "Nombre", "Direccion", "Pais", "Ciudad"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                jTable2MouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTable2);
 
         jLabel9.setText("Ciudad:");
 
@@ -339,21 +331,38 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_buttonAgregarActionPerformed
 
     private void buttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarActionPerformed
-        // TODO add your handling code here:
+       modificar();
+       listar();
+       limpiarDatos();
     }//GEN-LAST:event_buttonModificarActionPerformed
 
     private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonEliminarActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-         int fila=jTable1.getSelectedRow();
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+         int fila=jTable2.getSelectedRow();
       if(fila==-1){
           JOptionPane.showMessageDialog(null, "Usuario no seleccionado");
                   }else{
+                    int Id=Integer.parseInt((String)jTable2.getValueAt(fila, 0).toString());
+                    int tipohot=Integer.parseInt((String)jTable2.getValueAt(fila, 2).toString());
+                    int codpost=Integer.parseInt((String)jTable2.getValueAt(fila, 1).toString());
+                    String nombre=(String)jTable2.getValueAt(fila, 3);
+                    String direccion=(String)jTable2.getValueAt(fila, 4);
+                    int pais=Integer.parseInt((String)jTable2.getValueAt(fila, 5).toString());
+                    String ciudad=(String)jTable2.getValueAt(fila, 6);
+                    
+                    comboCiudad.getModel().setSelectedItem(""+ciudad);
+                    comboPais.getModel().setSelectedItem(""+pais);
+                    comboTipoHotel.getModel().setSelectedItem(""+tipohot);
+                    txtCod.setText(""+codpost);
+                    txtDireccion.setText(direccion);
+                    txtNombre.setText(nombre);
+                    txtId.setText("" + Id);
           
       }
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_jTable2MouseClicked
    private void limpiarDatos(){
         this.comboCiudad.setSelectedItem(1);
         this.comboPais.setSelectedItem(1);
@@ -375,7 +384,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
   void listar() {
     Hotel pes=new Hotel();
 
-         DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+         DefaultTableModel tblModel = (DefaultTableModel)jTable2.getModel();
         Object rowData[] = new Object[7];
         ArrayList<Hotel> lstHoteles = pes.getHoteles();
         
@@ -384,12 +393,12 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
         for (int i=0; i<lstHoteles.size(); i++) {
        
                 rowData[0] = lstHoteles.get(i).getIdHotel();
-                rowData[1] = MemData.tipoHoteles[lstHoteles.get(i).getTipoHotel()];
-                rowData[2] = lstHoteles.get(i).getCodPostal();
+                rowData[1] = lstHoteles.get(i).getCodPostal();
+                rowData[2] = MemData.tipoHoteles[lstHoteles.get(i).getTipoHotel()];
                 rowData[3] = lstHoteles.get(i).getNombre();
                 rowData[4] = lstHoteles.get(i).getDireccion();
                 rowData[5] = MemData.lstPaises[lstHoteles.get(i).getPais()];
-                rowData[6] =lstHoteles.get(i).getCiudad();
+                rowData[6] = MemData.lstCiudad[lstHoteles.get(i).getCiudad()];
                 
 
                 tblModel.addRow(rowData);
@@ -397,6 +406,10 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
         }  
         
     }
+  void modificar(){
+      
+      
+  }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAgregar;
     private javax.swing.JButton buttonEliminar;
@@ -415,7 +428,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable2;
     private javax.swing.JPanel paneldatos;
     private javax.swing.JTextField txtCod;
     private javax.swing.JTextField txtDireccion;

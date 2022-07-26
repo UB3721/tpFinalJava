@@ -330,7 +330,9 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_buttonAgregarActionPerformed
 
     private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
-        // TODO add your handling code here:
+      eliminar();
+      listar();
+      limpiarDatos();
     }//GEN-LAST:event_buttonEliminarActionPerformed
 
     private void txtFechaNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaNacActionPerformed
@@ -339,6 +341,8 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
      Modificar();
+     listar();
+     limpiarDatos();
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -389,6 +393,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                 tblModel.addRow(rowData);
             
         }  
+        jTable1.setModel(tblModel);
         
     }
  void Modificar(){
@@ -407,7 +412,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
             Class.forName(myDriver);
             
             ConexionBD c = new ConexionBD();
-            String myUrl = c.getUrl() + c.getServerName() + "/" + c.getDatabaseName();
+            String myUrl = c.getUrl() + c.getServerName() + "/" + c.getDatabaseName()+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
             Connection cn = DriverManager.getConnection(myUrl, c.getUserName(), c.getPassword());
             
             String query = "update pasajeros set cedula = ?, nombre = ? where idPasajero = ?";
@@ -426,7 +431,31 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
           
          
           
-}         
+}   
+ void eliminar(){
+         int fila = jTable1.getSelectedRow();
+         int columna=jTable1.getModel().getValueAt(0, 0)
+        if (fila < 0) {
+            JOptionPane.showMessageDialog(null,"Usuario no Seleccionado");
+        } else try{
+            String myDriver = "com.mysql.cj.jdbc.Driver";
+            
+            Class.forName(myDriver);
+            String query = "delete from pasajeros where idPasajero="+id;
+            ConexionBD c = new ConexionBD();
+            String myUrl = c.getUrl() + c.getServerName() + "/" + c.getDatabaseName()+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
+            Connection cn = DriverManager.getConnection(myUrl, c.getUserName(), c.getPassword());
+            PreparedStatement cmd = cn.prepareStatement(query);
+            cmd.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Usuario Eliminado");
+            
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnModificar;
