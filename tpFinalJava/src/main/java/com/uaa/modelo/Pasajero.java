@@ -76,7 +76,7 @@ public class Pasajero extends Persona {
                 cn.rollback();
             }
         }
-        catch (SQLException e) {
+        catch (Exception e) {
             Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, e);
         }
         finally {
@@ -127,7 +127,7 @@ public class Pasajero extends Persona {
             rs.close();
             rs = null;
         }
-        catch (SQLException e) {
+        catch (Exception e) {
             System.err.println("Error de SQL: " + e);
         }
         finally {
@@ -136,7 +136,7 @@ public class Pasajero extends Persona {
                     cmd.close();
                     cmd = null;
                 }
-                catch (SQLException e) {}
+                catch (Exception e) {}
             }
             cerrarConexion();
         }
