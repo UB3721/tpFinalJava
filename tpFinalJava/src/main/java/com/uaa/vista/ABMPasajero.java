@@ -10,7 +10,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 import com.uaa.controlador.MemData;
-import com.uaa.modelo.Hotel;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
@@ -74,8 +75,8 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
         txtFechaNac = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         comGenero = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        IDSpin = new javax.swing.JTextField();
+        btnModificar = new javax.swing.JButton();
+        txtFieldId = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -162,10 +163,10 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
 
         comGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
 
-        jButton1.setText("MODIFICAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnModificar.setText("MODIFICAR");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnModificarActionPerformed(evt);
             }
         });
 
@@ -211,12 +212,12 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                                         .addComponent(txtApellido)
                                         .addComponent(txtEdad, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(comGenero, 0, 420, Short.MAX_VALUE)
-                                        .addComponent(IDSpin)))))
+                                        .addComponent(txtFieldId)))))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addContainerGap(33, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jButton1)
+                                    .addComponent(btnModificar)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(buttonAgregar)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -261,12 +262,12 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(IDSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonAgregar)
                     .addComponent(buttonEliminar)
-                    .addComponent(jButton1))
+                    .addComponent(btnModificar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(33, Short.MAX_VALUE))
@@ -321,7 +322,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
       
       pas.setEdad(Integer.parseInt(txtEdad.getText()));
       pas.setFechaNacimiento(txtFechaNac.getText());
-      pas.setIdPasajero(Integer.parseInt(IDSpin.getText()));
+      pas.setIdPasajero(Integer.parseInt(txtFieldId.getText()));
       
       pas.grabar();
       limpiarDatos();
@@ -336,9 +337,9 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaNacActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
      Modificar();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
       int fila=jTable1.getSelectedRow();
@@ -354,7 +355,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
           int Genero=Integer.parseInt((String)jTable1.getValueAt(fila, 6).toString());
           int Edad=Integer.parseInt((String)jTable1.getValueAt(fila, 7).toString());
           
-          IDSpin.setText("" + id);
+          txtFieldId.setText("" + id);
           txtCedula.setText("" + Cedula);
             txtNombre.setText(Nombre);
             txtApellido.setText(Apellido);
@@ -393,22 +394,34 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
  void Modificar(){
            
           
-          String Cedula=txtCedula.getText();
-          String Nombre=txtNombre.getText();
+          int cedula= Integer.parseInt(txtCedula.getText());
+          String nombre=txtNombre.getText();
           String Apellido=txtApellido.getText();
           String fechanac=txtFechaNac.getText();
           String telefono=txtTelefono.getText();
           String Genero=comGenero.getSelectedItem().toString();
           String Edad=txtEdad.getText();
-          String sql="update consorcio.persona set Cedula'"+Cedula+"',Nombre='"+Nombre+"' where Id="+id;
          try{ 
-          con=cn.getClass();
-          st=con.createStatement();
-          st.executeUpdate(sql);
-          JOptionPane.showMessageDialog(null, "Usuario Actualizado");
+            String myDriver = "com.mysql.cj.jdbc.Driver";
+            
+            Class.forName(myDriver);
+            
+            ConexionBD c = new ConexionBD();
+            String myUrl = c.getUrl() + c.getServerName() + "/" + c.getDatabaseName();
+            Connection cn = DriverManager.getConnection(myUrl, c.getUserName(), c.getPassword());
+            
+            String query = "update pasajeros set cedula = ?, nombre = ? where idPasajero = ?";
+            PreparedStatement cmd = cn.prepareStatement(query);
+            cmd.setInt(1,cedula);
+            cmd.setString(2, nombre);
+            cmd.setInt(3, Integer.parseInt(txtFieldId.getText()));
+            
+            cmd.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Usuario Actualizado");
          }
          catch(Exception e){
-             
+             System.out.println(e);
          }
           
          
@@ -416,11 +429,10 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
 }         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField IDSpin;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JButton buttonAgregar;
     private javax.swing.JButton buttonEliminar;
     public javax.swing.JComboBox<String> comGenero;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -437,6 +449,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
     public javax.swing.JTextField txtCedula;
     public javax.swing.JTextField txtEdad;
     public javax.swing.JTextField txtFechaNac;
+    private javax.swing.JTextField txtFieldId;
     public javax.swing.JTextField txtNombre;
     public javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
