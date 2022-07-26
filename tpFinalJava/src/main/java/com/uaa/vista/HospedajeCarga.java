@@ -360,8 +360,4 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         
         
     }
-
-    private void calcularPrecio() {
-       
-    }
 }

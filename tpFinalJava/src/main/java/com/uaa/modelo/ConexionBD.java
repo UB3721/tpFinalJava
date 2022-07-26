@@ -27,11 +27,37 @@ public class ConexionBD {
     private final String portNumber = "3306";
     private final String databaseName = "consorcio";
     private final String userName = "root";
-    private final String password = "Sendnukes3721";
+    private final String password = "Sendnukes3721"; // Contraseña
     
     //-- Contructor sin Parámetros
     public ConexionBD() {
     }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getServerName() {
+        return serverName;
+    }
+
+    public String getPortNumber() {
+        return portNumber;
+    }
+
+    public String getDatabaseName() {
+        return databaseName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+
     
     //-- Devuelve el URL de la Conexión
     private String getConnectionUrl() {

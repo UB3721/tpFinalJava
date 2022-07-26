@@ -77,7 +77,7 @@ public class MemData {
                 32              
         );
         f4.setIdFuncionario(4);  
-        
+        /*
         Pasajero pasajero = new Pasajero(
                 2658458,
                 "Michelle",
@@ -87,7 +87,7 @@ public class MemData {
                 1, 
                 32 );   
         pasajero.setIdPasajero(4); 
-        pasajero.grabar();
+        pasajero.grabar();*/
         f1.grabar();
         f2.grabar();
         f3.grabar();
