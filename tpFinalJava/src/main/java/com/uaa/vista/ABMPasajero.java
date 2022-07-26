@@ -371,16 +371,16 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
       }
     }//GEN-LAST:event_jTable1MouseClicked
  void listar() {
-    Pasajero pes=new Pasajero();
+        Pasajero pes = new Pasajero();
 
-         DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+        DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
         Object rowData[] = new Object[8];
-          Pasajero pas=new Pasajero();
+        Pasajero pas=new Pasajero();
         ArrayList<Pasajero> lstPasajero = pas.getPasajeros();
         
         tblModel.setRowCount(0);
         for (int i=0; i<lstPasajero.size(); i++) {
-       
+                
                 rowData[0] = lstPasajero.get(i).getIdPasajero();
                 rowData[1] = lstPasajero.get(i).getCedula();
                 rowData[2] = lstPasajero.get(i).getNombre();
@@ -399,14 +399,21 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
  void Modificar(){
            
           
-          int cedula= Integer.parseInt(txtCedula.getText());
-          String nombre=txtNombre.getText();
-          String Apellido=txtApellido.getText();
-          String fechanac=txtFechaNac.getText();
-          String telefono=txtTelefono.getText();
-          String Genero=comGenero.getSelectedItem().toString();
-          String Edad=txtEdad.getText();
-         try{ 
+            int cedula= Integer.parseInt(txtCedula.getText());
+            String nombre=txtNombre.getText();
+            String apellido=txtApellido.getText();
+            String fechaNac=txtFechaNac.getText();
+            String telefono=txtTelefono.getText();
+            
+            int genero;
+            if (comGenero.getSelectedItem().toString().equals("Masculino")) {
+                genero = 0;
+            } 
+            else {
+                genero = 1;
+            }
+            int edad = Integer.parseInt(txtEdad.getText());
+        try{ 
             String myDriver = "com.mysql.cj.jdbc.Driver";
             
             Class.forName(myDriver);
@@ -415,19 +422,21 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
             String myUrl = c.getUrl() + c.getServerName() + "/" + c.getDatabaseName()+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
             Connection cn = DriverManager.getConnection(myUrl, c.getUserName(), c.getPassword());
             
-            String query = "update pasajeros set cedula = ?, nombre = ? where idPasajero = ?";
+            String query = "update pasajeros set cedula = ?, nombre = ?, apellido = ?, fechaNacimiento = ?, telefono = ?, genero = ?, edad = ? where idPasajero = ?";
             PreparedStatement cmd = cn.prepareStatement(query);
             cmd.setInt(1,cedula);
             cmd.setString(2, nombre);
-            cmd.setInt(3, Integer.parseInt(txtFieldId.getText()));
+            cmd.setString(3, apellido);
+            cmd.setString(4, fechaNac);
+            cmd.setString(5, telefono);
+            cmd.setInt(6, genero);
+            cmd.setInt(7, edad);
+            cmd.setInt(8, Integer.parseInt(txtFieldId.getText()));
             
             cmd.executeUpdate();
             
             JOptionPane.showMessageDialog(null, "Usuario Actualizado");
-         }
-         catch(Exception e){
-             System.out.println(e);
-         }
+        }catch(Exception e){System.out.println(e);}
           
          
           
