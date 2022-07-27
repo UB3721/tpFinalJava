@@ -49,6 +49,8 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 153));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.white);
         jLabel1.setText("Servicios Lavanderia");
 
         comFuncionarios.addActionListener(new java.awt.event.ActionListener() {
@@ -57,12 +59,16 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setForeground(java.awt.Color.white);
         jLabel2.setText("Habitacion:");
 
+        jLabel3.setForeground(java.awt.Color.white);
         jLabel3.setText("Funcionarios:");
 
+        jLabel4.setForeground(java.awt.Color.white);
         jLabel4.setText("Cantidad:");
 
+        jLabel5.setForeground(java.awt.Color.white);
         jLabel5.setText("Nro. Servicio:");
 
         btnServicio.setText("Procesar Servicio");
@@ -126,7 +132,7 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addComponent(btnServicio)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,25 +166,29 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
     }//GEN-LAST:event_comFuncionariosActionPerformed
 
     private void btnServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServicioActionPerformed
-        Lavanderia lav = new Lavanderia();
-        
-        Funcionario fun = new Funcionario();
-        for (Funcionario f : fun.getFuncionarios()) {
-            if (String.valueOf(f.getIdFuncionario()).equals(comFuncionarios.getSelectedItem().toString())) {
-                lav.setFuncionario(f);
+        if (!"".equals(txtNroServicio.getText()) && !"".equals(txtCantidad.getText())) {
+            Lavanderia lav = new Lavanderia();
+
+            Funcionario fun = new Funcionario();
+            for (Funcionario f : fun.getFuncionarios()) {
+                if (String.valueOf(f.getIdFuncionario()).equals(comFuncionarios.getSelectedItem().toString())) {
+                    lav.setFuncionario(f);
+                }
             }
-        }
-        Habitacion hab = new Habitacion();
-        for (Habitacion h : hab.getHabitaciones()) {
-            if (String.valueOf(h.getNroHabitacion()).equals(comHabitaciones.getSelectedItem().toString())) {
-                lav.setHabitacion(h);
+            Habitacion hab = new Habitacion();
+            for (Habitacion h : hab.getHabitaciones()) {
+                if (String.valueOf(h.getNroHabitacion()).equals(comHabitaciones.getSelectedItem().toString())) {
+                    lav.setHabitacion(h);
+                }
             }
+            lav.setNroServicio(Integer.parseInt(txtNroServicio.getText()));
+            lav.setCantidad(Integer.parseInt(txtCantidad.getText()));
+
+            lav.grabar();
+            JOptionPane.showMessageDialog(null, "Servicio Agregado");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se han agregado los datos suficientes");
         }
-        lav.setNroServicio(Integer.parseInt(txtNroServicio.getText()));
-        lav.setCantidad(Integer.parseInt(txtCantidad.getText()));
-        
-        lav.grabar();
-        JOptionPane.showMessageDialog(null, "Servicio Agregado");
     }//GEN-LAST:event_btnServicioActionPerformed
 
     /**
