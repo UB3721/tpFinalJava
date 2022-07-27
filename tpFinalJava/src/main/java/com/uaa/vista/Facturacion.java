@@ -57,8 +57,10 @@ public class Facturacion extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Facturacion");
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ID Pasajero");
 
         comId.addActionListener(new java.awt.event.ActionListener() {
@@ -67,6 +69,7 @@ public class Facturacion extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Número Habitación:");
 
         comHabitacion.addActionListener(new java.awt.event.ActionListener() {
@@ -82,12 +85,16 @@ public class Facturacion extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Precio Habitación:");
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Precio Lavandería:");
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Precio Total:");
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Estado: ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

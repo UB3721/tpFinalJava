@@ -49,6 +49,7 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 153));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Servicios Lavanderia");
 
         comFuncionarios.addActionListener(new java.awt.event.ActionListener() {
@@ -57,12 +58,16 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Habitacion:");
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Funcionarios:");
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Cantidad:");
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nro. Servicio:");
 
         btnServicio.setText("Procesar Servicio");
