@@ -339,12 +339,14 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
       pas.grabar();
       limpiarDatos();
       listar();
+      JOptionPane.showMessageDialog(null, "Pasajero Agregado");
     }//GEN-LAST:event_buttonAgregarActionPerformed
 
     private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
       eliminar();
       listar();
       limpiarDatos();
+      
     }//GEN-LAST:event_buttonEliminarActionPerformed
 
     private void txtFechaNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaNacActionPerformed

@@ -320,7 +320,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
         hot.grabar();
         limpiarDatos();
         listar();
-        
+        JOptionPane.showMessageDialog(null, "Hotel Agregado");
         
     }//GEN-LAST:event_buttonAgregarActionPerformed
 
@@ -361,7 +361,8 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       dispose(); // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Cerrando...");
+        dispose(); // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
    private void limpiarDatos(){
         txtCiudad.setText("");

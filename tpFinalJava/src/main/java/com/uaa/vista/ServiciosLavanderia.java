@@ -7,6 +7,7 @@ package com.uaa.vista;
 import com.uaa.modelo.Funcionario;
 import com.uaa.modelo.Habitacion;
 import com.uaa.modelo.Lavanderia;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -177,7 +178,7 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
         lav.setCantidad(Integer.parseInt(txtCantidad.getText()));
         
         lav.grabar();
-
+        JOptionPane.showMessageDialog(null, "Servicio Agregado");
     }//GEN-LAST:event_btnServicioActionPerformed
 
     /**
