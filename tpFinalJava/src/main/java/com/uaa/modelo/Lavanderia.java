@@ -102,9 +102,7 @@ public class Lavanderia extends ConexionBD{
                 cn.rollback();
             }
         }
-        catch (SQLException e) {
-            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, e);
-        }
+        catch (SQLException e) {}
         finally {
 
             if (cmd != null) {
@@ -112,7 +110,7 @@ public class Lavanderia extends ConexionBD{
                     cmd.close();
                     cmd = null;
                 }
-                catch (Exception e) {}
+                catch (SQLException e) {System.err.println("Error de SQL: " + e);}
             }
             cerrarConexion();
         }

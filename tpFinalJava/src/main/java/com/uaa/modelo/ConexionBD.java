@@ -76,9 +76,7 @@ public class ConexionBD {
                 cn.setAutoCommit(false);
             }
         }
-        catch (ClassNotFoundException | SQLException e) {
-            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, e);
-        }
+        catch (ClassNotFoundException | SQLException e) {}
     } // fin establecerConexion
     
     //-- Cierra la conexión a la BD
@@ -89,6 +87,7 @@ public class ConexionBD {
                 cn = null;
         }
         catch (SQLException e) {
+            System.err.println("Error de SQL: " + e);
         }
     } // fin cerrarConexion()
     

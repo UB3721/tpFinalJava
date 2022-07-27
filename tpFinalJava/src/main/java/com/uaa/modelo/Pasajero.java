@@ -72,13 +72,10 @@ public class Pasajero extends Persona {
                     resp = true;
                 }
             else {
-                Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, "NO SE GRABO LA CONSULTA!");
                 cn.rollback();
             }
         }
-        catch (Exception e) {
-            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, e);
-        }
+        catch (Exception e) {}
         finally {
 
             if (cmd != null) {
@@ -86,7 +83,7 @@ public class Pasajero extends Persona {
                     cmd.close();
                     cmd = null;
                 }
-                catch (Exception e) {}
+                catch (SQLException e) {System.err.println("Error de SQL: " + e);}
             }
             cerrarConexion();
         }

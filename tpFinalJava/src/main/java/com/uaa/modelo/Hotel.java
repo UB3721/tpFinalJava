@@ -130,11 +130,10 @@ public class Hotel extends ConexionBD{
                     resp = true;
                 }
             else {
-                Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, "NO SE GRABO LA CONSULTA!");
                 cn.rollback();
             }
         }
-        catch (SQLException e) {}
+        catch (SQLException e) {System.err.println("Error de SQL: " + e);}
         finally {
 
             if (cmd != null) {

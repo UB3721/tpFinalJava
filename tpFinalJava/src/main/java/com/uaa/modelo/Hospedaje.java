@@ -173,9 +173,7 @@ import java.util.logging.Logger;
                 cn.rollback();
             }
         }
-        catch (Exception e) {
-            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, e);
-        }
+        catch (SQLException e) {System.err.println("Error de SQL: " + e);}
         finally {
 
             if (cmd != null) {
@@ -183,7 +181,7 @@ import java.util.logging.Logger;
                     cmd.close();
                     cmd = null;
                 }
-                catch (Exception e) {}
+                catch (SQLException e) {System.err.println("Error de SQL: " + e);}
             }
             cerrarConexion();
         }

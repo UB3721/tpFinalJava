@@ -107,11 +107,10 @@ public class Habitacion extends ConexionBD {
                     resp = true;
                 }
             else {
-                Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, "NO SE GRABO LA CONSULTA!");
                 cn.rollback();
             }
         }
-        catch (Exception e) {}
+        catch (SQLException e) {System.err.println("Error de SQL: " + e);}
         finally {
 
             if (cmd != null) {
@@ -119,7 +118,7 @@ public class Habitacion extends ConexionBD {
                     cmd.close();
                     cmd = null;
                 }
-                catch (Exception e) {}
+                catch (SQLException e) {}
             }
             cerrarConexion();
         }
