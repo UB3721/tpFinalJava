@@ -375,8 +375,8 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTableHotelesMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, "Cerrando...");
-        dispose(); // TODO add your handling code here:
+
+        dispose(); 
     }//GEN-LAST:event_jButton1ActionPerformed
    private void limpiarDatos(){
         txtCiudad.setText("");
