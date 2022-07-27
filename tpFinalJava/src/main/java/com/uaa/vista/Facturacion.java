@@ -187,10 +187,11 @@ public class Facturacion extends javax.swing.JFrame {
         int estado = 0;
 
         if (txtEstado.getText().equals("En Espera")) {
+            txtEstado.setText("Pagado");
             estado = 0;
             JOptionPane.showMessageDialog(null, "La factura ha sido procesada");
         }
-        else {
+        else {       
             estado = 1;
             JOptionPane.showMessageDialog(null, "La factura ya ha sido procesada anteriormente");
         }      
@@ -202,28 +203,27 @@ public class Facturacion extends javax.swing.JFrame {
                     h.setEstado(1); 
                     
                     estado = 1;
-                }
-                try{ 
-                    String myDriver = "com.mysql.cj.jdbc.Driver";
-
-                    Class.forName(myDriver);
-
-                    ConexionBD c = new ConexionBD();
-                    String myUrl = c.getUrl() + c.getServerName() + "/" + c.getDatabaseName()+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
-                    Connection cn = DriverManager.getConnection(myUrl, c.getUserName(), c.getPassword());
-
-                    int id = Integer.parseInt(comId.getSelectedItem().toString());
                     
-                    String query = "update hospedajes set estado = ? where idPasajero = ?";
-                    PreparedStatement cmd = cn.prepareStatement(query);
-                    cmd.setInt(1,estado);
-                    cmd.setInt(2, id);
+                    try{ 
+                        String myDriver = "com.mysql.cj.jdbc.Driver";
 
-                    cmd.executeUpdate();
+                        Class.forName(myDriver);
 
-                }catch(Exception e){System.out.println(e);}                    
-                
+                        ConexionBD c = new ConexionBD();
+                        String myUrl = c.getUrl() + c.getServerName() + "/" + c.getDatabaseName()+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
+                        Connection cn = DriverManager.getConnection(myUrl, c.getUserName(), c.getPassword());
 
+                        int id = Integer.parseInt(comId.getSelectedItem().toString());
+
+                        String query = "update hospedajes set estado = ? where idPasajero = ?";
+                        PreparedStatement cmd = cn.prepareStatement(query);
+                        cmd.setInt(1,estado);
+                        cmd.setInt(2, id);
+
+                        cmd.executeUpdate();
+
+                    }catch(Exception e){System.out.println(e);}                                  
+                }
             }          
         }
         
