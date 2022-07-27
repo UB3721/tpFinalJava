@@ -279,23 +279,20 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtDireccionActionPerformed
 
     private void buttonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarActionPerformed
-        Hotel hot=new Hotel();
+        Hotel hot = new Hotel();
         
         hot.setIdHotel(Integer.parseInt(txtId.getText()));
        
         if (comboTipoHotel.getSelectedItem().toString().equals("Playa")){
             hot.setTipoHotel(0);
-
-}
-        else if(comboTipoHotel.getSelectedItem().toString().equals("Ciudad")){
-            hot.setTipoHotel(2);}
-         else{
+        } else if(comboTipoHotel.getSelectedItem().toString().equals("Ciudad")){
+            hot.setTipoHotel(2);
+        } else{
             hot.setTipoHotel(3);
-   }
-       
-
+        }
         hot.setCodPostal(Integer.parseInt(txtCod.getText()));
         hot.setNombre(txtNombre.getText());
+        hot.setDireccion(txtDireccion.getText());
         if(comPais.getSelectedItem().equals(MemData.lstPaises[0])){
             hot.setPais(0);
         }
@@ -316,7 +313,6 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
         }
         hot.setCiudad(txtCiudad.getText());
       
-        
         hot.grabar();
         limpiarDatos();
         listar();
@@ -395,34 +391,33 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
         jTableHoteles.setDefaultEditor(Object.class, null);
  }
   void listar() {
-    Hotel pes=new Hotel();
+        Hotel pes=new Hotel();
 
-         DefaultTableModel tblModel = (DefaultTableModel)jTableHoteles.getModel();
+        DefaultTableModel tblModel = (DefaultTableModel)jTableHoteles.getModel();
         Object rowData[] = new Object[7];
         ArrayList<Hotel> lstHoteles = pes.getHoteles();
 
         tblModel.setRowCount(0);
         for (int i=0; i<lstHoteles.size(); i++) {
        
-                rowData[0] = lstHoteles.get(i).getIdHotel();
-                rowData[1] = lstHoteles.get(i).getCodPostal();
-                rowData[2] = MemData.tipoHoteles[lstHoteles.get(i).getTipoHotel()];
-                rowData[3] = lstHoteles.get(i).getNombre();
-                rowData[4] = lstHoteles.get(i).getDireccion();
-                rowData[5] = MemData.lstPaises[lstHoteles.get(i).getPais()];
-                rowData[6] = lstHoteles.get(i).getCiudad();
+            rowData[0] = lstHoteles.get(i).getIdHotel();
+            rowData[1] = lstHoteles.get(i).getCodPostal();
+            rowData[2] = MemData.tipoHoteles[lstHoteles.get(i).getTipoHotel()];
+            rowData[3] = lstHoteles.get(i).getNombre();
+            rowData[4] = lstHoteles.get(i).getDireccion();
+            rowData[5] = MemData.lstPaises[lstHoteles.get(i).getPais()];
+            rowData[6] = lstHoteles.get(i).getCiudad();
                 
 
-                tblModel.addRow(rowData);
-            
+            tblModel.addRow(rowData);    
         }  
         
     }
   void eliminar(){
-       int fila = jTableHoteles.getSelectedRow();
-         int columna= 0;
-         int idEliminado = Integer.parseInt(jTableHoteles.getModel().getValueAt(fila, columna).toString());
-         System.out.println(idEliminado);
+        int fila = jTableHoteles.getSelectedRow();
+        int columna= 0;
+        int idEliminado = Integer.parseInt(jTableHoteles.getModel().getValueAt(fila, columna).toString());
+        System.out.println(idEliminado);
          
         if (fila < 0) {
             JOptionPane.showMessageDialog(null,"Usuario no Seleccionado");
@@ -430,7 +425,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
             String myDriver = "com.mysql.cj.jdbc.Driver";
             
             Class.forName(myDriver);
-            String query = "delete from pasajeros where idHotel="+idEliminado;
+            String query = "delete from hoteles where idHotel="+idEliminado;
             ConexionBD c = new ConexionBD();
             String myUrl = c.getUrl() + c.getServerName() + "/" + c.getDatabaseName()+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
             Connection cn = DriverManager.getConnection(myUrl, c.getUserName(), c.getPassword());
