@@ -277,7 +277,7 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         }
 
 
-        
+        JOptionPane.showMessageDialog(null, "El hospedaje ha sido cargado");
         h.setNroHospedaje((Integer) spinnerId.getValue());
         h.setFechaInicio(txtFieldFechaInicio.getText());
         h.setFechaFin(txtFieldFechaFin.getText());

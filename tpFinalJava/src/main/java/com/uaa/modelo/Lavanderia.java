@@ -9,8 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -98,7 +96,6 @@ public class Lavanderia extends ConexionBD{
                     resp = true;
                 }
             else {
-                Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, "NO SE GRABO LA CONSULTA!");
                 cn.rollback();
             }
         }
@@ -110,7 +107,7 @@ public class Lavanderia extends ConexionBD{
                     cmd.close();
                     cmd = null;
                 }
-                catch (SQLException e) {System.err.println("Error de SQL: " + e);}
+                catch (SQLException e) {}
             }
             cerrarConexion();
         }
@@ -158,9 +155,7 @@ public class Lavanderia extends ConexionBD{
             rs.close();
             rs = null;
         }
-        catch (SQLException e) {
-            System.err.println("Error de SQL: " + e);
-        }
+        catch (SQLException e) {}
         finally {
             if (cmd != null) {
                 try {

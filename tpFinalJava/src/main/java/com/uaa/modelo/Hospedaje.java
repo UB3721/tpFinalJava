@@ -9,9 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Gabriel
@@ -169,11 +166,10 @@ import java.util.logging.Logger;
                     resp = true;
                 }
             else {
-                Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, "NO SE GRABO LA CONSULTA!");
                 cn.rollback();
             }
         }
-        catch (SQLException e) {System.err.println("Error de SQL: " + e);}
+        catch (SQLException e) {}
         finally {
 
             if (cmd != null) {
@@ -247,9 +243,7 @@ import java.util.logging.Logger;
             rs.close();
             rs = null;
         }
-        catch (SQLException e) {
-            System.err.println("Error de SQL: " + e);
-        }
+        catch (SQLException e) {}
         finally {
             if (cmd != null) {
                 try {

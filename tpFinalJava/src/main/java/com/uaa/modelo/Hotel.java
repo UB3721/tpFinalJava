@@ -9,8 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -133,7 +131,7 @@ public class Hotel extends ConexionBD{
                 cn.rollback();
             }
         }
-        catch (SQLException e) {System.err.println("Error de SQL: " + e);}
+        catch (SQLException e) {}
         finally {
 
             if (cmd != null) {
@@ -178,9 +176,7 @@ public class Hotel extends ConexionBD{
             rs.close();
             rs = null;
         }
-        catch (SQLException e) {
-            System.err.println("Error de SQL: " + e);
-        }
+        catch (SQLException e) {}
         finally {
             if (cmd != null) {
                 try {
