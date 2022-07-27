@@ -120,7 +120,7 @@
                       <Component id="txtCod" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
                       <Component id="comboTipoHotel" pref="378" max="32767" attributes="0"/>
-                      <Component id="comboPais" max="32767" attributes="0"/>
+                      <Component id="comPais" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
@@ -161,7 +161,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="comboPais" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comPais" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -277,7 +277,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable2">
+            <Component class="javax.swing.JTable" name="jTableHoteles">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="7" rowCount="4">
@@ -334,7 +334,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable2MouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableHotelesMouseClicked"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -347,7 +347,7 @@
             <Property name="text" type="java.lang.String" value="Ciudad:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="comboPais">
+        <Component class="javax.swing.JComboBox" name="comPais">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>

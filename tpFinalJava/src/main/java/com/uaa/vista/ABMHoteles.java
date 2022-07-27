@@ -58,9 +58,9 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
         buttonModificar = new javax.swing.JButton();
         buttonEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableHoteles = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        comboPais = new javax.swing.JComboBox<>();
+        comPais = new javax.swing.JComboBox<>();
         txtCiudad = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
@@ -131,7 +131,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableHoteles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -142,12 +142,12 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
                 "ID", "Codigo Postal", "Tipo Hotel", "Nombre", "Direccion", "Pais", "Ciudad"
             }
         ));
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableHoteles.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
+                jTableHotelesMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable2);
+        jScrollPane1.setViewportView(jTableHoteles);
 
         jLabel9.setText("Ciudad:");
 
@@ -197,7 +197,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
                     .addComponent(txtCod)
                     .addComponent(txtNombre)
                     .addComponent(comboTipoHotel, 0, 378, Short.MAX_VALUE)
-                    .addComponent(comboPais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(comPais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(41, 41, 41))
         );
         paneldatosLayout.setVerticalGroup(
@@ -229,7 +229,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(comboPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -296,19 +296,19 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
 
         hot.setCodPostal(Integer.parseInt(txtCod.getText()));
         hot.setNombre(txtNombre.getText());
-        if(comboPais.getSelectedItem().equals(MemData.lstPaises[0])){
+        if(comPais.getSelectedItem().equals(MemData.lstPaises[0])){
             hot.setPais(0);
         }
-        else if(comboPais.getSelectedItem().equals(MemData.lstPaises[1])){
+        else if(comPais.getSelectedItem().equals(MemData.lstPaises[1])){
             hot.setPais(1);
         }
-        else if(comboPais.getSelectedItem().equals(MemData.lstPaises[2])){
+        else if(comPais.getSelectedItem().equals(MemData.lstPaises[2])){
             hot.setPais(2);
         }
-        else if(comboPais.getSelectedItem().equals(MemData.lstPaises[3])){
+        else if(comPais.getSelectedItem().equals(MemData.lstPaises[3])){
             hot.setPais(3);
         }
-        else if(comboPais.getSelectedItem().equals(MemData.lstPaises[4])){
+        else if(comPais.getSelectedItem().equals(MemData.lstPaises[4])){
             hot.setPais(4);
         }
         else{
@@ -336,29 +336,43 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
       limpiarDatos();
     }//GEN-LAST:event_buttonEliminarActionPerformed
 
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-         int fila=jTable2.getSelectedRow();
-      if(fila==-1){
-          JOptionPane.showMessageDialog(null, "Usuario no seleccionado");
-                  }else{
-                    int Id=Integer.parseInt((String)jTable2.getValueAt(fila, 0).toString());
-                    int tipohot=Integer.parseInt((String)jTable2.getValueAt(fila, 2).toString());
-                    int codpost=Integer.parseInt((String)jTable2.getValueAt(fila, 1).toString());
-                    String nombre=(String)jTable2.getValueAt(fila, 3);
-                    String direccion=(String)jTable2.getValueAt(fila, 4);
-                    int pais=Integer.parseInt((String)jTable2.getValueAt(fila, 5).toString());
-                    String ciudad=(String)jTable2.getValueAt(fila, 6);
+    private void jTableHotelesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableHotelesMouseClicked
+                    int fila=jTableHoteles.getSelectedRow();
+                    if(fila==-1){
+                        JOptionPane.showMessageDialog(null, "Hotel no seleccionado");
+                    }else{
+                        int id=Integer.parseInt((jTableHoteles.getValueAt(fila, 0).toString()));
+                        int tipoHot=0;
+                        if (MemData.tipoHabitaciones[0].equals(jTableHoteles.getValueAt(fila, 2).toString())) {
+                            tipoHot = 0;
+                        } else if (MemData.tipoHabitaciones[1].equals(jTableHoteles.getValueAt(fila, 2).toString())){
+                            tipoHot = 1;
+                        } else if (MemData.tipoHabitaciones[2].equals(jTableHoteles.getValueAt(fila, 2).toString())) {
+                            tipoHot= 2;
+                        }
+                        int codPost=Integer.parseInt(jTableHoteles.getValueAt(fila, 1).toString());
+                        String nombre=jTableHoteles.getValueAt(fila, 3).toString();
+                        String direccion=jTableHoteles.getValueAt(fila, 4).toString();
+                        
+                        int pais = 0;
+                        for (int i=0; i<MemData.lstPaises.length ; i++) {
+                            if (jTableHoteles.getValueAt(fila, 5).toString().equals(MemData.lstPaises[i])) {
+                                pais = i;
+                            }
+                        }
+                        
+                        String ciudad=jTableHoteles.getValueAt(fila, 6).toString();
                     
-                    txtCiudad.setText(""+ciudad);
-                    comboPais.getModel().setSelectedItem(""+pais);
-                    comboTipoHotel.getModel().setSelectedItem(""+tipohot);
-                    txtCod.setText(""+codpost);
-                    txtDireccion.setText(direccion);
-                    txtNombre.setText(nombre);
-                    txtId.setText("" + Id);
+                        txtCiudad.setText(""+ciudad);
+                        comPais.getModel().setSelectedItem(""+MemData.lstPaises[pais]);
+                        comboTipoHotel.getModel().setSelectedItem(""+MemData.tipoHoteles[tipoHot]);
+                        txtCod.setText(""+codPost);
+                        txtDireccion.setText(direccion);
+                        txtNombre.setText(nombre);
+                        txtId.setText("" + id);
           
       }
-    }//GEN-LAST:event_jTable2MouseClicked
+    }//GEN-LAST:event_jTableHotelesMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JOptionPane.showMessageDialog(null, "Cerrando...");
@@ -366,7 +380,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
    private void limpiarDatos(){
         txtCiudad.setText("");
-        comboPais.getModel().setSelectedItem("Uruguay");
+        comPais.getModel().setSelectedItem("Uruguay");
         comboTipoHotel.getModel().setSelectedItem("Playa");
         txtCod.setText("");
         txtDireccion.setText("");
@@ -376,14 +390,14 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
    
  private void initComboBox() {
         for (String pais : MemData.lstPaises) {
-            comboPais.addItem(pais);
+            comPais.addItem(pais);
         }
-
+        jTableHoteles.setDefaultEditor(Object.class, null);
  }
   void listar() {
     Hotel pes=new Hotel();
 
-         DefaultTableModel tblModel = (DefaultTableModel)jTable2.getModel();
+         DefaultTableModel tblModel = (DefaultTableModel)jTableHoteles.getModel();
         Object rowData[] = new Object[7];
         ArrayList<Hotel> lstHoteles = pes.getHoteles();
 
@@ -405,9 +419,9 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
         
     }
   void eliminar(){
-       int fila = jTable2.getSelectedRow();
+       int fila = jTableHoteles.getSelectedRow();
          int columna= 0;
-         int idEliminado = Integer.parseInt(jTable2.getModel().getValueAt(fila, columna).toString());
+         int idEliminado = Integer.parseInt(jTableHoteles.getModel().getValueAt(fila, columna).toString());
          System.out.println(idEliminado);
          
         if (fila < 0) {
@@ -432,23 +446,28 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     
 }
   void modificar(){
-      int id=Integer.parseInt(txtId.getText());
-      int tipohotel;
-      if(comboTipoHotel.getSelectedItem().toString().equals("Naturaleza")){
-          tipohotel=0;
-      }
-      else if(comboTipoHotel.getSelectedItem().toString().equals("Playa")){
-      tipohotel=1;
-  }
-      else{
-          tipohotel=2;
-      }
-      String codpostal=txtCod.getText();
-      String direccion=txtDireccion.getText();
-      String nombre=txtNombre.getText();
-      int pais=Integer.parseInt(comboPais.getSelectedItem().toString());
-      String ciudad=txtCiudad.getText();
-       try{ 
+        int id=Integer.parseInt(txtId.getText());
+        int tipohotel = 0;
+        if(comboTipoHotel.getSelectedItem().toString().equals("Playa")){
+            tipohotel=0;
+        }
+        else if(comboTipoHotel.getSelectedItem().toString().equals("Ciudad")){
+            tipohotel=1;
+        }
+        else if(comboTipoHotel.getSelectedItem().toString().equals("Naturaleza")){
+            tipohotel=2;
+        }
+        String codpostal=txtCod.getText();
+        String direccion=txtDireccion.getText();
+        String nombre=txtNombre.getText();
+        int pais = 0;
+        for (int i=0; i<MemData.lstPaises.length ; i++) {
+            if (comPais.getSelectedItem().toString().equals(MemData.lstPaises[i])) {
+                pais = i;
+            }
+        }
+        String ciudad=txtCiudad.getText();
+        try{ 
             String myDriver = "com.mysql.cj.jdbc.Driver";
             
             Class.forName(myDriver);
@@ -456,7 +475,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
             ConexionBD c = new ConexionBD();
             String myUrl = c.getUrl() + c.getServerName() + "/" + c.getDatabaseName()+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
             Connection cn = DriverManager.getConnection(myUrl, c.getUserName(), c.getPassword());
-            String query = "update pasajeros set codPostal = ?, tipoHotel = ?, nombre = ?, direccion = ?, pais = ?, ciudad = ? where idPasajero = ?";
+            String query = "update hoteles set codPostal = ?, tipoHotel = ?, nombre = ?, direccion = ?, pais = ?, ciudad = ? where idHotel = ?";
             PreparedStatement cmd = cn.prepareStatement(query);
             cmd.setString(1, codpostal);
             cmd.setInt(2, tipohotel);
@@ -467,14 +486,14 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
             cmd.setInt(7, Integer.parseInt(txtId.getText()));
             cmd.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "Usuario Actualizado");
+            JOptionPane.showMessageDialog(null, "Hotel Actualizado");
         }catch(Exception e){System.out.println(e);}
   }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAgregar;
     private javax.swing.JButton buttonEliminar;
     private javax.swing.JButton buttonModificar;
-    private javax.swing.JComboBox<String> comboPais;
+    private javax.swing.JComboBox<String> comPais;
     private javax.swing.JComboBox<String> comboTipoHotel;
     private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
@@ -488,7 +507,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jTable2;
+    public javax.swing.JTable jTableHoteles;
     private javax.swing.JPanel paneldatos;
     private javax.swing.JTextField txtCiudad;
     private javax.swing.JTextField txtCod;

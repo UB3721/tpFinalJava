@@ -127,7 +127,7 @@ public class Pasajero extends Persona {
             rs.close();
             rs = null;
         }
-        catch (Exception e) {
+        catch (SQLException e) {
             System.err.println("Error de SQL: " + e);
         }
         finally {
@@ -136,7 +136,7 @@ public class Pasajero extends Persona {
                     cmd.close();
                     cmd = null;
                 }
-                catch (Exception e) {}
+                catch (SQLException e) {}
             }
             cerrarConexion();
         }

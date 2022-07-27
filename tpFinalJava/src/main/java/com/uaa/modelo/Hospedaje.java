@@ -173,7 +173,7 @@ import java.util.logging.Logger;
                 cn.rollback();
             }
         }
-        catch (SQLException e) {
+        catch (Exception e) {
             Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, e);
         }
         finally {
