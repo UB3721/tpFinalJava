@@ -37,13 +37,13 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        comFuncionario = new javax.swing.JComboBox<>();
-        comPasajero = new javax.swing.JComboBox<>();
-        comHabitacion = new javax.swing.JComboBox<>();
-        comHotel = new javax.swing.JComboBox<>();
-        comLavanderia = new javax.swing.JComboBox<>();
-        txtFechaInicio = new javax.swing.JTextField();
-        txtFechaFin = new javax.swing.JTextField();
+        comboBoxFuncionario = new javax.swing.JComboBox<>();
+        comboBoxPasajero = new javax.swing.JComboBox<>();
+        comboBoxHabitacion = new javax.swing.JComboBox<>();
+        comboBoxHotel = new javax.swing.JComboBox<>();
+        comboBoxLavanderia = new javax.swing.JComboBox<>();
+        txtFieldFechaInicio = new javax.swing.JTextField();
+        txtFieldFechaFin = new javax.swing.JTextField();
         spinnerId = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -64,27 +64,27 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("HOSPEDAJE");
 
-        comFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comFuncionarioActionPerformed(evt);
+                comboBoxFuncionarioActionPerformed(evt);
             }
         });
 
-        comPasajero.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxPasajero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comPasajeroActionPerformed(evt);
+                comboBoxPasajeroActionPerformed(evt);
             }
         });
 
-        comHabitacion.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comHabitacionActionPerformed(evt);
+                comboBoxHabitacionActionPerformed(evt);
             }
         });
 
-        comHotel.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxHotel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comHotelActionPerformed(evt);
+                comboBoxHotelActionPerformed(evt);
             }
         });
 
@@ -149,21 +149,21 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(comHabitacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comLavanderia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtFechaInicio)
-                            .addComponent(txtFechaFin)
+                            .addComponent(comboBoxHabitacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboBoxLavanderia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtFieldFechaInicio)
+                            .addComponent(txtFieldFechaFin)
                             .addComponent(spinnerId)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(comPasajero, javax.swing.GroupLayout.Alignment.LEADING, 0, 120, Short.MAX_VALUE)
-                                    .addComponent(comFuncionario, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(comboBoxPasajero, javax.swing.GroupLayout.Alignment.LEADING, 0, 120, Short.MAX_VALUE)
+                                    .addComponent(comboBoxFuncionario, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(34, 34, 34)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtFieldFuncionario)
                                     .addComponent(txtFieldPasajero)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(comHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(comboBoxHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                                 .addComponent(txtFieldHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(49, 49, 49))
@@ -184,34 +184,34 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(comFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboBoxFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtFieldFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comPasajero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxPasajero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(txtFieldPasajero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(txtFieldHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comLavanderia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxLavanderia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFieldFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFieldFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addGap(77, 77, 77)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -249,28 +249,28 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         Lavanderia lav = new Lavanderia();
         
         for (Funcionario f : fun.getFuncionarios()) {
-            if (f.getIdFuncionario()==Integer.parseInt(comFuncionario.getSelectedItem().toString())) {
+            if (f.getIdFuncionario()==Integer.parseInt(comboBoxFuncionario.getSelectedItem().toString())) {
                 h.setFuncionario(f);
             }
         }
         for (Pasajero p : pas.getPasajeros()) {
-            if (p.getIdPasajero()==Integer.parseInt(comPasajero.getSelectedItem().toString())) {
+            if (p.getIdPasajero()==Integer.parseInt(comboBoxPasajero.getSelectedItem().toString())) {
                 h.setPasajero(p);
             }
         }
         for (Habitacion ha : hab.getHabitaciones()) {
-            if (ha.getNroHabitacion()==Integer.parseInt(comHabitacion.getSelectedItem().toString())) {
+            if (ha.getNroHabitacion()==Integer.parseInt(comboBoxHabitacion.getSelectedItem().toString())) {
                 h.setHabitacion(ha);
             }
         }
         for (Hotel ho : hot.getHoteles()) {
-            if (ho.getIdHotel()==Integer.parseInt(comHotel.getSelectedItem().toString())) {
+            if (ho.getIdHotel()==Integer.parseInt(comboBoxHotel.getSelectedItem().toString())) {
                 h.setHotel(ho);
             }
         }
-        if (comLavanderia.getSelectedItem()!=null) {
+        if (comboBoxLavanderia.getSelectedItem()!=null) {
             for (Lavanderia l : lav.getServicios()) {
-               if (l.getNroServicio()==Integer.parseInt(comLavanderia.getSelectedItem().toString())) {
+               if (l.getNroServicio()==Integer.parseInt(comboBoxLavanderia.getSelectedItem().toString())) {
                    h.setLavanderia(l);
                }
             }           
@@ -279,69 +279,69 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
 
         
         h.setNroHospedaje((Integer) spinnerId.getValue());
-        h.setFechaInicio(txtFechaInicio.getText());
-        h.setFechaFin(txtFechaFin.getText());
+        h.setFechaInicio(txtFieldFechaInicio.getText());
+        h.setFechaFin(txtFieldFechaFin.getText());
         h.setEstado(0);
         h.grabar();
         
     }//GEN-LAST:event_btnGrabarActionPerformed
 
-    private void comFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comFuncionarioActionPerformed
+    private void comboBoxFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxFuncionarioActionPerformed
         Funcionario fun = new Funcionario();
         for (Funcionario f : fun.getFuncionarios()) {
-            if (String.valueOf(f.getIdFuncionario()).equals(comFuncionario.getSelectedItem().toString())) {
+            if (String.valueOf(f.getIdFuncionario()).equals(comboBoxFuncionario.getSelectedItem().toString())) {
                 txtFieldFuncionario.setText(f.getNombre() + " " + f.getApellido());
             }
         }         
-    }//GEN-LAST:event_comFuncionarioActionPerformed
+    }//GEN-LAST:event_comboBoxFuncionarioActionPerformed
 
-    private void comPasajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comPasajeroActionPerformed
+    private void comboBoxPasajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPasajeroActionPerformed
         Pasajero pas = new Pasajero();
         for (Pasajero p : pas.getPasajeros()) {
-            if (String.valueOf(p.getIdPasajero()).equals(comPasajero.getSelectedItem().toString())) {
+            if (String.valueOf(p.getIdPasajero()).equals(comboBoxPasajero.getSelectedItem().toString())) {
                 txtFieldPasajero.setText(p.getNombre() + " " + p.getApellido());
             }
         }     
-    }//GEN-LAST:event_comPasajeroActionPerformed
+    }//GEN-LAST:event_comboBoxPasajeroActionPerformed
 
-    private void comHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comHotelActionPerformed
+    private void comboBoxHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxHotelActionPerformed
         Hotel hot = new Hotel();
         for (Hotel h : hot.getHoteles()) {
-            if (String.valueOf(h.getIdHotel()).equals(comHotel.getSelectedItem().toString())){ 
+            if (String.valueOf(h.getIdHotel()).equals(comboBoxHotel.getSelectedItem().toString())){ 
                 txtFieldHotel.setText(h.getNombre());
             }
         }       
-    }//GEN-LAST:event_comHotelActionPerformed
+    }//GEN-LAST:event_comboBoxHotelActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
 
-    private void comHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comHabitacionActionPerformed
-        comLavanderia.removeAllItems();
+    private void comboBoxHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxHabitacionActionPerformed
+        comboBoxLavanderia.removeAllItems();
         Lavanderia lav = new Lavanderia();
         boolean ban = false;
         for (Lavanderia l : lav.getServicios()) {
-            if (l.getHabitacion().getNroHabitacion()==Integer.parseInt(comHabitacion.getSelectedItem().toString())) {
-                comLavanderia.addItem(String.valueOf(l.getNroServicio()));
-                comLavanderia.setSelectedIndex(0);
+            if (l.getHabitacion().getNroHabitacion()==Integer.parseInt(comboBoxHabitacion.getSelectedItem().toString())) {
+                comboBoxLavanderia.addItem(String.valueOf(l.getNroServicio()));
+                comboBoxLavanderia.setSelectedIndex(0);
                 ban = true;
             }
         }
         if (ban==false) {
-            comLavanderia.setSelectedIndex(-1);
+            comboBoxLavanderia.setSelectedIndex(-1);
         }
-    }//GEN-LAST:event_comHabitacionActionPerformed
+    }//GEN-LAST:event_comboBoxHabitacionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnGrabar;
-    private javax.swing.JComboBox<String> comFuncionario;
-    private javax.swing.JComboBox<String> comHabitacion;
-    private javax.swing.JComboBox<String> comHotel;
-    private javax.swing.JComboBox<String> comLavanderia;
-    private javax.swing.JComboBox<String> comPasajero;
+    private javax.swing.JComboBox<String> comboBoxFuncionario;
+    private javax.swing.JComboBox<String> comboBoxHabitacion;
+    private javax.swing.JComboBox<String> comboBoxHotel;
+    private javax.swing.JComboBox<String> comboBoxLavanderia;
+    private javax.swing.JComboBox<String> comboBoxPasajero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -353,8 +353,8 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSpinner spinnerId;
-    private javax.swing.JTextField txtFechaFin;
-    private javax.swing.JTextField txtFechaInicio;
+    private javax.swing.JTextField txtFieldFechaFin;
+    private javax.swing.JTextField txtFieldFechaInicio;
     private javax.swing.JTextField txtFieldFuncionario;
     private javax.swing.JTextField txtFieldHotel;
     private javax.swing.JTextField txtFieldPasajero;
@@ -368,19 +368,19 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         
         Funcionario fun = new Funcionario();
         for (Funcionario f : fun.getFuncionarios()) {
-            comFuncionario.addItem(String.valueOf(f.getIdFuncionario()));
+            comboBoxFuncionario.addItem(String.valueOf(f.getIdFuncionario()));
         }
         Pasajero pas = new Pasajero();
         for (Pasajero p : pas.getPasajeros()) {
-            comPasajero.addItem(String.valueOf(p.getIdPasajero()));
+            comboBoxPasajero.addItem(String.valueOf(p.getIdPasajero()));
         }
         Hotel hot = new Hotel();
         for (Hotel h : hot.getHoteles()) {
-            comHotel.addItem(String.valueOf(h.getIdHotel()));
+            comboBoxHotel.addItem(String.valueOf(h.getIdHotel()));
         }
         Habitacion hab = new Habitacion();
         for (Habitacion h : hab.getHabitaciones()) {
-            comHabitacion.addItem(String.valueOf(h.getNroHabitacion()));
+            comboBoxHabitacion.addItem(String.valueOf(h.getNroHabitacion()));
         }
 
         

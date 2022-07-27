@@ -86,12 +86,12 @@
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtTotal" max="32767" attributes="0"/>
-                                      <Component id="txtPrecioLavanderia" max="32767" attributes="0"/>
-                                      <Component id="txtPrecioHabitacion" max="32767" attributes="0"/>
-                                      <Component id="comId" pref="416" max="32767" attributes="0"/>
-                                      <Component id="comHabitacion" max="32767" attributes="0"/>
-                                      <Component id="txtEstado" max="32767" attributes="0"/>
+                                      <Component id="txtFieldTotal" max="32767" attributes="0"/>
+                                      <Component id="txtFieldPrecioLavanderia" max="32767" attributes="0"/>
+                                      <Component id="txtFieldPrecioHabitacion" max="32767" attributes="0"/>
+                                      <Component id="comboBoxId" pref="416" max="32767" attributes="0"/>
+                                      <Component id="comboBoxHabitacion" max="32767" attributes="0"/>
+                                      <Component id="txtFieldEstado" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -109,32 +109,32 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="comId" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboBoxId" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="comHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboBoxHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtPrecioHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFieldPrecioHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtPrecioLavanderia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFieldPrecioLavanderia" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFieldTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFieldEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="25" max="32767" attributes="0"/>
                   <Component id="buttonFactura" min="-2" max="-2" attributes="0"/>
@@ -160,14 +160,14 @@
             <Property name="text" type="java.lang.String" value="ID Pasajero"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="comId">
+        <Component class="javax.swing.JComboBox" name="comboBoxId">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comIdActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxIdActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -181,24 +181,24 @@
             <Property name="text" type="java.lang.String" value="N&#xfa;mero Habitaci&#xf3;n:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="comHabitacion">
+        <Component class="javax.swing.JComboBox" name="comboBoxHabitacion">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comHabitacionActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxHabitacionActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPrecioHabitacion">
+        <Component class="javax.swing.JTextField" name="txtFieldPrecioHabitacion">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPrecioLavanderia">
+        <Component class="javax.swing.JTextField" name="txtFieldPrecioLavanderia">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtTotal">
+        <Component class="javax.swing.JTextField" name="txtFieldTotal">
         </Component>
         <Component class="javax.swing.JButton" name="buttonFactura">
           <Properties>
@@ -240,7 +240,7 @@
             <Property name="text" type="java.lang.String" value="Estado: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtEstado">
+        <Component class="javax.swing.JTextField" name="txtFieldEstado">
         </Component>
       </SubComponents>
     </Container>

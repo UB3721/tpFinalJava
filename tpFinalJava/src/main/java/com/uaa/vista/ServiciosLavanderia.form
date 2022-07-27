@@ -67,11 +67,11 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="comHabitaciones" max="32767" attributes="0"/>
-                              <Component id="txtCantidad" max="32767" attributes="0"/>
-                              <Component id="txtNroServicio" alignment="0" max="32767" attributes="0"/>
+                              <Component id="comboBoxHabitacion" max="32767" attributes="0"/>
+                              <Component id="txtFieldCantidad" max="32767" attributes="0"/>
+                              <Component id="txtFieldNroServicio" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comFuncionarios" min="-2" pref="102" max="-2" attributes="0"/>
+                                  <Component id="comboBoxFuncionario" min="-2" pref="102" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="txtFieldFuncionarios" pref="188" max="32767" attributes="0"/>
                               </Group>
@@ -94,22 +94,22 @@
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtNroServicio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFieldNroServicio" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="comHabitaciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboBoxHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="comFuncionarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboBoxFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtFieldFuncionarios" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFieldCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -131,7 +131,7 @@
             <Property name="text" type="java.lang.String" value="Servicios Lavanderia"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="comHabitaciones">
+        <Component class="javax.swing.JComboBox" name="comboBoxHabitacion">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
@@ -141,20 +141,20 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="comFuncionarios">
+        <Component class="javax.swing.JComboBox" name="comboBoxFuncionario">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comFuncionariosActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxFuncionarioActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCantidad">
+        <Component class="javax.swing.JTextField" name="txtFieldCantidad">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -188,7 +188,7 @@
             <Property name="text" type="java.lang.String" value="Nro. Servicio:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNroServicio">
+        <Component class="javax.swing.JTextField" name="txtFieldNroServicio">
         </Component>
         <Component class="javax.swing.JTextField" name="txtFieldFuncionarios">
         </Component>

@@ -34,14 +34,14 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        comHabitaciones = new javax.swing.JComboBox<>();
-        comFuncionarios = new javax.swing.JComboBox<>();
-        txtCantidad = new javax.swing.JTextField();
+        comboBoxHabitacion = new javax.swing.JComboBox<>();
+        comboBoxFuncionario = new javax.swing.JComboBox<>();
+        txtFieldCantidad = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtNroServicio = new javax.swing.JTextField();
+        txtFieldNroServicio = new javax.swing.JTextField();
         txtFieldFuncionarios = new javax.swing.JTextField();
         btnServicio = new javax.swing.JButton();
 
@@ -53,9 +53,9 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
         jLabel1.setForeground(java.awt.Color.white);
         jLabel1.setText("Servicios Lavanderia");
 
-        comFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comFuncionariosActionPerformed(evt);
+                comboBoxFuncionarioActionPerformed(evt);
             }
         });
 
@@ -96,11 +96,11 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(comHabitaciones, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCantidad)
-                            .addComponent(txtNroServicio)
+                            .addComponent(comboBoxHabitacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtFieldCantidad)
+                            .addComponent(txtFieldNroServicio)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(comFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(comboBoxFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
                                 .addComponent(txtFieldFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -116,19 +116,19 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtNroServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFieldNroServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(txtFieldFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFieldCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addComponent(btnServicio)
@@ -155,34 +155,34 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void comFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comFuncionariosActionPerformed
+    private void comboBoxFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxFuncionarioActionPerformed
         Funcionario fun = new Funcionario();
         for (Funcionario f : fun.getFuncionarios()) {
-            if (String.valueOf(f.getIdFuncionario()).equals(comFuncionarios.getSelectedItem().toString())) {
+            if (String.valueOf(f.getIdFuncionario()).equals(comboBoxFuncionario.getSelectedItem().toString())) {
                 txtFieldFuncionarios.setText(f.getNombre() + " " + f.getApellido());
             }
         }
         
-    }//GEN-LAST:event_comFuncionariosActionPerformed
+    }//GEN-LAST:event_comboBoxFuncionarioActionPerformed
 
     private void btnServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServicioActionPerformed
-        if (!"".equals(txtNroServicio.getText()) && !"".equals(txtCantidad.getText())) {
+        if (!"".equals(txtFieldNroServicio.getText()) && !"".equals(txtFieldCantidad.getText())) {
             Lavanderia lav = new Lavanderia();
 
             Funcionario fun = new Funcionario();
             for (Funcionario f : fun.getFuncionarios()) {
-                if (String.valueOf(f.getIdFuncionario()).equals(comFuncionarios.getSelectedItem().toString())) {
+                if (String.valueOf(f.getIdFuncionario()).equals(comboBoxFuncionario.getSelectedItem().toString())) {
                     lav.setFuncionario(f);
                 }
             }
             Habitacion hab = new Habitacion();
             for (Habitacion h : hab.getHabitaciones()) {
-                if (String.valueOf(h.getNroHabitacion()).equals(comHabitaciones.getSelectedItem().toString())) {
+                if (String.valueOf(h.getNroHabitacion()).equals(comboBoxHabitacion.getSelectedItem().toString())) {
                     lav.setHabitacion(h);
                 }
             }
-            lav.setNroServicio(Integer.parseInt(txtNroServicio.getText()));
-            lav.setCantidad(Integer.parseInt(txtCantidad.getText()));
+            lav.setNroServicio(Integer.parseInt(txtFieldNroServicio.getText()));
+            lav.setCantidad(Integer.parseInt(txtFieldCantidad.getText()));
 
             lav.grabar();
             JOptionPane.showMessageDialog(null, "Servicio Agregado");
@@ -228,17 +228,17 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnServicio;
-    private javax.swing.JComboBox<String> comFuncionarios;
-    private javax.swing.JComboBox<String> comHabitaciones;
+    private javax.swing.JComboBox<String> comboBoxFuncionario;
+    private javax.swing.JComboBox<String> comboBoxHabitacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtCantidad;
+    private javax.swing.JTextField txtFieldCantidad;
     private javax.swing.JTextField txtFieldFuncionarios;
-    private javax.swing.JTextField txtNroServicio;
+    private javax.swing.JTextField txtFieldNroServicio;
     // End of variables declaration//GEN-END:variables
 
     private void initPantalla() {
@@ -249,10 +249,10 @@ public class ServiciosLavanderia extends javax.swing.JFrame {
         
 
         for (Funcionario f : fun.getFuncionarios()) {
-            comFuncionarios.addItem(String.valueOf(f.getIdFuncionario()));
+            comboBoxFuncionario.addItem(String.valueOf(f.getIdFuncionario()));
         }
         for (Habitacion h : hab.getHabitaciones()) {
-            comHabitaciones.addItem(String.valueOf(h.getNroHabitacion()));
+            comboBoxHabitacion.addItem(String.valueOf(h.getNroHabitacion()));
         }
     }
 }

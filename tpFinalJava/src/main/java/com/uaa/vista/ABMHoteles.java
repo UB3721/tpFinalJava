@@ -47,21 +47,21 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
-        txtCod = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        txtDireccion = new javax.swing.JTextField();
+        txtFieldId = new javax.swing.JTextField();
+        txtFieldCodPostal = new javax.swing.JTextField();
+        txtFieldNombre = new javax.swing.JTextField();
+        txtFieldDireccion = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        comboTipoHotel = new javax.swing.JComboBox<>();
+        comboBoxTipoHotel = new javax.swing.JComboBox<>();
         buttonAgregar = new javax.swing.JButton();
         buttonModificar = new javax.swing.JButton();
         buttonEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableHoteles = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        comPais = new javax.swing.JComboBox<>();
-        txtCiudad = new javax.swing.JTextField();
+        comboBoxPais = new javax.swing.JComboBox<>();
+        txtFieldCiudad = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         jInternalFrame1.setVisible(true);
@@ -92,15 +92,15 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Nombre:");
 
-        txtId.addActionListener(new java.awt.event.ActionListener() {
+        txtFieldId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdActionPerformed(evt);
+                txtFieldIdActionPerformed(evt);
             }
         });
 
-        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
+        txtFieldDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccionActionPerformed(evt);
+                txtFieldDireccionActionPerformed(evt);
             }
         });
 
@@ -108,7 +108,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Pais:");
 
-        comboTipoHotel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Playa", "Naturaleza", "Ciudad" }));
+        comboBoxTipoHotel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Playa", "Naturaleza", "Ciudad" }));
 
         buttonAgregar.setText("AGREGAR");
         buttonAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -191,13 +191,13 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtCiudad)
-                    .addComponent(txtDireccion)
-                    .addComponent(txtId)
-                    .addComponent(txtCod)
-                    .addComponent(txtNombre)
-                    .addComponent(comboTipoHotel, 0, 378, Short.MAX_VALUE)
-                    .addComponent(comPais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtFieldCiudad)
+                    .addComponent(txtFieldDireccion)
+                    .addComponent(txtFieldId)
+                    .addComponent(txtFieldCodPostal)
+                    .addComponent(txtFieldNombre)
+                    .addComponent(comboBoxTipoHotel, 0, 378, Short.MAX_VALUE)
+                    .addComponent(comboBoxPais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(41, 41, 41))
         );
         paneldatosLayout.setVerticalGroup(
@@ -209,31 +209,31 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
                 .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(paneldatosLayout.createSequentialGroup()
                         .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboTipoHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboBoxTipoHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFieldCodPostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel7))
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(comPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFieldCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(paneldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonAgregar)
@@ -270,48 +270,48 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+    private void txtFieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdActionPerformed
+    }//GEN-LAST:event_txtFieldIdActionPerformed
 
-    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
+    private void txtFieldDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldDireccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDireccionActionPerformed
+    }//GEN-LAST:event_txtFieldDireccionActionPerformed
 
     private void buttonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarActionPerformed
         Hotel hot = new Hotel();
         
-        hot.setIdHotel(Integer.parseInt(txtId.getText()));
+        hot.setIdHotel(Integer.parseInt(txtFieldId.getText()));
        
-        if (comboTipoHotel.getSelectedItem().toString().equals("Playa")){
+        if (comboBoxTipoHotel.getSelectedItem().toString().equals("Playa")){
             hot.setTipoHotel(0);
-        } else if(comboTipoHotel.getSelectedItem().toString().equals("Ciudad")){
+        } else if(comboBoxTipoHotel.getSelectedItem().toString().equals("Ciudad")){
             hot.setTipoHotel(2);
         } else{
             hot.setTipoHotel(3);
         }
-        hot.setCodPostal(Integer.parseInt(txtCod.getText()));
-        hot.setNombre(txtNombre.getText());
-        hot.setDireccion(txtDireccion.getText());
-        if(comPais.getSelectedItem().equals(MemData.lstPaises[0])){
+        hot.setCodPostal(Integer.parseInt(txtFieldCodPostal.getText()));
+        hot.setNombre(txtFieldNombre.getText());
+        hot.setDireccion(txtFieldDireccion.getText());
+        if(comboBoxPais.getSelectedItem().equals(MemData.lstPaises[0])){
             hot.setPais(0);
         }
-        else if(comPais.getSelectedItem().equals(MemData.lstPaises[1])){
+        else if(comboBoxPais.getSelectedItem().equals(MemData.lstPaises[1])){
             hot.setPais(1);
         }
-        else if(comPais.getSelectedItem().equals(MemData.lstPaises[2])){
+        else if(comboBoxPais.getSelectedItem().equals(MemData.lstPaises[2])){
             hot.setPais(2);
         }
-        else if(comPais.getSelectedItem().equals(MemData.lstPaises[3])){
+        else if(comboBoxPais.getSelectedItem().equals(MemData.lstPaises[3])){
             hot.setPais(3);
         }
-        else if(comPais.getSelectedItem().equals(MemData.lstPaises[4])){
+        else if(comboBoxPais.getSelectedItem().equals(MemData.lstPaises[4])){
             hot.setPais(4);
         }
         else{
             hot.setPais(5);
         }
-        hot.setCiudad(txtCiudad.getText());
+        hot.setCiudad(txtFieldCiudad.getText());
       
         hot.grabar();
         limpiarDatos();
@@ -359,13 +359,13 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
                         
                         String ciudad=jTableHoteles.getValueAt(fila, 6).toString();
                     
-                        txtCiudad.setText(""+ciudad);
-                        comPais.getModel().setSelectedItem(""+MemData.lstPaises[pais]);
-                        comboTipoHotel.getModel().setSelectedItem(""+MemData.tipoHoteles[tipoHot]);
-                        txtCod.setText(""+codPost);
-                        txtDireccion.setText(direccion);
-                        txtNombre.setText(nombre);
-                        txtId.setText("" + id);
+                        txtFieldCiudad.setText(""+ciudad);
+                        comboBoxPais.getModel().setSelectedItem(""+MemData.lstPaises[pais]);
+                        comboBoxTipoHotel.getModel().setSelectedItem(""+MemData.tipoHoteles[tipoHot]);
+                        txtFieldCodPostal.setText(""+codPost);
+                        txtFieldDireccion.setText(direccion);
+                        txtFieldNombre.setText(nombre);
+                        txtFieldId.setText("" + id);
           
       }
     }//GEN-LAST:event_jTableHotelesMouseClicked
@@ -375,18 +375,18 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
         dispose(); 
     }//GEN-LAST:event_jButton1ActionPerformed
    private void limpiarDatos(){
-        txtCiudad.setText("");
-        comPais.getModel().setSelectedItem("Uruguay");
-        comboTipoHotel.getModel().setSelectedItem("Playa");
-        txtCod.setText("");
-        txtDireccion.setText("");
-        txtNombre.setText("");
-        txtId.setText("");
+        txtFieldCiudad.setText("");
+        comboBoxPais.getModel().setSelectedItem("Uruguay");
+        comboBoxTipoHotel.getModel().setSelectedItem("Playa");
+        txtFieldCodPostal.setText("");
+        txtFieldDireccion.setText("");
+        txtFieldNombre.setText("");
+        txtFieldId.setText("");
     }
    
  private void initComboBox() {
         for (String pais : MemData.lstPaises) {
-            comPais.addItem(pais);
+            comboBoxPais.addItem(pais);
         }
         jTableHoteles.setDefaultEditor(Object.class, null);
  }
@@ -441,27 +441,27 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     
 }
   void modificar(){
-        int id=Integer.parseInt(txtId.getText());
+        int id=Integer.parseInt(txtFieldId.getText());
         int tipohotel = 0;
-        if(comboTipoHotel.getSelectedItem().toString().equals("Playa")){
+        if(comboBoxTipoHotel.getSelectedItem().toString().equals("Playa")){
             tipohotel=0;
         }
-        else if(comboTipoHotel.getSelectedItem().toString().equals("Ciudad")){
+        else if(comboBoxTipoHotel.getSelectedItem().toString().equals("Ciudad")){
             tipohotel=1;
         }
-        else if(comboTipoHotel.getSelectedItem().toString().equals("Naturaleza")){
+        else if(comboBoxTipoHotel.getSelectedItem().toString().equals("Naturaleza")){
             tipohotel=2;
         }
-        String codpostal=txtCod.getText();
-        String direccion=txtDireccion.getText();
-        String nombre=txtNombre.getText();
+        String codpostal=txtFieldCodPostal.getText();
+        String direccion=txtFieldDireccion.getText();
+        String nombre=txtFieldNombre.getText();
         int pais = 0;
         for (int i=0; i<MemData.lstPaises.length ; i++) {
-            if (comPais.getSelectedItem().toString().equals(MemData.lstPaises[i])) {
+            if (comboBoxPais.getSelectedItem().toString().equals(MemData.lstPaises[i])) {
                 pais = i;
             }
         }
-        String ciudad=txtCiudad.getText();
+        String ciudad=txtFieldCiudad.getText();
         try{ 
             String myDriver = "com.mysql.cj.jdbc.Driver";
             
@@ -478,7 +478,7 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
             cmd.setString(4, direccion);
             cmd.setInt(5, pais);
             cmd.setString(6, ciudad);
-            cmd.setInt(7, Integer.parseInt(txtId.getText()));
+            cmd.setInt(7, Integer.parseInt(txtFieldId.getText()));
             cmd.executeUpdate();
             
             JOptionPane.showMessageDialog(null, "Hotel Actualizado");
@@ -488,8 +488,8 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     private javax.swing.JButton buttonAgregar;
     private javax.swing.JButton buttonEliminar;
     private javax.swing.JButton buttonModificar;
-    private javax.swing.JComboBox<String> comPais;
-    private javax.swing.JComboBox<String> comboTipoHotel;
+    private javax.swing.JComboBox<String> comboBoxPais;
+    private javax.swing.JComboBox<String> comboBoxTipoHotel;
     private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
@@ -504,10 +504,10 @@ public class ABMHoteles extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTableHoteles;
     private javax.swing.JPanel paneldatos;
-    private javax.swing.JTextField txtCiudad;
-    private javax.swing.JTextField txtCod;
-    private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtFieldCiudad;
+    private javax.swing.JTextField txtFieldCodPostal;
+    private javax.swing.JTextField txtFieldDireccion;
+    private javax.swing.JTextField txtFieldId;
+    private javax.swing.JTextField txtFieldNombre;
     // End of variables declaration//GEN-END:variables
 }

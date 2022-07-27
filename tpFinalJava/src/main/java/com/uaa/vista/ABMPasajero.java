@@ -35,13 +35,13 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
        
     }
         private void limpiarDatos(){
-            txtCedula.setText("");
-            txtNombre.setText("");
-            txtApellido.setText("");
-            txtTelefono.setText("");
-            comGenero.getModel().setSelectedItem("Masculino");
-            txtEdad.setText("");
-            txtFechaNac.setText("");
+            txtFieldCedula.setText("");
+            txtFieldNombre.setText("");
+            txtFieldApellido.setText("");
+            txtFieldTelefono.setText("");
+            comboBoxGenero.getModel().setSelectedItem("Masculino");
+            txtFieldEdad.setText("");
+            txtFieldFechaNacimiento.setText("");
             txtFieldId.setText("");
            
         }
@@ -57,25 +57,25 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtCedula = new javax.swing.JTextField();
+        txtFieldCedula = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtFieldNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtApellido = new javax.swing.JTextField();
+        txtFieldApellido = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtTelefono = new javax.swing.JTextField();
+        txtFieldTelefono = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtEdad = new javax.swing.JTextField();
+        txtFieldEdad = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         buttonAgregar = new javax.swing.JButton();
         buttonEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        txtFechaNac = new javax.swing.JTextField();
+        txtFieldFechaNacimiento = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        comGenero = new javax.swing.JComboBox<>();
+        comboBoxGenero = new javax.swing.JComboBox<>();
         btnModificar = new javax.swing.JButton();
         txtFieldId = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -85,25 +85,25 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Cedula:");
 
-        txtCedula.addActionListener(new java.awt.event.ActionListener() {
+        txtFieldCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCedulaActionPerformed(evt);
+                txtFieldCedulaActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Nombre:");
 
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+        txtFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+                txtFieldNombreActionPerformed(evt);
             }
         });
 
         jLabel4.setText("Apellido:");
 
-        txtApellido.addActionListener(new java.awt.event.ActionListener() {
+        txtFieldApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellidoActionPerformed(evt);
+                txtFieldApellidoActionPerformed(evt);
             }
         });
 
@@ -111,9 +111,9 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Telefono:");
 
-        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+        txtFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonoActionPerformed(evt);
+                txtFieldTelefonoActionPerformed(evt);
             }
         });
 
@@ -155,15 +155,15 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
 
         jLabel9.setText("ID:");
 
-        txtFechaNac.addActionListener(new java.awt.event.ActionListener() {
+        txtFieldFechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaNacActionPerformed(evt);
+                txtFieldFechaNacimientoActionPerformed(evt);
             }
         });
 
         jLabel1.setText("Fecha Nac:");
 
-        comGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
+        comboBoxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
 
         btnModificar.setText("MODIFICAR");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -202,8 +202,8 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                                             .addComponent(jLabel3)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtNombre)
-                                        .addComponent(txtCedula)))
+                                        .addComponent(txtFieldNombre)
+                                        .addComponent(txtFieldCedula)))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -216,11 +216,11 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtFechaNac)
-                                        .addComponent(txtTelefono)
-                                        .addComponent(txtApellido)
-                                        .addComponent(txtEdad, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(comGenero, 0, 420, Short.MAX_VALUE)
+                                        .addComponent(txtFieldFechaNacimiento)
+                                        .addComponent(txtFieldTelefono)
+                                        .addComponent(txtFieldApellido)
+                                        .addComponent(txtFieldEdad, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(comboBoxGenero, 0, 420, Short.MAX_VALUE)
                                         .addComponent(txtFieldId)))))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addContainerGap(33, Short.MAX_VALUE)
@@ -244,31 +244,31 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(comGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboBoxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFieldEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFieldFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -304,36 +304,36 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
+    private void txtFieldCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldCedulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCedulaActionPerformed
+    }//GEN-LAST:event_txtFieldCedulaActionPerformed
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+    private void txtFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
+    }//GEN-LAST:event_txtFieldNombreActionPerformed
 
-    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
+    private void txtFieldApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldApellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellidoActionPerformed
+    }//GEN-LAST:event_txtFieldApellidoActionPerformed
 
-    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+    private void txtFieldTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldTelefonoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoActionPerformed
+    }//GEN-LAST:event_txtFieldTelefonoActionPerformed
 
     private void buttonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarActionPerformed
       Pasajero pas=new Pasajero();
-      pas.setCedula(Integer.parseInt(txtCedula.getText()));
-      pas.setNombre(txtNombre.getText());
-      pas.setApellido(txtApellido.getText());
-      pas.setTelefono(txtTelefono.getText());
+      pas.setCedula(Integer.parseInt(txtFieldCedula.getText()));
+      pas.setNombre(txtFieldNombre.getText());
+      pas.setApellido(txtFieldApellido.getText());
+      pas.setTelefono(txtFieldTelefono.getText());
       
-      if (comGenero.getSelectedItem().toString().equals(MemData.generos[0])){
+      if (comboBoxGenero.getSelectedItem().toString().equals(MemData.generos[0])){
       pas.setGenero(0);}
    else 
       pas.setGenero(1);
       
-      pas.setEdad(Integer.parseInt(txtEdad.getText()));
-      pas.setFechaNacimiento(txtFechaNac.getText());
+      pas.setEdad(Integer.parseInt(txtFieldEdad.getText()));
+      pas.setFechaNacimiento(txtFieldFechaNacimiento.getText());
       pas.setIdPasajero(Integer.parseInt(txtFieldId.getText()));
       
       pas.grabar();
@@ -349,9 +349,9 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
       
     }//GEN-LAST:event_buttonEliminarActionPerformed
 
-    private void txtFechaNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaNacActionPerformed
+    private void txtFieldFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldFechaNacimientoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaNacActionPerformed
+    }//GEN-LAST:event_txtFieldFechaNacimientoActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
      Modificar();
@@ -374,13 +374,13 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
           int Edad=Integer.parseInt((String)jTable1.getValueAt(fila, 7).toString());
           
           txtFieldId.setText("" + id);
-          txtCedula.setText("" + Cedula);
-            txtNombre.setText(Nombre);
-            txtApellido.setText(Apellido);
-            txtTelefono.setText(telefono);
-            comGenero.setSelectedItem(""+Genero);
-            txtEdad.setText(""+Edad);
-            txtFechaNac.setText(fechanac);
+          txtFieldCedula.setText("" + Cedula);
+            txtFieldNombre.setText(Nombre);
+            txtFieldApellido.setText(Apellido);
+            txtFieldTelefono.setText(telefono);
+            comboBoxGenero.setSelectedItem(""+Genero);
+            txtFieldEdad.setText(""+Edad);
+            txtFieldFechaNacimiento.setText(fechanac);
           
       }
     }//GEN-LAST:event_jTable1MouseClicked
@@ -415,20 +415,20 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
         
     }
  void Modificar(){
-            int cedula= Integer.parseInt(txtCedula.getText());
-            String nombre=txtNombre.getText();
-            String apellido=txtApellido.getText();
-            String fechaNac=txtFechaNac.getText();
-            String telefono=txtTelefono.getText();
+            int cedula= Integer.parseInt(txtFieldCedula.getText());
+            String nombre=txtFieldNombre.getText();
+            String apellido=txtFieldApellido.getText();
+            String fechaNac=txtFieldFechaNacimiento.getText();
+            String telefono=txtFieldTelefono.getText();
             
             int genero;
-            if (comGenero.getSelectedItem().toString().equals("Masculino")) {
+            if (comboBoxGenero.getSelectedItem().toString().equals("Masculino")) {
                 genero = 0;
             } 
             else {
                 genero = 1;
             }
-            int edad = Integer.parseInt(txtEdad.getText());
+            int edad = Integer.parseInt(txtFieldEdad.getText());
         try{ 
             String myDriver = "com.mysql.cj.jdbc.Driver";
             
@@ -489,7 +489,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton buttonAgregar;
     private javax.swing.JButton buttonEliminar;
-    public javax.swing.JComboBox<String> comGenero;
+    public javax.swing.JComboBox<String> comboBoxGenero;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -503,12 +503,12 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTable1;
-    public javax.swing.JTextField txtApellido;
-    public javax.swing.JTextField txtCedula;
-    public javax.swing.JTextField txtEdad;
-    public javax.swing.JTextField txtFechaNac;
+    public javax.swing.JTextField txtFieldApellido;
+    public javax.swing.JTextField txtFieldCedula;
+    public javax.swing.JTextField txtFieldEdad;
+    public javax.swing.JTextField txtFieldFechaNacimiento;
     private javax.swing.JTextField txtFieldId;
-    public javax.swing.JTextField txtNombre;
-    public javax.swing.JTextField txtTelefono;
+    public javax.swing.JTextField txtFieldNombre;
+    public javax.swing.JTextField txtFieldTelefono;
     // End of variables declaration//GEN-END:variables
 }

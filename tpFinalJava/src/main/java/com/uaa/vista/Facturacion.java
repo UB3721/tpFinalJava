@@ -40,18 +40,18 @@ public class Facturacion extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        comId = new javax.swing.JComboBox<>();
+        comboBoxId = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        comHabitacion = new javax.swing.JComboBox<>();
-        txtPrecioHabitacion = new javax.swing.JTextField();
-        txtPrecioLavanderia = new javax.swing.JTextField();
-        txtTotal = new javax.swing.JTextField();
+        comboBoxHabitacion = new javax.swing.JComboBox<>();
+        txtFieldPrecioHabitacion = new javax.swing.JTextField();
+        txtFieldPrecioLavanderia = new javax.swing.JTextField();
+        txtFieldTotal = new javax.swing.JTextField();
         buttonFactura = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtEstado = new javax.swing.JTextField();
+        txtFieldEstado = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -63,18 +63,18 @@ public class Facturacion extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ID Pasajero");
 
-        comId.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comIdActionPerformed(evt);
+                comboBoxIdActionPerformed(evt);
             }
         });
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Número Habitación:");
 
-        comHabitacion.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comHabitacionActionPerformed(evt);
+                comboBoxHabitacionActionPerformed(evt);
             }
         });
 
@@ -128,12 +128,12 @@ public class Facturacion extends javax.swing.JFrame {
                                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(65, 65, 65)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtTotal)
-                                    .addComponent(txtPrecioLavanderia)
-                                    .addComponent(txtPrecioHabitacion)
-                                    .addComponent(comId, 0, 416, Short.MAX_VALUE)
-                                    .addComponent(comHabitacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtEstado))))))
+                                    .addComponent(txtFieldTotal)
+                                    .addComponent(txtFieldPrecioLavanderia)
+                                    .addComponent(txtFieldPrecioHabitacion)
+                                    .addComponent(comboBoxId, 0, 416, Short.MAX_VALUE)
+                                    .addComponent(comboBoxHabitacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtFieldEstado))))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -144,27 +144,27 @@ public class Facturacion extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(comId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(comHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPrecioHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFieldPrecioHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPrecioLavanderia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFieldPrecioLavanderia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFieldTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFieldEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(buttonFactura)
                 .addGap(24, 24, 24))
@@ -193,8 +193,8 @@ public class Facturacion extends javax.swing.JFrame {
     private void buttonFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFacturaActionPerformed
         int estado = 0;
 
-        if (txtEstado.getText().equals("En Espera")) {
-            txtEstado.setText("Pagado");
+        if (txtFieldEstado.getText().equals("En Espera")) {
+            txtFieldEstado.setText("Pagado");
             estado = 0;
             JOptionPane.showMessageDialog(null, "La factura ha sido procesada");
         }
@@ -206,7 +206,7 @@ public class Facturacion extends javax.swing.JFrame {
         Hospedaje hos = new Hospedaje();
         if (estado==0) {
             for (Hospedaje h : hos.getHospedajes()) {
-                if (h.getHabitacion().getNroHabitacion()==Integer.parseInt(comHabitacion.getSelectedItem().toString())) {
+                if (h.getHabitacion().getNroHabitacion()==Integer.parseInt(comboBoxHabitacion.getSelectedItem().toString())) {
                     h.setEstado(1); 
                     
                     estado = 1;
@@ -220,7 +220,7 @@ public class Facturacion extends javax.swing.JFrame {
                         String myUrl = c.getUrl() + c.getServerName() + "/" + c.getDatabaseName()+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
                         Connection cn = DriverManager.getConnection(myUrl, c.getUserName(), c.getPassword());
 
-                        int id = Integer.parseInt(comId.getSelectedItem().toString());
+                        int id = Integer.parseInt(comboBoxId.getSelectedItem().toString());
 
                         String query = "update hospedajes set estado = ? where idPasajero = ?";
                         PreparedStatement cmd = cn.prepareStatement(query);
@@ -237,16 +237,16 @@ public class Facturacion extends javax.swing.JFrame {
         
     }//GEN-LAST:event_buttonFacturaActionPerformed
 
-    private void comIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comIdActionPerformed
-        comHabitacion.removeAllItems();
+    private void comboBoxIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxIdActionPerformed
+        comboBoxHabitacion.removeAllItems();
         Hospedaje hos = new Hospedaje();
         
 
-        if (comId.getSelectedItem()!=null) {
+        if (comboBoxId.getSelectedItem()!=null) {
             for (Hospedaje ho : hos.getHospedajes()) {
-                if (ho.getPasajero().getIdPasajero()==Integer.parseInt(comId.getSelectedItem().toString())) {
-                    comHabitacion.addItem(String.valueOf(ho.getHabitacion().getNroHabitacion()));
-                    txtEstado.setText(MemData.estados[ho.getEstado()]);
+                if (ho.getPasajero().getIdPasajero()==Integer.parseInt(comboBoxId.getSelectedItem().toString())) {
+                    comboBoxHabitacion.addItem(String.valueOf(ho.getHabitacion().getNroHabitacion()));
+                    txtFieldEstado.setText(MemData.estados[ho.getEstado()]);
                 } 
                 
             }            
@@ -254,10 +254,10 @@ public class Facturacion extends javax.swing.JFrame {
 
         
  
-    }//GEN-LAST:event_comIdActionPerformed
+    }//GEN-LAST:event_comboBoxIdActionPerformed
 
-    private void comHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comHabitacionActionPerformed
-        if (comHabitacion.getSelectedItem()!=null) {
+    private void comboBoxHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxHabitacionActionPerformed
+        if (comboBoxHabitacion.getSelectedItem()!=null) {
             Hospedaje hos = new Hospedaje();
             Lavanderia lav = new Lavanderia();
             
@@ -266,34 +266,34 @@ public class Facturacion extends javax.swing.JFrame {
             int precioTotal = 0;
             
             for (Hospedaje ho : hos.getHospedajes()) {
-                if (ho.getPasajero().getIdPasajero()==Integer.parseInt(comId.getSelectedItem().toString())) {
+                if (ho.getPasajero().getIdPasajero()==Integer.parseInt(comboBoxId.getSelectedItem().toString())) {
                     precioHab = ho.getHabitacion().getPrecio();
-                    txtPrecioHabitacion.setText(String.valueOf(precioHab));
+                    txtFieldPrecioHabitacion.setText(String.valueOf(precioHab));
                 } 
                 boolean ban = false;
                 for (Lavanderia l : lav.getServicios()) {
-                    if (l.getHabitacion().getNroHabitacion()==Integer.parseInt(comHabitacion.getSelectedItem().toString())) {
+                    if (l.getHabitacion().getNroHabitacion()==Integer.parseInt(comboBoxHabitacion.getSelectedItem().toString())) {
                         precioLav = l.getCantidad()*l.precioUnitario;
-                        txtPrecioLavanderia.setText(String.valueOf(precioLav));
+                        txtFieldPrecioLavanderia.setText(String.valueOf(precioLav));
                         ban = true;
                     }
                 }
                 if (ban==false) {
-                    txtPrecioLavanderia.setText("0");
+                    txtFieldPrecioLavanderia.setText("0");
                 }
                 precioTotal = precioHab+precioLav;
-                txtTotal.setText(String.valueOf(precioTotal));
+                txtFieldTotal.setText(String.valueOf(precioTotal));
             }   
         }
-    }//GEN-LAST:event_comHabitacionActionPerformed
+    }//GEN-LAST:event_comboBoxHabitacionActionPerformed
 private void initPantalla() {
-        txtPrecioHabitacion.setEditable(false);
-        txtPrecioLavanderia.setEditable(false);
-        txtTotal.setEditable(false);
+        txtFieldPrecioHabitacion.setEditable(false);
+        txtFieldPrecioLavanderia.setEditable(false);
+        txtFieldTotal.setEditable(false);
         
         Pasajero pas = new Pasajero();
         for(Pasajero p : pas.getPasajeros()){
-            comId.addItem(String.valueOf(p.getIdPasajero()));
+            comboBoxId.addItem(String.valueOf(p.getIdPasajero()));
         }
         
 }
@@ -334,8 +334,8 @@ private void initPantalla() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonFactura;
-    private javax.swing.JComboBox<String> comHabitacion;
-    private javax.swing.JComboBox<String> comId;
+    private javax.swing.JComboBox<String> comboBoxHabitacion;
+    private javax.swing.JComboBox<String> comboBoxId;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -344,9 +344,9 @@ private void initPantalla() {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtEstado;
-    private javax.swing.JTextField txtPrecioHabitacion;
-    private javax.swing.JTextField txtPrecioLavanderia;
-    private javax.swing.JTextField txtTotal;
+    private javax.swing.JTextField txtFieldEstado;
+    private javax.swing.JTextField txtFieldPrecioHabitacion;
+    private javax.swing.JTextField txtFieldPrecioLavanderia;
+    private javax.swing.JTextField txtFieldTotal;
     // End of variables declaration//GEN-END:variables
 }
