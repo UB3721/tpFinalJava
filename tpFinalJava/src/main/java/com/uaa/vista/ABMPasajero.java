@@ -39,9 +39,10 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
             txtNombre.setText("");
             txtApellido.setText("");
             txtTelefono.setText("");
-            comGenero.setSelectedItem(1);
+            comGenero.getModel().setSelectedItem("Masculino");
             txtEdad.setText("");
             txtFechaNac.setText("");
+            txtFieldId.setText("");
            
         }
         
@@ -77,6 +78,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
         comGenero = new javax.swing.JComboBox<>();
         btnModificar = new javax.swing.JButton();
         txtFieldId = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -170,6 +172,13 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton1.setText("CERRAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -217,6 +226,8 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                             .addContainerGap(33, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jButton1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btnModificar)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(buttonAgregar)
@@ -267,7 +278,8 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonAgregar)
                     .addComponent(buttonEliminar)
-                    .addComponent(btnModificar))
+                    .addComponent(btnModificar)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(33, Short.MAX_VALUE))
@@ -370,6 +382,10 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
           
       }
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
  void listar() {
         Pasajero pes = new Pasajero();
 
@@ -397,8 +413,6 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
         
     }
  void Modificar(){
-           
-          
             int cedula= Integer.parseInt(txtCedula.getText());
             String nombre=txtNombre.getText();
             String apellido=txtApellido.getText();
@@ -474,6 +488,7 @@ public class ABMPasajero extends javax.swing.JInternalFrame {
     private javax.swing.JButton buttonAgregar;
     private javax.swing.JButton buttonEliminar;
     public javax.swing.JComboBox<String> comGenero;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
