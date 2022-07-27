@@ -4,8 +4,15 @@
  */
 package com.uaa.vista;
 
-import com.uaa.modelo.Habitacion;
+import com.uaa.controlador.MemData;
+import com.uaa.modelo.ConexionBD;
+import com.uaa.modelo.Hospedaje;
+import com.uaa.modelo.Lavanderia;
 import com.uaa.modelo.Pasajero;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,54 +40,38 @@ public class Facturacion extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        comboID = new javax.swing.JComboBox<>();
+        comId = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        comboHabitacion = new javax.swing.JComboBox<>();
-        txtPrecio = new javax.swing.JTextField();
-        txtLavanderia = new javax.swing.JTextField();
+        comHabitacion = new javax.swing.JComboBox<>();
+        txtPrecioHabitacion = new javax.swing.JTextField();
+        txtPrecioLavanderia = new javax.swing.JTextField();
         txtTotal = new javax.swing.JTextField();
         buttonFactura = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtEstado = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel1.setText("Facturacion");
 
-        jLabel2.setText("ID:");
+        jLabel2.setText("ID Pasajero");
 
-        comboID.addActionListener(new java.awt.event.ActionListener() {
+        comId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboIDActionPerformed(evt);
+                comIdActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Número Habitación:");
 
-        comboHabitacion.addActionListener(new java.awt.event.ActionListener() {
+        comHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboHabitacionActionPerformed(evt);
-            }
-        });
-
-        txtPrecio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPrecioActionPerformed(evt);
-            }
-        });
-
-        txtLavanderia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLavanderiaActionPerformed(evt);
-            }
-        });
-
-        txtTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTotalActionPerformed(evt);
+                comHabitacionActionPerformed(evt);
             }
         });
 
@@ -97,6 +88,8 @@ public class Facturacion extends javax.swing.JFrame {
 
         jLabel6.setText("Precio Total:");
 
+        jLabel7.setText("Estado: ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -111,24 +104,29 @@ public class Facturacion extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(buttonFactura)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel2)
+                                                .addComponent(jLabel3))
+                                            .addGap(24, 24, 24))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel3))
-                                        .addGap(24, 24, 24))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(65, 65, 65)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtTotal)
-                                    .addComponent(txtLavanderia)
-                                    .addComponent(txtPrecio)
-                                    .addComponent(comboID, 0, 416, Short.MAX_VALUE)
-                                    .addComponent(comboHabitacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                    .addComponent(txtPrecioLavanderia)
+                                    .addComponent(txtPrecioHabitacion)
+                                    .addComponent(comId, 0, 416, Short.MAX_VALUE)
+                                    .addComponent(comHabitacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtEstado))))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -139,24 +137,28 @@ public class Facturacion extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(comboID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(comboHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecioHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtLavanderia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecioLavanderia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(buttonFactura)
                 .addGap(24, 24, 24))
         );
@@ -181,51 +183,110 @@ public class Facturacion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPrecioActionPerformed
-
     private void buttonFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFacturaActionPerformed
-        // TODO add your handling code here:
+        int estado = 0;
+
+        if (txtEstado.getText().equals("En Espera")) {
+            estado = 0;
+            JOptionPane.showMessageDialog(null, "La factura ha sido procesada");
+        }
+        else {
+            estado = 1;
+            JOptionPane.showMessageDialog(null, "La factura ya ha sido procesada anteriormente");
+        }      
+        
+        Hospedaje hos = new Hospedaje();
+        if (estado==0) {
+            for (Hospedaje h : hos.getHospedajes()) {
+                if (h.getHabitacion().getNroHabitacion()==Integer.parseInt(comHabitacion.getSelectedItem().toString())) {
+                    h.setEstado(1); 
+                    
+                    estado = 1;
+                }
+                try{ 
+                    String myDriver = "com.mysql.cj.jdbc.Driver";
+
+                    Class.forName(myDriver);
+
+                    ConexionBD c = new ConexionBD();
+                    String myUrl = c.getUrl() + c.getServerName() + "/" + c.getDatabaseName()+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
+                    Connection cn = DriverManager.getConnection(myUrl, c.getUserName(), c.getPassword());
+
+                    int id = Integer.parseInt(comId.getSelectedItem().toString());
+                    
+                    String query = "update hospedajes set estado = ? where idPasajero = ?";
+                    PreparedStatement cmd = cn.prepareStatement(query);
+                    cmd.setInt(1,estado);
+                    cmd.setInt(2, id);
+
+                    cmd.executeUpdate();
+
+                }catch(Exception e){System.out.println(e);}                    
+                
+
+            }          
+        }
+        
+        
     }//GEN-LAST:event_buttonFacturaActionPerformed
 
-    private void comboIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboIDActionPerformed
-    
-    }//GEN-LAST:event_comboIDActionPerformed
+    private void comIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comIdActionPerformed
+        comHabitacion.removeAllItems();
+        Hospedaje hos = new Hospedaje();
+        
 
-    private void comboHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboHabitacionActionPerformed
-        Habitacion hab=new Habitacion();
-        for(Habitacion h:hab.getHabitaciones()){
-            if(String.valueOf(h.getNroHabitacion()).equals(comboHabitacion.getSelectedItem().toString())){
-                txtPrecio.setText(String.valueOf(h.getPrecio()));
+        if (comId.getSelectedItem()!=null) {
+            for (Hospedaje ho : hos.getHospedajes()) {
+                if (ho.getPasajero().getIdPasajero()==Integer.parseInt(comId.getSelectedItem().toString())) {
+                    comHabitacion.addItem(String.valueOf(ho.getHabitacion().getNroHabitacion()));
+                    txtEstado.setText(MemData.estados[ho.getEstado()]);
+                } 
                 
-            }
+            }            
         }
-    }//GEN-LAST:event_comboHabitacionActionPerformed
 
-    private void txtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalActionPerformed
-        int n1=Integer.parseInt(txtLavanderia.getText());
-        int n2=Integer.parseInt(txtPrecio.getText());
-        int total=n1+n2;
         
-        txtTotal.setText(String.valueOf(total));
-    }//GEN-LAST:event_txtTotalActionPerformed
+ 
+    }//GEN-LAST:event_comIdActionPerformed
 
-    private void txtLavanderiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLavanderiaActionPerformed
-        
-    }//GEN-LAST:event_txtLavanderiaActionPerformed
+    private void comHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comHabitacionActionPerformed
+        if (comHabitacion.getSelectedItem()!=null) {
+            Hospedaje hos = new Hospedaje();
+            Lavanderia lav = new Lavanderia();
+            
+            int precioHab = 0;
+            int precioLav = 0;
+            int precioTotal = 0;
+            
+            for (Hospedaje ho : hos.getHospedajes()) {
+                if (ho.getPasajero().getIdPasajero()==Integer.parseInt(comId.getSelectedItem().toString())) {
+                    precioHab = ho.getHabitacion().getPrecio();
+                    txtPrecioHabitacion.setText(String.valueOf(precioHab));
+                } 
+                boolean ban = false;
+                for (Lavanderia l : lav.getServicios()) {
+                    if (l.getHabitacion().getNroHabitacion()==Integer.parseInt(comHabitacion.getSelectedItem().toString())) {
+                        precioLav = l.getCantidad()*l.precioUnitario;
+                        txtPrecioLavanderia.setText(String.valueOf(precioLav));
+                        ban = true;
+                    }
+                }
+                if (ban==false) {
+                    txtPrecioLavanderia.setText("0");
+                }
+                precioTotal = precioHab+precioLav;
+                txtTotal.setText(String.valueOf(precioTotal));
+            }   
+        }
+    }//GEN-LAST:event_comHabitacionActionPerformed
 private void initPantalla() {
-        txtPrecio.setEditable(false);
-        txtLavanderia.setEditable(false);
+        txtPrecioHabitacion.setEditable(false);
+        txtPrecioLavanderia.setEditable(false);
         txtTotal.setEditable(false);
         
-        Pasajero pas=new Pasajero();
+        Pasajero pas = new Pasajero();
         for(Pasajero p : pas.getPasajeros()){
-            comboID.addItem(String.valueOf(p.getIdPasajero()));
-        }
-        Habitacion hab=new Habitacion();
-        for(Habitacion h : hab.getHabitaciones()){
-            comboHabitacion.addItem(String.valueOf(h.getNroHabitacion()));
+            comId.addItem(String.valueOf(p.getIdPasajero()));
         }
         
 }
@@ -266,17 +327,19 @@ private void initPantalla() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonFactura;
-    private javax.swing.JComboBox<String> comboHabitacion;
-    private javax.swing.JComboBox<String> comboID;
+    private javax.swing.JComboBox<String> comHabitacion;
+    private javax.swing.JComboBox<String> comId;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtLavanderia;
-    private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtEstado;
+    private javax.swing.JTextField txtPrecioHabitacion;
+    private javax.swing.JTextField txtPrecioLavanderia;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }

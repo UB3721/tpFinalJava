@@ -125,6 +125,7 @@ import java.util.logging.Logger;
     }
 
 
+
     
     public boolean grabar() {
         boolean resp = false;
@@ -219,7 +220,6 @@ import java.util.logging.Logger;
                 hos.setFechaInicio(rs.getString("fechaInicio"));
                 hos.setFechaFin(rs.getString("fechaFin"));
                 hos.setPrecio(rs.getInt("precio"));
-                hos.setEstado(rs.getInt("estado"));
                         
                 
                 for (Funcionario f : fun.getFuncionarios()) {
@@ -242,7 +242,7 @@ import java.util.logging.Logger;
                         hos.setLavanderia(l);
                     }
                 }
-                
+                hos.setEstado(rs.getInt("estado"));
                 hospedajes.add(hos);
             }
                 

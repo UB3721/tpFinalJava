@@ -75,6 +75,12 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
             }
         });
 
+        comHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comHabitacionActionPerformed(evt);
+            }
+        });
+
         comHotel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comHotelActionPerformed(evt);
@@ -266,7 +272,7 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         h.setNroHospedaje((Integer) spinnerId.getValue());
         h.setFechaInicio(txtFechaInicio.getText());
         h.setFechaFin(txtFechaFin.getText());
-        
+        h.setEstado(0);
         h.grabar();
         
     }//GEN-LAST:event_btnGrabarActionPerformed
@@ -301,6 +307,22 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void comHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comHabitacionActionPerformed
+        comLavanderia.removeAllItems();
+        Lavanderia lav = new Lavanderia();
+        boolean ban = false;
+        for (Lavanderia l : lav.getServicios()) {
+            if (l.getHabitacion().getNroHabitacion()==Integer.parseInt(comHabitacion.getSelectedItem().toString())) {
+                comLavanderia.addItem(String.valueOf(l.getNroServicio()));
+                comLavanderia.setSelectedIndex(0);
+                ban = true;
+            }
+        }
+        if (ban==false) {
+            comLavanderia.setSelectedIndex(-1);
+        }
+    }//GEN-LAST:event_comHabitacionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -351,11 +373,6 @@ public class HospedajeCarga extends javax.swing.JInternalFrame {
         for (Habitacion h : hab.getHabitaciones()) {
             comHabitacion.addItem(String.valueOf(h.getNroHabitacion()));
         }
-        Lavanderia lav = new Lavanderia();
-        for (Lavanderia l : lav.getServicios()) { 
-            comLavanderia.addItem(String.valueOf(l.getNroServicio()));   
-        }
-        comLavanderia.setSelectedIndex(-1);
 
         
         
